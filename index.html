@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ddd;
+        }
+
+        header, nav, section, footer {
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(45deg, #00f0ff, #008cff);
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #1a1a1a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            background: url('cyan-tech1.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .feature-item {
+            margin: 20px 0;
+        }
+
+        .console {
+            display: none;
+            background-color: #222;
+            padding: 25px;
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2em;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #1a1a1a;
+            color: white;
+        }
+    </style>
+    <link rel="icon" href="ParlarGlobeLogo-square4.jpg" type="image/jpeg">
+</head>
+<body>
+
+<header>
+    <h1>PARLAR</h1>
+    <p>more than just a cyber security company</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#services">Services</a>
+    <a href="#cyber-conscious">Cyber Security Consciousness</a>
+    <a href="#red-teaming">Red Teaming & Testing</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+    <h2>Leading the Way in Cyber Security</h2>
+    <p>Advanced Threat Protection. Tailored Security Solutions.</p>
+    <button id="startHackBtn">Start Security Scan</button>
+</section>
+
+<section class="content" id="about">
+    <h2>About Our Company</h2>
+    <p>We are a cyber security firm dedicated to securing businesses from evolving cyber threats.</p>
+</section>
+
+<section class="content" id="cyber-conscious">
+    <h2>Why Cyber Security Awareness Matters</h2>
+    <p>In today’s interconnected world, cyber security is no longer a luxury but a necessity. Cyber criminals are becoming increasingly sophisticated, targeting businesses and individuals with phishing, ransomware, and data breaches. A lack of awareness leaves systems vulnerable to devastating attacks, which can compromise sensitive information and disrupt operations.</p>
+    <p>Being cyber security conscious means adopting a proactive approach to digital safety. This involves educating yourself and your team about potential threats, securing networks, and implementing best practices for data protection. Awareness can reduce the risk of human error, which is often the weakest link in cyber security defenses.</p>
+    <p>With regulations such as GDPR and CCPA, organizations also have a legal responsibility to protect their customers' data. Failing to meet these requirements can result in severe penalties and reputational damage. Therefore, staying informed and vigilant is essential for safeguarding your digital assets and maintaining trust.</p>
+</section>
+
+<section class="content" id="red-teaming">
+    <h2>Penetration Testing and Red Teaming</h2>
+    <div class="feature-item">
+        <h3>Penetration Testing</h3>
+        <p>Penetration testing, often referred to as "pen testing," is a simulated cyber attack performed on a system to evaluate its security. This involves identifying vulnerabilities that could be exploited by attackers. Regular pen testing helps organizations understand their weaknesses and implement robust security measures to prevent real-world breaches.</p>
+    </div>
+    <div class="feature-item">
+        <h3>Red Teaming</h3>
+        <p>Red teaming is an advanced form of penetration testing where a group of ethical hackers, known as the Red Team, mimics real-world attackers to test an organization's defenses. Unlike traditional pen testing, red teaming focuses on achieving specific objectives, such as gaining access to critical systems or bypassing detection mechanisms. It provides a more comprehensive view of an organization’s security posture.</p>
+    </div>
+    <div class="feature-item">
+        <h3>Benefits of Red Teaming</h3>
+        <p>Red teaming offers unparalleled insights into your security framework. By simulating realistic attack scenarios, it tests not only your technical defenses but also your incident response processes. This enables organizations to fine-tune their detection and response strategies, ensuring they are prepared to handle real cyber threats effectively.</p>
+    </div>
+</section>
+
+<section class="content" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+</section>
+
+<div id="console" class="console">
+    <pre id="console-output"></pre>
+</div>
+
+<footer>
+    <p>&copy; 2024 PARLAR Cyber Solutions. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const consoleElement = document.getElementById('console');
+        const closeConsoleBtn = document.getElementById('closeConsoleBtn');
+        const consoleOutput = document.getElementById('console-output');
+
+        document.getElementById('startHackBtn').addEventListener('click', function () {
+            consoleElement.style.display = 'block';
+            startHackingSimulation();
+        });
+
+        // Automatically close console after 30 seconds
+        setTimeout(() => {
+            consoleElement.style.display = 'none';
+            consoleOutput.textContent = '';
+        }, 30000); // 30 seconds
+        
+
+        function startHackingSimulation() {
+            const messages = [
+                'Scanning network...',
+                'Connection established...',
+                'Analyzing system...',
+                'Bypassing security...',
+                'Injecting payload...',
+                'Accessing files...',
+                'Security breach detected!',
+                'Initiating countermeasures...',
+                'Kicking out the bad guys...',
+                'Securing all devices...',
+                'You are now secure.'
+            ];
+
+            let i = 0;
+            let intervalId = setInterval(() => {
+                if (i < messages.length) {
+                    consoleOutput.textContent += '\n' + messages[i];
+                    i++;
+                    consoleOutput.scrollTop = consoleOutput.scrollHeight;
+                } else {
+                    clearInterval(intervalId);
+                    showSecurityBreachAlert();
+                }
+            }, 1500);
+        }
+
+        function showSecurityBreachAlert() {
+            alert("NOTICE: This was a simulated and harmless excersize, however the next one might not be. Get in touch to have a chat with our Cyber Gurus to find out how you can be cyber secure.");
+            consoleOutput.textContent += '\n[ALERT] SYSTEMS NOW SECURE!';
+            closeConsoleBtn.style.display = 'inline-block';
+        }
+    });
+</script>
+
+</body>
+</html>
