@@ -97,34 +97,7 @@ nav {
     height: 250px;
   }
 
-/* Responsive Navigation for Smaller Screens */
-@media (max-width: 768px) {
-  .nav-toggle {
-    display: block; /* Show toggle button */
-  }
 
-  .nav-links {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #1a1a1a;
-    padding: 10px 0;
-    border-top: 1px solid #333;
-  }
-
-  .nav-links.active {
-    display: flex; /* Show links when active */
-  }
-  
-    /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links {
-      display: flex;
-    }
-}
 
 /* Hero Section */
 .hero {
@@ -140,12 +113,14 @@ nav {
 }
 
 .hero h2 {
-  font-size: 2em;
+  font-size: 4em;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
 }
 
 .hero p {
-  display: none;
+  font-size: 1.5em;
+  margin-top: 20px;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
 /* Buttons */
@@ -213,6 +188,45 @@ footer a:hover {
   text-decoration: underline;
 }
 
+
+/* Responsive Navigation for Smaller Screens */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block; /* Show toggle button */
+  }
+
+  .nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when active */
+  }
+  
+    /* Show nav-links when hovering over the nav or nav-toggle */
+    nav:hover .nav-links {
+      display: flex;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+    }
+    
+    .hero p {
+      display: none;
+    }
+}
+
 /* Responsive Styles for Very Small Screens */
 @media (max-width: 480px) {
   header h1 {
@@ -220,7 +234,7 @@ footer a:hover {
   }
 
   .hero h2 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   .content h2 {
