@@ -73,6 +73,30 @@ nav {
   text-shadow: 0 0 10px rgba(0, 255, 255, 1), 0 0 20px rgba(0, 255, 255, 0.8);
 }
 
+  /* Console Section */
+  .console {
+    display: none;
+    background-color: #222;
+    padding: 20px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  }
+  
+  .console pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-y: scroll;
+    height: 250px;
+  }
+
 /* Responsive Navigation for Smaller Screens */
 @media (max-width: 768px) {
   .nav-toggle {
