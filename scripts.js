@@ -3,6 +3,5 @@ document.querySelector('.nav-toggle').addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 setTimeout(() => {
-    consoleElement.style.display = 'none';
-    consoleOutput.textContent = '';
+    navLinks.style.display = 'none';
 }, 3);
