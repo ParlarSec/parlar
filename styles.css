@@ -140,14 +140,12 @@ nav {
 }
 
 .hero h2 {
-  font-size: 4em;
+  font-size: 2em;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
 }
 
 .hero p {
-  font-size: 1.5em;
-  margin-top: 20px;
-  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+  display: none;
 }
 
 /* Buttons */
