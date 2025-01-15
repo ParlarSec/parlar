@@ -1,3 +1,27 @@
+
+    /* Apply the custom scrollbar styles */
+    /* Webkit browsers (Chrome, Safari, Edge) */
+    ::-webkit-scrollbar {
+      width: 12px; /* Adjust the width */
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(0deg, black, rgb(0, 0, 0)); /* Darker color for the thumb */
+      border-radius: 15px; /* Rounded edges */
+      border: 1px solid #121212; /* Adds padding around the thumb */
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1a1a1a; /* Darker color for the track */
+      border-radius: 0px;
+    }
+
+    /* Firefox scrollbar */
+    body {
+      scrollbar-width: thin; /* Makes the scrollbar thinner */
+      scrollbar-color: #333333 #1a1a1a; /* Thumb color and track color */
+    }
+
 /* Global Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,14 +31,14 @@ body {
   color: #ddd; /* Light text for readability */
 }
 
-header, nav, section, footer {
+header, nav, section, footer, header-godark {
   padding: 20px;
 }
 
 /* Header Section */
 header {
   text-align: center;
-  background: linear-gradient(45deg, #00f0ff, #008cff);
+  background: linear-gradient(0deg,#00f0ff, #00757d, black, rgba(0, 0, 0, 0));
   color: white;
   padding: 40px 0;
   box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
@@ -28,7 +52,6 @@ header h1 {
 
 header p {
   font-size: 1em;
-  font-style: italic;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
@@ -102,18 +125,21 @@ nav {
 /* Hero Section */
 .hero {
   height: 400px;
-  background: url('cyan-tech1.jpg') no-repeat center center/cover;
+  background: url('fingerprint3.png') no-repeat center center/cover;
+  background-size: cover;
+  background-position: left;
   color: white;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px 20px;
+  padding: 50px 100px;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
 .hero h2 {
-  font-size: 4em;
+  font-size: 3em;
+  padding-right: 50px;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
 }
 
@@ -137,7 +163,7 @@ button {
 }
 
 button:hover {
-  background-color: #008cff;
+  background-color: #0f0;
 }
 
 /* Content Section */
@@ -230,6 +256,217 @@ footer a:hover {
 /* Responsive Styles for Very Small Screens */
 @media (max-width: 480px) {
   header h1 {
+    font-size: 1.8em;
+  }
+
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
+  .content h2 {
+    font-size: 1.5em;
+  }
+
+  .content p {
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 8px 15px;
+  }
+
+    /* Show nav-links when hovering over the nav or nav-toggle */
+    nav:hover .nav-links {
+      display: flex;
+    }
+}
+
+
+
+/* THIS IS NOW THE GO DARK PAGE */
+
+
+
+/* Header Section */
+.godark {
+  text-align: center;
+  background: linear-gradient(0deg,#ff0000, #7d0000, black, rgba(0, 0, 0, 0));
+  color: white;
+  padding: 40px 0;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.godark h1 {
+  font-size: 3.5em;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 40px rgba(255, 0, 0, 0.6);
+}
+
+.godark p {
+  font-size: 1em;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Navigation Bar */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+.nav-toggle {
+  display: none; /* Hidden by default, shown on smaller screens */
+  background-color: transparent;
+  border: none;
+  color: #ddd;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.nav-links-godark {
+  display: flex; /* Visible by default on larger screens */
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links-godark a {
+  color: #ddd;
+  padding: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-links-godark a:hover {
+  color: #ff0000;
+  text-shadow: 0 0 10px rgb(150, 0, 0), 0 0 20px rgba(255, 0, 0, 0.521);
+}
+
+
+
+/* Hero Section */
+.hero-godark {
+  height: 400px;
+  background: url('redbanner3.png') no-repeat center center/cover;
+  background-size: cover;
+  background-position: left;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 100px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.hero-godark h2 {
+  font-size: 3em;
+  padding-right: 50px;
+  text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+}
+
+.hero-godark p {
+  font-size: 1.5em;
+  margin-top: 20px;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Content Section */
+.content {
+  text-align: center;
+  padding: 80px 40px;
+  background-color: #1a1a1a;
+}
+
+.content h2 {
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content a {
+  color: #00f0ff;
+  text-decoration: none;
+}
+
+.content a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Section */
+.footer-godark {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.footer-godark a {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+.footer-godark a:hover {
+  text-decoration: underline;
+}
+
+
+/* Responsive Navigation for Smaller Screens */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block; /* Show toggle button */
+  }
+
+  .nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when active */
+  }
+  
+    /* Show nav-links when hovering over the nav or nav-toggle */
+    nav:hover .nav-links {
+      display: flex;
+    }
+
+    .hero h2 {
+      font-size: 2em;
+      text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+    }
+    
+    .hero p {
+      display: none;
+    }
+}
+
+/* Responsive Styles for Very Small Screens */
+@media (max-width: 480px) {
+  .godark h1 {
     font-size: 1.8em;
   }
 
