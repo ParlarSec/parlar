@@ -219,21 +219,10 @@ footer a:hover {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block; /* Show toggle button */
+    cursor: pointer;
   }
 
   .nav-links {
-    display: none; /* Hidden by default */
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #1a1a1a;
-    padding: 10px 0;
-    border-top: 1px solid #333;
-  }
-  .nav-links-godark {
     display: none; /* Hidden by default */
     flex-direction: column;
     gap: 10px;
@@ -249,26 +238,15 @@ footer a:hover {
   .nav-links.active {
     display: flex; /* Show links when active */
   }
-  .nav-links-godark.active {
-    display: flex; /* Show links when active */
-  }
-  
-    /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links {
-      display: flex;
-    }
-    nav:hover .nav-links-godark {
-      display: flex;
-    }
 
-    .hero h2 {
-      font-size: 2em;
-      text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
-    }
-    
-    .hero p {
-      display: none;
-    }
+  .hero h2 {
+    font-size: 2em;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+  }
+
+  .hero p {
+    display: none;
+  }
 }
 
 /* Responsive Styles for Very Small Screens */
@@ -293,15 +271,9 @@ footer a:hover {
     font-size: 1em;
     padding: 8px 15px;
   }
-
-    /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links {
-      display: flex;
-    }
-    nav:hover .nav-links-godark {
-      display: flex;
-    }
 }
+
+
 
 
 
@@ -451,6 +423,7 @@ nav {
 @media (max-width: 768px) {
   .nav-toggle {
     display: block; /* Show toggle button */
+    cursor: pointer;
   }
 
   .nav-links-godark {
@@ -469,24 +442,20 @@ nav {
   .nav-links-godark.active {
     display: flex; /* Show links when active */
   }
-  
-    /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links-godark {
-      display: flex;
-    }
 
-    .hero-godark h2 {
-      font-size: 2em;
-      text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
-    }
-    
-    .hero-godark p {
-      display: none;
-    }
+  .hero-godark h2 {
+    font-size: 2em;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
+  }
+
+  .hero-godark p {
+    display: none;
+  }
 }
 
 /* Responsive Styles for Very Small Screens */
 @media (max-width: 480px) {
+
   .godark h1 {
     font-size: 1.8em;
   }
@@ -507,9 +476,6 @@ nav {
     font-size: 1em;
     padding: 8px 15px;
   }
-
-    /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links-godark {
-      display: flex;
-    }
 }
+
+

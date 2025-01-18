@@ -120,7 +120,16 @@
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
 </footer>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinksGodark = document.querySelector('.nav-links-godark');
 
+      navToggle.addEventListener('click', () => {
+          navLinksGodark.classList.toggle('active');
+      });
+  })
+</script>
 
 </body>
 </html>
