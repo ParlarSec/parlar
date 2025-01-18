@@ -163,7 +163,7 @@ button {
 }
 
 button:hover {
-  background-color: #0f0;
+  background-color: rgb(0, 0, 0);
 }
 
 /* Content Section */
@@ -233,13 +233,31 @@ footer a:hover {
     padding: 10px 0;
     border-top: 1px solid #333;
   }
+  .nav-links-godark {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+  }
 
   .nav-links.active {
+    display: flex; /* Show links when active */
+  }
+  .nav-links-godark.active {
     display: flex; /* Show links when active */
   }
   
     /* Show nav-links when hovering over the nav or nav-toggle */
     nav:hover .nav-links {
+      display: flex;
+    }
+    nav:hover .nav-links-godark {
       display: flex;
     }
 
@@ -278,6 +296,9 @@ footer a:hover {
 
     /* Show nav-links when hovering over the nav or nav-toggle */
     nav:hover .nav-links {
+      display: flex;
+    }
+    nav:hover .nav-links-godark {
       display: flex;
     }
 }
@@ -432,7 +453,7 @@ nav {
     display: block; /* Show toggle button */
   }
 
-  .nav-links {
+  .nav-links-godark {
     display: none; /* Hidden by default */
     flex-direction: column;
     gap: 10px;
@@ -445,12 +466,12 @@ nav {
     border-top: 1px solid #333;
   }
 
-  .nav-links.active {
+  .nav-links-godark.active {
     display: flex; /* Show links when active */
   }
   
     /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links {
+    nav:hover .nav-links-godark {
       display: flex;
     }
 
@@ -488,7 +509,7 @@ nav {
   }
 
     /* Show nav-links when hovering over the nav or nav-toggle */
-    nav:hover .nav-links {
+    nav:hover .nav-links-godark {
       display: flex;
     }
 }
