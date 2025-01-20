@@ -196,6 +196,77 @@ button:hover {
   text-decoration: underline;
 }
 
+/* Meet the Team Section */
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.team-member {
+  width: 50%;
+  background: #2a2a2a81;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  text-align: center;
+}
+
+.team-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1em;
+}
+
+.team-member h3 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.team-member p {
+  font-size: 1em;
+  color: #666;
+}
+
+.harry-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+
+.harry-photo {
+  width: 30%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.cert-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 15px;
+  margin: auto;
+}
+
+.cert-gallery img {
+  width: 100%;
+  height: 200px; /* Uniform height */
+  object-fit: contain; 
+  border-radius: 1000%;
+  transition: transform 0.3s ease;
+}
+
+.cert-gallery img:hover {
+  transform: scale(1.25);  
+}
+
 /* Footer Section */
 footer {
   background-color: #1a1a1a;
@@ -399,6 +470,7 @@ nav {
 .content-godark a:hover {
   text-decoration: underline;
 }
+
 
 /* Footer Section */
 .footer-godark {
