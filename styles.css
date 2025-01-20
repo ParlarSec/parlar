@@ -205,7 +205,7 @@ button:hover {
 }
 
 .team-member {
-  width: 50%;
+  width: 400px;
   background: #2a2a2a81;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
