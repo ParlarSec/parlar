@@ -389,41 +389,6 @@ footer a:hover {
   .cert-gallery img:hover {
     transform: scale(1.25);  
   }
-
-  /* Blog Section */
-.blogs-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2em;
-}
-
-.blog {
-  width: 150px;
-  background: #2a2a2a81;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1em;
-  text-align: center;
-}
-
-.blog-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 1em;
-  object-fit: cover;
-}
-
-.blog h3 {
-  font-size: 1.5em;
-  margin: 0.5em 0;
-}
-
-.blog p {
-  font-size: 1em;
-  color: #666;
-}
 }
 
 /* Responsive Styles for Very Small Screens */
