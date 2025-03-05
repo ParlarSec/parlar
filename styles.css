@@ -1,3 +1,14 @@
+@font-face {
+
+  font-family: "MajorMonoDisplay"; /* Choose a name for your font */
+
+  src: url("MajorMonoDisplay-Regular.ttf") format("ttf"), 
+
+       url("MajorMonoDisplay-Regular.ttf") format("truetype");
+
+}
+
+
 
     /* Apply the custom scrollbar styles */
     /* Webkit browsers (Chrome, Safari, Edge) */
@@ -37,6 +48,7 @@ header, nav, section, footer, header-godark {
 
 /* Header Section */
 header {
+  font-family: major mono display;
   text-align: center;
   background: linear-gradient(0deg,#00f0ff, #00757d, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
   color: white;
@@ -138,6 +150,7 @@ nav {
 }
 
 .hero h2 {
+  font-family: major mono display;
   font-size: 3em;
   padding-right: 50px;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
@@ -174,10 +187,23 @@ button:hover {
 }
 
 .content h2 {
+  font-family: major mono display;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
   margin-bottom: 20px;
+}
+
+.content h3 {
+  font-family: major mono display;
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+  margin-bottom: 20px;
+}
+
+.content h4 {
+  font-size: 1.5em;
 }
 
 .content p {
@@ -522,6 +548,7 @@ nav {
 }
 
 .content-godark h2 {
+  font-family: Major Mono Display;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
