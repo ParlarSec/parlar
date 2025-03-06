@@ -1,13 +1,11 @@
 @font-face {
-
   font-family: "MajorMonoDisplay"; /* Choose a name for your font */
-
-  src: url("MajorMonoDisplay-Regular.ttf") format("ttf"), 
-
-       url("MajorMonoDisplay-Regular.ttf") format("truetype");
-
+  src: url("MajorMonoDisplay-Regular.woff2") format("woff2"), /* Modern Browsers */
+       url("MajorMonoDisplay-Regular.woff") format("woff"),   /* Most Browsers */
+       url("MajorMonoDisplay-Regular.ttf") format("truetype"); /* Fallback for Older Browsers */
+  font-weight: normal;
+  font-style: normal;
 }
-
 
 
     /* Apply the custom scrollbar styles */
