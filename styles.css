@@ -146,7 +146,7 @@ nav {
 }
 
 .hero h2 {
-  font-family: "MajorMonoDisplay", monospace, sans-serif;
+  font-family: "MajorMonoDisplay", monospace !important;
   font-size: 3em;
   padding-right: 50px;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
@@ -183,7 +183,7 @@ button:hover {
 }
 
 .content h2 {
-  font-family: "MajorMonoDisplay", monospace, sans-serif;
+  font-family: "MajorMonoDisplay", monospace !important;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -191,7 +191,7 @@ button:hover {
 }
 
 .content h3 {
-  font-family: "MajorMonoDisplay", monospace, sans-serif;
+  font-family: "MajorMonoDisplay", monospace !important;
   font-size: 1.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -545,7 +545,7 @@ nav {
 }
 
 .content-godark h2 {
-  font-family: "MajorMonoDisplay", monospace, sans-serif;
+  font-family: "MajorMonoDisplay", monospace !important;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
