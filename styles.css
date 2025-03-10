@@ -46,7 +46,7 @@ header, nav, section, footer, header-godark {
 
 /* Header Section */
 header {
-  font-family: major mono display;
+  font-family:  "MajorMonoDisplay", monospace, sans-serif;
   text-align: center;
   background: linear-gradient(0deg,#00f0ff, #00757d, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
   color: white;
@@ -146,7 +146,7 @@ nav {
 }
 
 .hero h2 {
-  font-family: major mono display;
+  font-family: "MajorMonoDisplay", monospace, sans-serif;
   font-size: 3em;
   padding-right: 50px;
   text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
@@ -183,7 +183,7 @@ button:hover {
 }
 
 .content h2 {
-  font-family: major mono display;
+  font-family: "MajorMonoDisplay", monospace, sans-serif;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -191,7 +191,7 @@ button:hover {
 }
 
 .content h3 {
-  font-family: major mono display;
+  font-family: "MajorMonoDisplay", monospace, sans-serif;
   font-size: 1.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
@@ -545,7 +545,7 @@ nav {
 }
 
 .content-godark h2 {
-  font-family: Major Mono Display;
+  font-family: "MajorMonoDisplay", monospace, sans-serif;
   font-size: 2.5em;
   color: #fff;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
