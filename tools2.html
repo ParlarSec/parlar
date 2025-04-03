@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive guide to Aircrack-NG wireless security toolkit.">
+    <title>PARLAR - Aircrack-NG</title>
+    <link rel="icon" href="P-favicon.png" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+        /* Custom styles for Aircrack-NG page */
+        .tool-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .tool-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .command-block {
+            background: rgba(30, 0, 0, 0.8);
+            border-left: 3px solid #f00;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        
+        .collapsible {
+            background: rgba(50, 0, 0, 0.8);
+            color: #f00;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: 0.4s;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .active, .collapsible:hover {
+            background-color: rgba(80, 0, 0, 0.8);
+        }
+        
+        .collapsible:after {
+            content: '\002B';
+            color: #f00;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .active:after {
+            content: "\2212";
+        }
+        
+        .collapsible-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: rgba(20, 0, 0, 0.8);
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .collapsible-inner {
+            padding: 18px;
+        }
+        
+        .progress-container {
+            margin: 20px 0;
+            background: rgba(30, 0, 0, 0.8);
+            border-radius: 5px;
+            padding: 3px;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background: linear-gradient(90deg, #f00, #ff009d);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 2s ease-in-out;
+            position: relative;
+        }
+        
+        .progress-text {
+            position: absolute;
+            right: 5px;
+            color: #000;
+            font-weight: bold;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #f00, #f08);
+            color: #000;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #f08, #f00);
+            transform: scale(1.1);
+        }
+        
+        .visualization {
+            height: 200px;
+            background: rgba(20, 0, 0, 0.7);
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
+        .wifi-wave {
+            position: absolute;
+            border: 3px solid rgba(255, 0, 0, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            animation: ripple 3s infinite;
+        }
+        
+        .wifi-wave:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .wifi-wave:nth-child(2) {
+            animation-delay: 1s;
+        }
+        
+        .wifi-wave:nth-child(3) {
+            animation-delay: 2s;
+        }
+        
+        @keyframes ripple {
+            0% { width: 0; height: 0; opacity: 1; }
+            100% { width: 300px; height: 300px; opacity: 0; }
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(80, 0, 0, 0.8);
+            color: #f00;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header class=godark>
+    <h1>PARLAR</h1>
+    <p>OFFENSIVE SECURITY - PENETRATION TESTING - RED TEAMING - ETHICAL HACKING</p>
+</header>
+
+<nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links-godark">
+        <a href="index.html">Back 2 Safety</a>
+        <a href="godark.html">Go Dark</a>
+    </div>
+</nav>
+
+<section class="content-godark" id="aircrack-intro">
+    <h2>AIRCRACK-NG</h2>
+    <p>A complete suite of tools to assess WiFi network security<br><br></p>
+    
+    <div class="tool-container">
+        <h3>What is Aircrack-NG?</h3>
+        <p>Aircrack-NG is a powerful network software suite consisting of a detector, packet sniffer, WEP and WPA/WPA2-PSK cracker and analysis tool for 802.11 wireless LANs. It focuses on different areas of WiFi security:</p>
+        
+        <div class="tag-container">
+            <span class="tag">Monitoring</span>
+            <span class="tag">Attacking</span>
+            <span class="tag">Testing</span>
+            <span class="tag">Cracking</span>
+        </div>
+        
+        <div class="visualization">
+            <div class="wifi-wave"></div>
+            <div class="wifi-wave"></div>
+            <div class="wifi-wave"></div>
+        </div>
+    </div>
+    
+    <div class="tool-grid">
+        <div class="tool-container">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Monitoring: Packet capture and export of data to text files for further processing</li>
+                <li>Attacking: Replay attacks, deauthentication, fake access points</li>
+                <li>Testing: Checking WiFi cards and driver capabilities</li>
+                <li>Cracking: WEP and WPA PSK (WPA 1 and 2)</li>
+            </ul>
+        </div>
+        
+        <div class="tool-container">
+            <h3>Core Tools</h3>
+            <ul>
+                <li><strong>airmon-ng</strong> - Sets wireless cards to monitor mode</li>
+                <li><strong>airodump-ng</strong> - Packet capture program</li>
+                <li><strong>aireplay-ng</strong> - Packet injection program</li>
+                <li><strong>aircrack-ng</strong> - WEP and WPA/WPA2-PSK key cracking program</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="tool-container">
+        <h3>Basic Usage</h3>
+        
+        <button class="collapsible">Setting Up Monitor Mode</button>
+        <div class="collapsible-content">
+            <div class="collapsible-inner">
+                <p>First, you need to put your wireless adapter into monitor mode:</p>
+                <div class="command-block">$ sudo airmon-ng start wlan0</div>
+                <p>This creates a monitoring interface (typically wlan0mon or similar).</p>
+            </div>
+        </div>
+        
+        <button class="collapsible">Scanning Networks</button>
+        <div class="collapsible-content">
+            <div class="collapsible-inner">
+                <p>Once your card is in monitor mode, you can scan for wireless networks:</p>
+                <div class="command-block">$ sudo airodump-ng wlan0mon</div>
+                <p>This displays all wireless networks in range along with connected clients.</p>
+            </div>
+        </div>
+        
+        <button class="collapsible">Capturing Handshakes</button>
+        <div class="collapsible-content">
+            <div class="collapsible-inner">
+                <p>To capture a WPA handshake from a specific network:</p>
+                <div class="command-block">$ sudo airodump-ng -c [channel] --bssid [target MAC] -w [output file] wlan0mon</div>
+                <p>You'll need to wait for a client to connect or use deauthentication to force a reconnection.</p>
+            </div>
+        </div>
+        
+        <button class="collapsible">Cracking Passwords</button>
+        <div class="collapsible-content">
+            <div class="collapsible-inner">
+                <p>After capturing a handshake, you can attempt to crack the password:</p>
+                <div class="command-block">$ sudo aircrack-ng -w [wordlist path] -b [target MAC] [capture file]*.cap</div>
+                <p>The success rate depends on the password complexity and your wordlist quality.</p>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="crackingProgress">
+                        <span class="progress-text">0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="tool-container">
+        <h3>Legal and Ethical Considerations</h3>
+        <p>⚠️ <strong>WARNING:</strong> Using Aircrack-NG to access networks without explicit authorization is illegal in most jurisdictions. Always:</p>
+        <ul>
+            <li>Only test networks you own or have explicit permission to test</li>
+            <li>Use in a controlled lab environment for learning</li>
+            <li>Be aware of relevant laws and regulations in your area</li>
+            <li>Consider the ethical implications of security testing</li>
+        </ul>
+        <button class="cta-button" id="learnMoreBtn">LEARN MORE ABOUT ETHICAL HACKING</button>
+    </div>
+</section>
+
+<footer class=footer-godark>
+    <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksGodark = document.querySelector('.nav-links-godark');
+
+        navToggle.addEventListener('click', () => {
+            navLinksGodark.classList.toggle('active');
+        });
+        
+        // Collapsible sections
+        const coll = document.getElementsByClassName("collapsible");
+        for (let i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+        
+        // Progress bar animation
+        const progressBar = document.getElementById("crackingProgress");
+        if (progressBar) {
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                } else {
+                    width += Math.random() * 5;
+                    if (width > 100) width = 100;
+                    progressBar.style.width = width + "%";
+                    progressBar.querySelector(".progress-text").innerText = Math.floor(width) + "%";
+                }
+            }, 200);
+        }
+        
+        // Button click effect
+        const learnMoreBtn = document.getElementById("learnMoreBtn");
+        if (learnMoreBtn) {
+            learnMoreBtn.addEventListener("click", function() {
+                alert("This would redirect to a comprehensive ethical hacking guide. Feature coming soon!");
+            });
+        }
+    })
+</script>
+
+</body>
+</html>

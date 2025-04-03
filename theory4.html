@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR</title>
+    <link rel="icon" href="P-favicon.png" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+
+<header class=godark>
+    <h1>PARLAR</h1>
+    <p>OFFENSIVE SECURITY - PENETRATION TESTING - RED TEAMING - ETHICAL HACKING</p>
+</header>
+
+<nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links-godark">
+        <a href="index.html">Back 2 Safety</a>
+        <a href="godark.html">Go Dark</a>
+    </div>
+</nav>
+
+<section class="content-godark" id="theory">
+    <h2>Bug Bounty Programs</h2><br>
+    <p>In today's digital landscape, identifying and addressing security vulnerabilities is crucial for protecting sensitive data and maintaining user trust. Bug bounty programs have emerged as an innovative approach to cybersecurity, leveraging the skills of ethical hackers worldwide. Let's explore what these programs are and why they're becoming essential for organizations of all sizes.<br><br></p>
+    <h3>What is a Bug Bounty Program?</h3>
+    <p>A bug bounty program is a initiative where organizations invite ethical hackers and security researchers to discover and report security vulnerabilities in their systems, applications, or websites. In exchange for these reports, researchers receive recognition and compensation (bounties) based on the severity and impact of their findings.<br><br>
+        These programs create a win-win situation: organizations improve their security posture by identifying and fixing vulnerabilities before malicious actors can exploit them, while researchers are rewarded for their skills and efforts in ethical hacking.<br><br></p>
+    <h3>Why Are Bug Bounty Programs Important?</h3>
+    <p>With cyber threats constantly evolving and traditional security testing showing limitations, bug bounty programs offer significant advantages. Here's why they matter:<br><br>
+        <strong>• Diverse Expertise:</strong> They tap into a global pool of specialists with varied skills and perspectives.<br>
+        <strong>• Cost-effectiveness:</strong> Organizations only pay for actual vulnerabilities found, rather than time spent testing.<br>
+        <strong>• Continuous Testing:</strong> Unlike point-in-time assessments, bug bounties enable ongoing security evaluation.<br>
+        <strong>• Real-world Testing:</strong> Researchers simulate actual attack scenarios that automated tools might miss.<br>
+        <strong>• Reputation Building:</strong> They demonstrate a commitment to security and transparency to customers.<br><br></p>
+    <h2>Core Components of Bug Bounty Programs</h2>
+    <h4>Scope Definition</h4>
+    <p>Clearly defining what systems, applications, and types of vulnerabilities are included in the program. This helps researchers focus their efforts on authorized targets and prevents misunderstandings about what constitutes acceptable testing.<br><br></p>
+    <h4>Vulnerability Classification</h4>
+    <p>Establishing a framework for categorizing and prioritizing different types of vulnerabilities based on their severity, impact, and exploitability. Most programs use common standards like the Common Vulnerability Scoring System (CVSS) to ensure consistent assessment.<br><br></p>
+    <h4>Reward Structure</h4>
+    <p>Determining appropriate compensation for different vulnerability types. Bounties typically range from hundreds to thousands of dollars depending on severity. Some programs also offer non-monetary rewards like recognition, swag, or exclusive access to events.<br><br></p>
+    <h4>Disclosure Policy</h4>
+    <p>Outlining the process for how vulnerabilities will be handled after submission, including timelines for acknowledgment, validation, remediation, and potential public disclosure. Clear policies help build trust with researchers.<br><br></p>
+    <h4>Program Management</h4>
+    <p>Implementing systems to receive, triage, verify, and respond to vulnerability reports. This may involve dedicated internal teams or third-party platforms that specialize in bug bounty management.<br><br></p>
+    <p>By effectively implementing these core components, organizations can create a successful bug bounty program that strengthens their security posture while engaging positively with the ethical hacking community.<br><br></p>
+</section>
+
+<section class="content-godark" id="pentest-types">
+    <h2>Types of Bug Bounty Programs</h2>
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="test-types">Program Models</button>
+            <button class="tab-btn" data-tab="approaches">Vulnerability Categories</button>
+        </div>
+        
+        <div class="tab-content active" id="test-types">
+            <div class="card">
+                <h3>Public Programs</h3>
+                <p>Open to all security researchers worldwide. These programs maximize researcher participation and are ideal for organizations with mature security practices and the capacity to handle large volumes of reports. They often generate the most diverse findings but require robust triage processes.</p>
+            </div>
+            <div class="card">
+                <h3>Private Programs</h3>
+                <p>Invitation-only programs limited to select researchers based on their reputation, skills, or previous contributions. These offer more controlled testing environments with reduced noise and are suitable for organizations new to bug bounties or those with sensitive systems requiring specialized expertise.</p>
+            </div>
+            <div class="card">
+                <h3>Time-Bound Programs</h3>
+                <p>Specific challenges or hackathons that run for limited periods, often focusing on particular systems or features. These can generate intense testing activity and are useful for newly launched products or major updates. They often feature higher rewards to incentivize participation during the set timeframe.</p>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="approaches">
+            <div class="card">
+                <h3>XSS (Cross-Site Scripting)</h3>
+                <p>Vulnerabilities that allow attackers to inject malicious scripts into websites viewed by users. These are among the most commonly reported bugs in bounty programs and can lead to session hijacking, credential theft, or defacement when exploited.</p>
+            </div>
+            <div class="card">
+                <h3>SQLi (SQL Injection)</h3>
+                <p>Flaws that allow attackers to interfere with database queries, potentially accessing, modifying, or deleting data. These high-severity vulnerabilities can expose sensitive information and are highly rewarded in most bounty programs.</p>
+            </div>
+            <div class="card">
+                <h3>CSRF (Cross-Site Request Forgery)</h3>
+                <p>Vulnerabilities that trick users into performing unwanted actions on authenticated applications. These can lead to account changes, financial transactions, or data manipulation without the user's knowledge or consent.</p>
+            </div>
+            <div class="card">
+                <h3>Business Logic Flaws</h3>
+                <p>Vulnerabilities in application workflows that can be manipulated to bypass security controls. These include pricing manipulation, privilege escalation, or authentication bypasses and often require creative testing approaches to discover.</p>
+            </div>
+            <div class="card">
+                <h3>Information Disclosure</h3>
+                <p>Instances where applications inadvertently reveal sensitive data through error messages, insecure configurations, or metadata. These findings can range from low to critical severity depending on what information is exposed and how it could be exploited.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class=footer-godark>
+    <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksGodark = document.querySelector('.nav-links-godark');
+
+        navToggle.addEventListener('click', () => {
+            navLinksGodark.classList.toggle('active');
+        });
+        
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show the corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add animation to cards for better UX
+        const cards = document.querySelectorAll('.card');
+        
+        function checkInView() {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
+                
+                if (isInView) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and add scroll listener
+        window.addEventListener('scroll', checkInView);
+        checkInView();
+    })
+</script>
+
+<style>
+    /* Styling for the tabs section */
+    .tabs-container {
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #ccc;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active, .tab-btn:hover {
+        background-color: #555;
+        color: #fff;
+    }
+    
+    .tab-content {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tab-content.active {
+        display: grid;
+    }
+    
+    .card {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        text-align: left;
+    }
+    
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card h3 {
+        color: #ddd;
+        margin-top: 0;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Add this to center the section heading */
+    #pentest-types h2 {
+        text-align: center;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</body>
+</html>

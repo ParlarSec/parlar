@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cyber Security Solutions for the Future.">
-    <title>PARLAR</title>
+    <meta name="description" content="Learn about Metasploit - The World's Most Used Penetration Testing Framework">
+    <title>PARLAR - Metasploit</title>
     <link rel="icon" href="P-favicon.png" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
@@ -25,12 +25,133 @@
 </nav>
 
 <section class="content-godark" id="theory">
-    <h2>COMING SOON</h2>
-    <p></p>
+    <div class="tool-header">
+        <h2>METASPLOIT FRAMEWORK</h2>
+        <div class="tool-badge">INDUSTRY STANDARD</div>
+    </div>
+    
+    <div class="intro-container">
+        <p>Welcome to the hacker's Swiss Army knife. Metasploit is the world's most used penetration testing framework, turning complex exploits into point-and-click operations. Whether you're a security professional, system administrator, or curious enthusiast, understanding this powerful tool is essential in today's digital battlefield.</p>
+    </div>
+
+    <div class="animated-section">
+        <h3>What is Metasploit?</h3>
+        <p>Metasploit is an advanced open-source framework that security professionals use to test network security by simulating cyber attacks. Think of it as a toolkit containing hundreds of pre-built exploits and attack vectors that can be used to probe security vulnerabilities in networks and systems.</p>
+        <p>Originally created by H.D. Moore in 2003, Metasploit is now developed by Rapid7 and has become the most widely used penetration testing software worldwide. It allows security teams to identify, validate, and exploit vulnerabilities with the same tools and techniques that attackers use—but for defensive purposes.</p>
+    </div>
+    
+    <div class="interactive-container">
+        <h3>Key Components of Metasploit</h3>
+        <div class="component-grid">
+            <div class="component-card" id="exploits-card">
+                <h4>Exploits</h4>
+                <p>Code that targets specific vulnerabilities in systems, applications, or services. Metasploit contains over 2,000 exploits, from basic buffer overflows to sophisticated zero-day attacks.</p>
+            </div>
+            <div class="component-card" id="payloads-card">
+                <h4>Payloads</h4>
+                <p>Code that executes on the target system after successful exploitation, like establishing remote shells, executing commands, or creating backdoors.</p>
+            </div>
+            <div class="component-card" id="auxiliary-card">
+                <h4>Auxiliary Modules</h4>
+                <p>Supporting tools for tasks like scanning, fuzzing, and information gathering that don't directly exploit vulnerabilities.</p>
+            </div>
+            <div class="component-card" id="encoders-card">
+                <h4>Encoders</h4>
+                <p>Tools that modify the appearance of exploits and payloads to help avoid detection by security tools like antivirus software.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="animated-section">
+        <h3>Why Metasploit Matters</h3>
+        <p>In a world where cyber threats evolve daily, Metasploit serves as both shield and sword. For defenders, it reveals how attackers might breach their systems, allowing them to patch vulnerabilities before they're exploited maliciously. For offensive security professionals, it provides a standardized platform to demonstrate real-world attack scenarios to clients.</p>
+        <p>Understanding Metasploit isn't just about learning a tool—it's about developing a security mindset where vulnerabilities aren't theoretical but practical concerns with demonstrable impacts.</p>
+    </div>
+
+    <div class="code-example">
+        <h3>Metasploit in Action</h3>
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+            </div>
+            <div class="terminal-content" id="terminal-content">
+                <p class="command"><span class="prompt">msf6 ></span> search apache</p>
+                <p class="output">Searching for 'apache'...</p>
+                <p class="output">431 matching modules found.</p>
+                <p class="command"><span class="prompt">msf6 ></span> use exploit/unix/webapp/wp_admin_shell_upload</p>
+                <p class="output">msf6 exploit(unix/webapp/wp_admin_shell_upload) ></p>
+                <p class="command"><span class="prompt">msf6 exploit(unix/webapp/wp_admin_shell_upload) ></span> set RHOSTS 192.168.1.100</p>
+                <p class="output">RHOSTS => 192.168.1.100</p>
+                <p class="command"><span class="prompt">msf6 exploit(unix/webapp/wp_admin_shell_upload) ></span> exploit</p>
+                <p class="output">* Exploiting target...</p>
+                <p class="output">* Shell session 1 opened (192.168.1.10:4444 -> 192.168.1.100:50312)</p>
+                <p class="command"><span class="prompt">meterpreter ></span> <span id="cursor">_</span></p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="animated-section">
+        <h3>Learning Metasploit Safely and Legally</h3>
+        <p>Metasploit is a powerful tool that must be used responsibly and ethically. Here are some ways to learn Metasploit without risking legal issues:</p>
+        <ul class="feature-list">
+            <li><span class="highlight">Home Labs:</span> Set up isolated virtual machines to practice in a controlled environment</li>
+            <li><span class="highlight">Vulnerable VMs:</span> Use purpose-built vulnerable systems like Metasploitable, DVWA, or VulnHub VMs</li>
+            <li><span class="highlight">Courses:</span> Take structured ethical hacking courses that cover proper Metasploit usage</li>
+            <li><span class="highlight">CTF Competitions:</span> Participate in Capture The Flag events where Metasploit use is encouraged</li>
+        </ul>
+        <p class="warning">⚠️ Remember: Always ensure you have explicit permission before testing any system or network with Metasploit. Unauthorized testing is illegal and can result in serious consequences.</p>
+    </div>
 </section>
 
-
-
+<section class="content-godark" id="pentest-types">
+    <h2>Metasploit Toolkit</h2>
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="test-types">Core Features</button>
+            <button class="tab-btn" data-tab="approaches">Advanced Usage</button>
+        </div>
+        
+        <div class="tab-content active" id="test-types">
+            <div class="card">
+                <h3>Metasploit Pro</h3>
+                <p>The commercial version with advanced features like automated exploitation, credential harvesting, web application testing, and detailed reporting capabilities for enterprise use.</p>
+            </div>
+            <div class="card">
+                <h3>Metasploit Framework</h3>
+                <p>The free, open-source foundation of the Metasploit project that includes the core libraries, modules, and tools used for penetration testing, exploit development, and vulnerability research.</p>
+            </div>
+            <div class="card">
+                <h3>Armitage</h3>
+                <p>A graphical cyber attack management tool that visualizes targets, recommends exploits, and exposes advanced post-exploitation features in Metasploit, making it more accessible for teamwork.</p>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="approaches">
+            <div class="card">
+                <h3>Pivoting</h3>
+                <p>Using a compromised system as a stepping stone to attack other systems in an internal network that aren't directly accessible from your machine. Essential for penetrating multi-layered networks.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Exploit Development</h3>
+                <p>Building your own exploit modules for Metasploit to target specific vulnerabilities not covered by existing modules. This extends Metasploit's capabilities to address unique security concerns.</p>
+            </div>
+            <div class="card">
+                <h3>Integration with Other Tools</h3>
+                <p>Combining Metasploit with tools like Nmap for scanning, Burp Suite for web application testing, and Empire for post-exploitation to create comprehensive security assessment workflows.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Payload Generation</h3>
+                <p>Creating specialized payloads using tools like msfvenom to bypass specific security controls, including encoding, encryption, and obfuscation techniques to evade detection.</p>
+            </div>
+            <div class="card">
+                <h3>Database Integration</h3>
+                <p>Leveraging Metasploit's PostgreSQL database capabilities to track hosts, services, vulnerabilities, and credentials across complex engagements, making large-scale penetration tests manageable.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer class=footer-godark>
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
@@ -44,8 +165,363 @@
         navToggle.addEventListener('click', () => {
             navLinksGodark.classList.toggle('active');
         });
+        
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show the corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add animation to cards for better UX
+        const cards = document.querySelectorAll('.card');
+        
+        function checkInView() {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
+                
+                if (isInView) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and add scroll listener
+        window.addEventListener('scroll', checkInView);
+        checkInView();
+        
+        // Terminal cursor blinking effect
+        const cursor = document.getElementById('cursor');
+        setInterval(() => {
+            cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+        }, 600);
+        
+        // Animate sections on scroll
+        const animatedSections = document.querySelectorAll('.animated-section');
+        
+        function checkSectionsInView() {
+            animatedSections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.85 && rect.bottom >= 0;
+                
+                if (isInView) {
+                    section.classList.add('fade-in');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkSectionsInView);
+        checkSectionsInView();
+        
+        // Component card hover effects
+        const componentCards = document.querySelectorAll('.component-card');
+        
+        componentCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('expanded');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('expanded');
+            });
+        });
     })
 </script>
+
+<style>
+    /* Styling for the tabs section */
+    .tabs-container {
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #ccc;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active, .tab-btn:hover {
+        background-color: #555;
+        color: #fff;
+    }
+    
+    .tab-content {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tab-content.active {
+        display: grid;
+    }
+    
+    .card {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        text-align: left;
+    }
+    
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card h3 {
+        color: #ddd;
+        margin-top: 0;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Add this to center the section heading */
+    #pentest-types h2 {
+        text-align: center;
+    }
+    
+    /* New styling for Metasploit page */
+    .tool-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .tool-header h2 {
+        margin: 0;
+        color: #00ff9d;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    }
+    
+    .tool-badge {
+        background-color: #00ff9d;
+        color: #000;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.8em;
+        box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    }
+    
+    .intro-container {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        font-size: 1.1em;
+        line-height: 1.6;
+        text-align: center;
+        padding: 20px;
+        border-left: 3px solid #00ff9d;
+        border-right: 3px solid #00ff9d;
+        background-color: rgba(0, 255, 157, 0.05);
+    }
+    
+    .animated-section {
+        padding: 20px;
+        margin-bottom: 30px;
+        transition: opacity 0.8s ease, transform 0.8s ease;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    .animated-section.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .component-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 15px;
+    }
+    
+    .component-card {
+        width: calc(50% - 15px);
+        min-width: 300px;
+        background-color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        border-left: none;
+        border-top: 3px solid #333;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.2s ease;
+        height: auto;
+    }
+    
+    .component-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+    
+    .component-card.expanded {
+        height: auto;
+    }
+    
+    .component-card h4 {
+        color: #ccc;
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 1.2em;
+        letter-spacing: 1px;
+    }
+    
+    @media (max-width: 768px) {
+        .component-card {
+            width: 100%;
+            min-width: unset;
+        }
+    }
+    
+    .code-example {
+        margin: 40px 0;
+    }
+    
+    .terminal-window {
+        background-color: #1a1a1a;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .terminal-header {
+        background-color: #333;
+        padding: 8px;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .terminal-button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .terminal-button.red {
+        background-color: #ff5f56;
+    }
+    
+    .terminal-button.yellow {
+        background-color: #ffbd2e;
+    }
+    
+    .terminal-button.green {
+        background-color: #27c93f;
+    }
+    
+    .terminal-content {
+        padding: 15px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9em;
+    }
+    
+    .terminal-content p {
+        margin: 5px 0;
+    }
+    
+    .terminal-content .command {
+        color: #fff;
+    }
+    
+    .terminal-content .output {
+        color: #7f8c8d;
+    }
+    
+    .terminal-content .prompt {
+        color: #00ff9d;
+        margin-right: 10px;
+    }
+    
+    .feature-list {
+        list-style-type: none;
+        padding-left: 10px;
+    }
+    
+    .feature-list li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px;
+    }
+    
+    .feature-list li:before {
+        content: "→";
+        color: #00ff9d;
+        position: absolute;
+        left: 0;
+    }
+    
+    .highlight {
+        color: #00ff9d;
+        font-weight: bold;
+    }
+    
+    .warning {
+        background-color: rgba(255, 87, 51, 0.2);
+        border-left: 4px solid #ff5733;
+        padding: 15px;
+        margin-top: 30px;
+        border-radius: 5px;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-content {
+            grid-template-columns: 1fr;
+        }
+        
+        .component-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .tool-header {
+            flex-direction: column;
+        }
+    }
+</style>
 
 </body>
 </html>

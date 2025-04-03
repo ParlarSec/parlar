@@ -25,12 +25,81 @@
 </nav>
 
 <section class="content-godark" id="theory">
-    <h2>COMING SOON</h2>
-    <p></p>
+    <h2>What is a 'pen-test'</h2><br>
+    <p>Ever heard the term "penetration test" or "pen test" and wondered what it means? Don't worry, you're not alone! In this blog, we'll break it down into simple, easy-to-understand pieces so that even someone who isn't tech-savvy can follow along. By the end, you'll have a good grasp of what pen tests are, why they're important, and how they work. Plus, we'll throw in some references to reputable websites so you can dive deeper if you're curious.<br><br></p>
+    <h3>So What is it?</h3>
+    <p>Imagine a castle. The castle has thick walls, a moat filled with water, and guards standing by the gates. The purpose of all these defences is to protect the castle from invaders. Now, what if you wanted to check if the castle's defences are strong enough? You might hire some friendly invaders to test them out. They would try to break through the walls, cross the moat, and sneak past the guards to see if there are any weak spots that real invaders could exploit.<br><br>
+        A penetration test is pretty much the same thing, except the castle is a computer system or network, and the friendly invaders are cybersecurity experts. These experts use their skills to find weaknesses in the system before the bad guys (hackers) do.<br><br></p>
+    <h3>Why Do We Need Penetration Tests?</h3>
+    <p>In today's world, almost everything is connected to the internet. We use it for banking, shopping, communication, and so much more. This means that there's a lot of sensitive information out there, like your bank details, personal messages, and even your medical records. Hackers are always looking for ways to steal this information, and they can cause a lot of damage if they succeed.<br><br>
+        Penetration tests help us find and fix weaknesses in our computer systems and networks before the hackers can find them. Think of it like a security check-up for your digital world. By doing regular pen tests, we can keep our information safe and secure.<br><br><br><br></p>
+    <h2>The Penetration Testing Process</h2>
+    <h4>Phase I: Pre-engagement</h4>
+    <p>The pre-engagement phase is the foundational step of a penetration testing process. This phase involves establishing the rules of engagement (ROE) and ensuring all legal considerations are addressed. During this phase, the scope of the test is defined, including which systems and networks are to be tested, as well as the testing methods that will be used. The penetration testing team coordinates with the organization's stakeholders to understand the business objectives and any specific security concerns. Legal documentation, such as non-disclosure agreements (NDAs) and authorisation letters, are also prepared and signed to ensure that all activities conducted are lawful and agreed upon by both parties.<br><br></p>
+    <h4>Phase II: Reconnaissance</h4>
+    <p>Reconnaissance or information gathering is the second phase where the penetration testing team collects as much information as possible about the target systems and networks. This can be done through passive methods, such as searching publicly available information, or through active methods, such as directly probing the network. The goal is to gain an understanding of the target's structure, technologies in use, and potential vulnerabilities. This phase helps in creating a blueprint of the target environment which will be used in subsequent phases.<br><br></p>
+    <h4>Phase III: Discovery</h4>
+    <p>During the discovery phase, the testers use automated tools and manual techniques to identify active systems, open ports, and running services. They scan the network to uncover any potential points of entry. This phase involves a detailed examination of the target to locate weaknesses that could be exploited. Tools such as network scanners, port scanners, and vulnerability assessment tools are commonly used to perform these tasks.<br><br></p>
+    <h4>Phase IV: Vulnerability Analysis</h4>
+    <p>Vulnerability analysis is the phase where the information gathered during reconnaissance and discovery is analysed to identify and prioritize vulnerabilities. The testers evaluate the potential impact and likelihood of each vulnerability being exploited. This phase involves the use of vulnerability scanners and manual testing techniques to verify the existence of vulnerabilities and assess their severity. The goal is to create a comprehensive list of weaknesses that need to be addressed.<br><br></p>
+    <h4>Phase V: Exploitation and Post-Exploitation</h4>
+    <p>In the exploitation phase, the penetration testers attempt to exploit the identified vulnerabilities to gain access to the target systems. This phase simulates real-world attacks to understand the potential impact of a successful breach. The testers use various techniques and tools to exploit weaknesses and gain control over the target. During post-exploitation, the testers assess what data they can access and how they can maintain their presence within the compromised environment. This phase helps in understanding the extent of damage that could be caused and the effectiveness of the current security measures.<br><br></p>
+    <h4>Phase VI: Reporting and Recommendations</h4>
+    <p>The reporting phase involves documenting all the findings from the penetration test. The testers provide a detailed report that includes a summary of the vulnerabilities discovered, the methods used to exploit them, and the potential impact on the organization. The report also contains recommendations for mitigating the identified risks and improving the overall security posture. The findings are presented to the organization's stakeholders to help them understand the security gaps and the steps needed to address them.<br><br></p>
+    <h4>Phase VII: Remediation and Rescan</h4>
+    <p>In the final phase, the organization takes action to remediate the identified vulnerabilities based on the recommendations provided in the report. This may involve applying patches, reconfiguring systems, or implementing additional security measures. Once remediation is complete, a rescan is conducted to verify that the vulnerabilities have been effectively addressed. The goal is to ensure that the security issues have been resolved and that the organization's systems are secure.<br><br></p>
+    <h4></h4>
+    <p>By following these phases, organizations can systematically assess and enhance their security measures, ensuring that their digital assets are protected against potential threats. Penetration testing is an essential component of a robust cybersecurity strategy, providing valuable insights into the effectiveness of current defences and helping to build a more secure digital environment.<br><br></p>
+    
 </section>
 
-
-
+<section class="content-godark" id="pentest-types">
+    <h2>Types of Penetration Tests</h2>
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="test-types">Test Types</button>
+            <button class="tab-btn" data-tab="approaches">Testing Approaches</button>
+        </div>
+        
+        <div class="tab-content active" id="test-types">
+            <div class="card">
+                <h3>External Pen Tests</h3>
+                <p>These tests focus on the system's external defences, like the castle's walls and gates. The testers try to break in from the outside to see if they can gain access to the system.</p>
+            </div>
+            <div class="card">
+                <h3>Internal Pen Tests</h3>
+                <p>Internal tests are done from within the system, like testing the castle's defences from the inside. The testers assume that the attackers have already gotten in and see what damage they can do.</p>
+            </div>
+            <div class="card">
+                <h3>Web Application Pen Tests</h3>
+                <p>These tests focus on web applications, like online banking or shopping websites. The testers look for vulnerabilities in the web application itself, like weak passwords or insecure coding.</p>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="approaches">
+            <div class="card">
+                <h3>White Box Testing</h3>
+                <p>White box testing, also known as clear box or glass box testing, involves the tester having full knowledge of the system. This includes access to source code, network diagrams, and other detailed information. This type of testing is thorough and can uncover hidden vulnerabilities.</p>
+            </div>
+            <div class="card">
+                <h3>Black Box Testing</h3>
+                <p>In black box testing, the tester has no prior knowledge of the system they are testing. This simulates the perspective of an external attacker trying to breach the system without any insider information. It helps identify vulnerabilities that are visible to the outside world.</p>
+            </div>
+            <div class="card">
+                <h3>Grey Box Testing</h3>
+                <p>Grey box testing is a combination of white and black box testing. The tester has limited knowledge of the system, often focusing on specific areas or having partial access to documentation. This method balances the thoroughness of white box testing with the realism of black box testing.</p>
+            </div>
+            <div class="card">
+                <h3>Red Team Testing</h3>
+                <p>Red team testing involves a group of testers simulating real-world attacks to evaluate the effectiveness of the security measures and the response capabilities of the organization. It is an aggressive approach aimed at identifying potential vulnerabilities and gaps in security protocols.</p>
+            </div>
+            <div class="card">
+                <h3>Blue Team Testing</h3>
+                <p>Blue team testing is the counterpart to red team testing. The blue team is responsible for defending against the simulated attacks, analysing the system for vulnerabilities, and improving the security measures. It focuses on defines and response strategies.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer class=footer-godark>
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
@@ -44,8 +113,129 @@
         navToggle.addEventListener('click', () => {
             navLinksGodark.classList.toggle('active');
         });
+        
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show the corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add animation to cards for better UX
+        const cards = document.querySelectorAll('.card');
+        
+        function checkInView() {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
+                
+                if (isInView) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and add scroll listener
+        window.addEventListener('scroll', checkInView);
+        checkInView();
     })
 </script>
+
+<style>
+    /* Styling for the tabs section */
+    .tabs-container {
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #ccc;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active, .tab-btn:hover {
+        background-color: #555;
+        color: #fff;
+    }
+    
+    .tab-content {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tab-content.active {
+        display: grid;
+    }
+    
+    .card {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        text-align: left;
+    }
+    
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card h3 {
+        color: #ddd;
+        margin-top: 0;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Add this to center the section heading */
+    #pentest-types h2 {
+        text-align: center;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
 </body>
 </html>

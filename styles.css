@@ -551,6 +551,13 @@ nav {
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
   margin-bottom: 20px;
 }
+.content-godark h3 {
+  font-family: "MajorMonoDisplay", monospace !important;
+  font-size: 1.5em;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+  margin-bottom: 20px;
+}
 
 .content-godark p {
   font-size: 1.2em;
@@ -616,6 +623,7 @@ nav {
     font-size: 2em;
     text-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(0, 255, 255, 0.6);
   }
+  
 
   .hero-godark p {
     display: none;

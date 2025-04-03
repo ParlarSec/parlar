@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Nessus vulnerability scanner - a leading cybersecurity tool.">
+    <title>PARLAR - Nessus Scanner Guide</title>
+    <link rel="icon" href="P-favicon.png" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+        /* Nessus specific styling */
+        .nessus-highlight {
+            color: #ff0033;
+            font-weight: bold;
+        }
+
+        .feature-card {
+            background-color: rgba(30, 30, 30, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #ff0033;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 51, 0.2);
+        }
+
+        .accordion {
+            background-color: rgba(30, 30, 30, 0.8);
+            color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.4s;
+            margin-bottom: 5px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .accordion:hover {
+            background-color: rgba(50, 50, 50, 0.8);
+        }
+
+        .accordion:after {
+            content: '+';
+            font-size: 18px;
+            color: #ff0033;
+        }
+
+        .accordion.active:after {
+            content: '-';
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: rgba(20, 20, 20, 0.8);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            border-radius: 0 0 4px 4px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .nessus-steps {
+            counter-reset: step-counter;
+            list-style-type: none;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .nessus-steps li {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 50px;
+            display: inline-block;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+        }
+
+        .nessus-steps li:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #ff0033;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .scan-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px auto;
+            text-align: center;
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+        .scan-type {
+            background-color: rgba(35, 35, 35, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .scan-type:hover {
+            background-color: rgba(40, 40, 40, 0.9);
+            transform: scale(1.02);
+        }
+
+        .scan-type h4 {
+            color: #ff0033;
+            margin-top: 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #ff0033, #cc0000);
+            color: white !important; /* Force white text in all states */
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
+            color: white !important; /* Ensure text remains white on hover */
+        }
+        
+        @media (max-width: 768px) {
+            .scan-types {
+                grid-template-columns: 1fr;
+                max-width: 90%;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .scan-types {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .scan-types {
+                grid-template-columns: repeat(4, 1fr);
+                max-width: 1200px;
+            }
+        }
+        
+        /* Centralized layout */
+        .content-godark {
+            text-align: center;
+        }
+        
+        .content-godark ul {
+            display: inline-block;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .content-godark p {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 85%;
+        }
+    </style>
+</head>
+<body>
+
+<header class=godark>
+    <h1>PARLAR</h1>
+    <p>OFFENSIVE SECURITY - PENETRATION TESTING - RED TEAMING - ETHICAL HACKING</p>
+</header>
+
+<nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links-godark">
+        <a href="index.html">Back 2 Safety</a>
+        <a href="godark.html">Go Dark</a>
+    </div>
+</nav>
+
+<section class="content-godark" id="nessus-intro">
+    <h2>NESSUS <span class="nessus-highlight">VULNERABILITY SCANNER</span></h2>
+    <p>Nessus is one of the most comprehensive and widely-used vulnerability scanners in the cybersecurity industry, 
+    developed by Tenable. It helps identify vulnerabilities, configuration issues, and malware that attackers could 
+    potentially exploit in your network.</p>
+    
+    <div class="feature-card">
+        <h3>Why Security Professionals Trust Nessus</h3>
+        <p>With over 2 million downloads worldwide, Nessus is the gold standard for vulnerability assessment, offering unmatched 
+        detection capabilities with minimal false positives.</p>
+    </div>
+    
+    <h3>Key Capabilities</h3>
+    <div class="scan-types">
+        <div class="scan-type">
+            <h4>Vulnerability Detection</h4>
+            <p>Identify over 65,000 CVEs and security vulnerabilities with industry-leading accuracy</p>
+        </div>
+        <div class="scan-type">
+            <h4>Configuration Auditing</h4>
+            <p>Verify compliance with security policies and industry standards</p>
+        </div>
+        <div class="scan-type">
+            <h4>Malware Detection</h4>
+            <p>Detect malware and backdoors on systems through various scanning techniques</p>
+        </div>
+        <div class="scan-type">
+            <h4>Sensitive Data Exposure</h4>
+            <p>Identify sensitive data exposed in your environment</p>
+        </div>
+    </div>
+</section>
+
+<section class="content-godark" id="nessus-how-it-works">
+    <h2>HOW NESSUS <span class="nessus-highlight">WORKS</span></h2>
+    
+    <p>Nessus employs a comprehensive scanning architecture to detect vulnerabilities across your network:</p>
+    
+    <ol class="nessus-steps">
+        <li><strong>Discovery Phase</strong> - Nessus identifies live hosts and open ports in the target network</li>
+        <li><strong>Enumeration Phase</strong> - Gathers information about services, systems, and applications</li>
+        <li><strong>Vulnerability Assessment</strong> - Runs thousands of checks against discovered services</li>
+        <li><strong>Reporting</strong> - Provides detailed reports with remediation guidance</li>
+    </ol>
+    
+    <div class="feature-card">
+        <h3>Scan Types Available in Nessus</h3>
+        <p>Nessus offers various specialized scans to address different security needs:</p>
+        <ul>
+            <li><strong>Basic Network Scan</strong> - Standard vulnerability scan for most use cases</li>
+            <li><strong>Advanced Scan</strong> - Deep inspection with customizable options</li>
+            <li><strong>Credentialed Scan</strong> - Uses login credentials for deeper system access</li>
+            <li><strong>Web Application Scan</strong> - Specifically targets web application vulnerabilities</li>
+            <li><strong>Compliance Checks</strong> - Verifies systems against security standards like PCI DSS, HIPAA, etc.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="content-godark" id="nessus-faq">
+    <h2>NESSUS <span class="nessus-highlight">FAQ</span></h2>
+    
+    <button class="accordion">What's the difference between Nessus Essentials vs Professional?</button>
+    <div class="panel">
+        <p>Nessus Essentials (formerly Home) is free but limited to scanning 16 IP addresses. Nessus Professional removes this limitation 
+        and adds advanced features like compliance checks, offline scanning capabilities, and priority support.</p>
+    </div>
+    
+    <button class="accordion">Is Nessus difficult to set up?</button>
+    <div class="panel">
+        <p>Not at all. Nessus features a user-friendly web interface and can be installed on Windows, macOS, or Linux. 
+        The setup wizard guides you through the process, and most scans work with minimal configuration.</p>
+    </div>
+    
+    <button class="accordion">How often should I run Nessus scans?</button>
+    <div class="panel">
+        <p>Best practice is to run regular scans - weekly for critical infrastructure and monthly for less-critical assets. 
+        Additionally, you should scan after any significant network changes or patching operations.</p>
+    </div>
+    
+    <button class="accordion">How does Nessus handle false positives?</button>
+    <div class="panel">
+        <p>Nessus has one of the lowest false positive rates in the industry. When false positives do occur, you can 
+        mark findings as false positives within the interface, and Nessus learns from these designations to improve accuracy.</p>
+    </div>
+</section>
+
+<section class="content-godark" id="nessus-best-practices">
+    <h2>BEST <span class="nessus-highlight">PRACTICES</span></h2>
+    
+    <div class="feature-card">
+        <h3>Getting the Most Out of Nessus</h3>
+        <p>Follow these tips to maximize the effectiveness of your Nessus deployment:</p>
+        <ul>
+            <li>Use credentialed scans whenever possible for deeper insight</li>
+            <li>Segment your network into scanning zones to manage large environments</li>
+            <li>Schedule scans during off-peak hours to minimize impact</li>
+            <li>Create baseline scans to track security improvements over time</li>
+            <li>Integrate Nessus findings with your ticketing/remediation workflow</li>
+        </ul>
+    </div>
+    
+    <p>Ready to elevate your security posture with professional vulnerability scanning?</p>
+    <a href="mailto:cyber@parlar.uk" class="cta-button">Request Nessus Assessment</a>
+</section>
+
+<footer class=footer-godark>
+    <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksGodark = document.querySelector('.nav-links-godark');
+
+        navToggle.addEventListener('click', () => {
+            navLinksGodark.classList.toggle('active');
+        });
+        
+        // Accordion functionality
+        const accordions = document.querySelectorAll('.accordion');
+        
+        accordions.forEach(accordion => {
+            accordion.addEventListener('click', function() {
+                this.classList.toggle('active');
+                
+                const panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        });
+        
+        // Add subtle animations for feature cards
+        const cards = document.querySelectorAll('.feature-card, .scan-type');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    })
+</script>
+
+</body>
+</html>

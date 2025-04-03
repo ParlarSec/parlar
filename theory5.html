@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR</title>
+    <link rel="icon" href="P-favicon.png" type="image/jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+</head>
+<body>
+
+<header class=godark>
+    <h1>PARLAR</h1>
+    <p>OFFENSIVE SECURITY - PENETRATION TESTING - RED TEAMING - ETHICAL HACKING</p>
+</header>
+
+<nav>
+    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <div class="nav-links-godark">
+        <a href="index.html">Back 2 Safety</a>
+        <a href="godark.html">Go Dark</a>
+    </div>
+</nav>
+
+<section class="content-godark" id="theory">
+    <h2>Advanced Persistent Threats (APTs)</h2><br>
+    <p>In today's interconnected digital world, organizations face increasingly sophisticated cyber attacks that go beyond conventional threats. Advanced Persistent Threats (APTs) represent some of the most dangerous cyber risks. Let's explore what APTs are and why they pose significant challenges to organizations worldwide.<br><br></p>
+    <h3>What is an Advanced Persistent Threat?</h3>
+    <p>An Advanced Persistent Threat (APT) is a prolonged and targeted cyber attack in which an attacker gains unauthorized access to a network and remains undetected for an extended period. Unlike conventional cyber attacks that are opportunistic in nature, APTs are meticulously planned, stealthy, and have specific objectives - typically data exfiltration, surveillance, or infrastructure sabotage.<br><br>
+        What makes APTs particularly dangerous is their persistence and sophistication. These attacks are typically conducted by well-funded and highly skilled threat actors, often nation-states or organized crime groups with significant resources at their disposal.<br><br></p>
+    <h3>Why Are APTs Dangerous?</h3>
+    <p>APTs pose exceptional challenges to cybersecurity professionals for several key reasons:<br><br>
+        <strong>• Stealth and Persistence:</strong> They operate quietly, often remaining undetected for months or years while extracting valuable data.<br>
+        <strong>• Sophisticated Techniques:</strong> They employ custom malware, zero-day exploits, and advanced evasion tactics that bypass traditional security controls.<br>
+        <strong>• Targeted Approach:</strong> They focus on specific high-value targets rather than casting a wide net.<br>
+        <strong>• Multi-phase Operations:</strong> They execute complex attack chains involving reconnaissance, infiltration, lateral movement, and data exfiltration.<br>
+        <strong>• Continuous Evolution:</strong> They adapt to defensive measures, changing tactics to maintain their foothold.<br><br></p>
+    <h2>Typical APT Attack Lifecycle</h2>
+    <h4>Initial Compromise</h4>
+    <p>The attack begins with gaining initial access to the target environment, often through spear phishing emails, watering hole attacks, supply chain compromises, or exploitation of public-facing applications. This phase focuses on creating a foothold inside the target organization.<br><br></p>
+    <h4>Establish Presence</h4>
+    <p>Once inside, attackers deploy persistent backdoors or remote access trojans (RATs) to ensure continued access. They establish command and control (C2) channels for remote operation and begin to understand the network environment while remaining hidden from detection.<br><br></p>
+    <h4>Privilege Escalation</h4>
+    <p>Attackers elevate their access rights by exploiting vulnerabilities, misconfiguration, or leveraging stolen credentials. The goal is to obtain administrator or domain privileges that allow unrestricted movement within the network.<br><br></p>
+    <h4>Lateral Movement</h4>
+    <p>With elevated privileges, attackers traverse the network to identify valuable assets and data. This process involves mapping network resources, identifying critical systems, and moving between systems while avoiding detection through use of legitimate tools and credentials.<br><br></p>
+    <h4>Data Collection and Exfiltration</h4>
+    <p>After locating valuable information, attackers collect, package, and extract data using encrypted channels, steganography, or other covert methods designed to bypass data loss prevention systems and network monitoring tools.<br><br></p>
+    <p>Understanding this lifecycle is crucial for developing effective detection and prevention strategies against these sophisticated threats. Organizations must implement defense-in-depth approaches that address each phase of the APT lifecycle.<br><br></p>
+</section>
+
+<section class="content-godark" id="pentest-types">
+    <h2>Notable APT Groups and Tactics</h2>
+    <div class="tabs-container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="test-types">Major APT Groups</button>
+            <button class="tab-btn" data-tab="approaches">Common APT Techniques</button>
+        </div>
+        
+        <div class="tab-content active" id="test-types">
+            <div class="card">
+                <h3>APT29 (Cozy Bear)</h3>
+                <p>Linked to Russian intelligence services, this group is known for its sophisticated operations and successful breaches of government agencies and political organizations. They frequently use custom malware, spear-phishing campaigns, and clever social engineering tactics.</p>
+            </div>
+            <div class="card">
+                <h3>APT28 (Fancy Bear)</h3>
+                <p>Another Russian-affiliated group that targets defense and political organizations. Known for their use of zero-day exploits, custom malware frameworks, and politically motivated campaigns. They've been linked to high-profile breaches including election interference operations.</p>
+            </div>
+            <div class="card">
+                <h3>Lazarus Group</h3>
+                <p>Associated with North Korea, this group focuses on financial gain and espionage. They're responsible for major attacks including the WannaCry ransomware outbreak and various cryptocurrency exchange heists designed to circumvent international sanctions.</p>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="approaches">
+            <div class="card">
+                <h3>Spear Phishing</h3>
+                <p>Highly targeted and customized phishing emails designed for specific individuals within an organization. These often contain malicious attachments or links that appear legitimate and relevant to the recipient's work or interests, making them particularly effective at bypassing human security awareness.</p>
+            </div>
+            <div class="card">
+                <h3>Supply Chain Attacks</h3>
+                <p>Compromising trusted third-party software or hardware vendors to distribute malware to their customers. The SolarWinds breach is a prime example, where attackers modified legitimate software updates to distribute backdoors to thousands of organizations.</p>
+            </div>
+            <div class="card">
+                <h3>Living Off The Land</h3>
+                <p>Using legitimate tools already present in the target environment (like PowerShell, WMI, or PsExec) to conduct malicious activities. This technique helps attackers blend in with normal system operations and avoid triggering security alerts based on malware signatures.</p>
+            </div>
+            <div class="card">
+                <h3>Zero-Day Exploits</h3>
+                <p>Leveraging previously unknown software vulnerabilities before patches are available. APT groups often have the resources to discover or purchase these valuable exploits, giving them the ability to bypass security controls that rely on known threat signatures.</p>
+            </div>
+            <div class="card">
+                <h3>Custom Malware</h3>
+                <p>Developing specialized, modular malware tools designed specifically for target environments. These custom tools are often undetectable by standard antivirus solutions and may include features like encrypted communications, anti-forensic capabilities, and fileless operation.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class=footer-godark>
+    <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinksGodark = document.querySelector('.nav-links-godark');
+
+        navToggle.addEventListener('click', () => {
+            navLinksGodark.classList.toggle('active');
+        });
+        
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show the corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Add animation to cards for better UX
+        const cards = document.querySelectorAll('.card');
+        
+        function checkInView() {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const isInView = rect.top <= window.innerHeight * 0.75 && rect.bottom >= 0;
+                
+                if (isInView) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check and add scroll listener
+        window.addEventListener('scroll', checkInView);
+        checkInView();
+    })
+</script>
+
+<style>
+    /* Styling for the tabs section */
+    .tabs-container {
+        width: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    
+    .tab-btn {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #ccc;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active, .tab-btn:hover {
+        background-color: #555;
+        color: #fff;
+    }
+    
+    .tab-content {
+        display: none;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tab-content.active {
+        display: grid;
+    }
+    
+    .card {
+        background-color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, opacity 0.5s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        text-align: left;
+    }
+    
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .card h3 {
+        color: #ddd;
+        margin-top: 0;
+        border-bottom: 1px solid #444;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    
+    /* Add this to center the section heading */
+    #pentest-types h2 {
+        text-align: center;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tab-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</body>
+</html>
