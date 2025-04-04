@@ -179,6 +179,49 @@
             margin-right: 8px;
             margin-bottom: 8px;
         }
+        
+        #security-assessment {
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .assessment-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+        }
+        
+        .assessment-text {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #f00, #f08);
+            color: #ffffff !important;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #f08, #f00);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -295,7 +338,14 @@
             <li>Be aware of relevant laws and regulations in your area</li>
             <li>Consider the ethical implications of security testing</li>
         </ul>
-        <button class="cta-button" id="learnMoreBtn">LEARN MORE ABOUT ETHICAL HACKING</button>
+        
+    </div>
+</section>
+
+<section class="content-godark" id="security-assessment">    
+    <div class="assessment-container">
+        <p class="assessment-text">Ready to elevate your security posture?</p>
+        <a href="mailto:cyber@parlar.uk" class="cta-button">Request A Cyber Security Assessment</a>
     </div>
 </section>
 

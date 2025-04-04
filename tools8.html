@@ -3,11 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cyber Security Solutions for the Future.">
-    <title>PARLAR</title>
+    <meta name="description" content="Learn about theHarvester - A powerful OSINT gathering tool for ethical hackers and security professionals.">
+    <title>PARLAR - theHarvester</title>
     <link rel="icon" href="P-favicon.png" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+    <style>
+        :root {
+            --dark-red: #8b0000;
+            --light-red: #ff0000;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .tool-header {
+            text-align: center;
+            margin: 2rem 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { text-shadow: 0 0 5px var(--light-red); }
+            50% { text-shadow: 0 0 20px var(--light-red); }
+            100% { text-shadow: 0 0 5px var(--light-red); }
+        }
+        
+        .tool-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--dark-red);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(139, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: ">";
+            color: var(--light-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .terminal {
+            background-color: #000000;
+            color: #00ff00;
+            padding: 1rem;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .terminal-header {
+            background-color: #333333;
+            padding: 0.5rem;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .terminal-buttons {
+            display: flex;
+        }
+        
+        .terminal-button {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        
+        .red { background-color: #ff5f56; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #27c93f; }
+        
+        .typed-text {
+            border-right: 0.15em solid #00ff00;
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00ff00 }
+        }
+        
+        .output-text {
+            white-space: pre-wrap;
+            display: none;
+        }
+        
+        .run-demo {
+            background-color: var(--dark-red);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 1rem auto;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+        
+        .run-demo:hover {
+            background-color: var(--light-red);
+        }
+        
+        .tab-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .tab-btn {
+            background-color: var(--card-bg);
+            color: white;
+            border: 1px solid var(--dark-red);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--dark-red);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .contact-btn {
+            background-color: var(--dark-red);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 2rem auto;
+            display: block;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--light-red);
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--light-red);
+            margin: 2rem 0 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .content-godark {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+    </style>
 </head>
 <body>
 
@@ -24,13 +232,204 @@
     </div>
 </nav>
 
-<section class="content-godark" id="theory">
-    <h2>COMING SOON</h2>
-    <p></p>
+<section class="content-godark">
+    <div class="tool-header">
+        <h2>theHarvester</h2>
+        <p>The Essential OSINT Gathering Tool for Reconnaissance</p>
+    </div>
+    
+    <div class="tool-card">
+        <h3>What is theHarvester?</h3>
+        <p>theHarvester is a powerful, open-source intelligence (OSINT) gathering tool designed to collect email addresses, subdomains, hosts, employee names, open ports, and banners from different public sources like search engines, PGP key servers, and SHODAN computer database.</p>
+        <p>It's an essential component in any penetration tester's toolkit, allowing for passive reconnaissance without directly engaging with the target systems.</p>
+    </div>
+    
+    <h3 class="section-title">Key Features</h3>
+    
+    <div class="tool-card">
+        <ul class="feature-list">
+            <li>Gathers emails, names, subdomains, IPs, and URLs</li>
+            <li>Searches across multiple data sources simultaneously</li>
+            <li>Integrates with popular search engines and APIs</li>
+            <li>Supports DNS brute forcing</li>
+            <li>Performs reverse DNS lookups</li>
+            <li>Generates visual reports of findings</li>
+            <li>Can be integrated into automated workflows</li>
+        </ul>
+    </div>
+    
+    <h3 class="section-title">Supported Data Sources</h3>
+    
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="search-engines">Search Engines</button>
+            <button class="tab-btn" data-tab="professional">Professional</button>
+            <button class="tab-btn" data-tab="threat-intel">Threat Intel</button>
+        </div>
+        
+        <div class="tab-content active" id="search-engines">
+            <div class="tool-card">
+                <h4>Search Engine Sources</h4>
+                <ul class="feature-list">
+                    <li>Google</li>
+                    <li>Bing</li>
+                    <li>Baidu</li>
+                    <li>DuckDuckGo</li>
+                    <li>Yahoo</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="professional">
+            <div class="tool-card">
+                <h4>Professional/Social Sources</h4>
+                <ul class="feature-list">
+                    <li>LinkedIn</li>
+                    <li>Twitter</li>
+                    <li>Hunter.io</li>
+                    <li>Github</li>
+                    <li>GitLab</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="threat-intel">
+            <div class="tool-card">
+                <h4>Threat Intelligence Sources</h4>
+                <ul class="feature-list">
+                    <li>Shodan</li>
+                    <li>Censys</li>
+                    <li>SecurityTrails</li>
+                    <li>Threatcrowd</li>
+                    <li>VirusTotal</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <h3 class="section-title">Live Demo</h3>
+    
+    <div class="tool-card">
+        <div class="terminal">
+            <div class="terminal-header">
+                <span>Terminal</span>
+                <div class="terminal-buttons">
+                    <div class="terminal-button red"></div>
+                    <div class="terminal-button yellow"></div>
+                    <div class="terminal-button green"></div>
+                </div>
+            </div>
+            <p class="typed-text">$ theHarvester -d example.com -b google,bing,linkedin</p>
+            <div class="output-text" id="demo-output">
+*******************************************************************
+*  _   _                                            _             *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __|  _ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester 4.2.0                                              *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*                                                                 *
+*******************************************************************
+
+[*] Target: example.com
+
+[*] Searching Google...
+    Searching 0 results.
+    Searching 100 results.
+    Searching 200 results.
+    
+[*] Searching Bing...
+    Searching 50 results.
+    Searching 100 results.
+    
+[*] Searching LinkedIn...
+    Searching 50 results.
+    Searching 100 results.
+
+[*] ASNS found: 15169
+[*] Saving results to XML and JSON files
+
+[*] Hosts found: 5
+----------------------
+blog.example.com
+dev.example.com
+mail.example.com
+support.example.com
+www.example.com
+
+[*] Emails found: 3
+----------------------
+admin@example.com
+info@example.com
+support@example.com
+
+[*] Possible usernames found: 2
+----------------------
+j.smith
+r.johnson
+
+[*] Scan completed in 00:01:35
+            </div>
+        </div>
+        <button class="run-demo" id="startDemo">Run Demo</button>
+    </div>
+    
+    <h3 class="section-title">Common Usage Examples</h3>
+    
+    <div class="tool-card">
+        <h4>Basic Domain Search</h4>
+        <div class="terminal">
+            <p>$ theHarvester -d company.com -b all</p>
+        </div>
+        <p>This command searches for information about "company.com" across all available data sources.</p>
+    </div>
+    
+    <div class="tool-card">
+        <h4>Limited Source Search with Results Limit</h4>
+        <div class="terminal">
+            <p>$ theHarvester -d company.com -b google,linkedin -l 500</p>
+        </div>
+        <p>Searches only Google and LinkedIn with a limit of 500 results.</p>
+    </div>
+    
+    <div class="tool-card">
+        <h4>Search with DNS Brute Force</h4>
+        <div class="terminal">
+            <p>$ theHarvester -d company.com -b google -c -n</p>
+        </div>
+        <p>Searches Google, performs DNS brute force (-c) and resolves the found subdomains to IP addresses (-n).</p>
+    </div>
+    
+    <h3 class="section-title">Integrating theHarvester into Your Security Workflow</h3>
+    
+    <div class="tool-card">
+        <p>theHarvester is most effective when integrated into a comprehensive security assessment workflow:</p>
+        <ol>
+            <li><strong>Initial Reconnaissance:</strong> Use theHarvester to gather publicly available information</li>
+            <li><strong>Data Analysis:</strong> Review collected data to identify potential entry points</li>
+            <li><strong>Targeted Testing:</strong> Focus security testing on discovered assets and endpoints</li>
+            <li><strong>Report Generation:</strong> Include findings as part of your broader security assessment</li>
+        </ol>
+    </div>
+    
+    <h3 class="section-title">Security Considerations</h3>
+    
+    <div class="tool-card">
+        <p>While theHarvester is a powerful tool for security professionals, it's important to use it ethically and legally:</p>
+        <ul class="feature-list">
+            <li>Always obtain proper authorization before conducting reconnaissance</li>
+            <li>Respect rate limits of search engines and APIs</li>
+            <li>Use the tool only on systems you own or have explicit permission to test</li>
+            <li>Be aware that some data gathering techniques may violate terms of service</li>
+        </ul>
+    </div>
+    
+    <a href="mailto:cyber@parlar.uk" class="contact-btn">Need a Professional Pentest? Contact Us</a>
 </section>
-
-
-
 
 <footer class=footer-godark>
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
@@ -44,7 +443,65 @@
         navToggle.addEventListener('click', () => {
             navLinksGodark.classList.toggle('active');
         });
-    })
+        
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Terminal demo functionality
+        const startDemoButton = document.getElementById('startDemo');
+        const demoOutput = document.getElementById('demo-output');
+        
+        startDemoButton.addEventListener('click', () => {
+            startDemoButton.disabled = true;
+            startDemoButton.textContent = 'Running...';
+            
+            // Show the output with typing effect
+            demoOutput.style.display = 'block';
+            let lines = demoOutput.textContent.split('\n');
+            demoOutput.textContent = '';
+            
+            let lineIndex = 0;
+            let charIndex = 0;
+            
+            function typeNextCharacter() {
+                if (lineIndex < lines.length) {
+                    if (charIndex === 0) {
+                        if (lineIndex > 0) demoOutput.textContent += '\n';
+                    }
+                    
+                    if (charIndex < lines[lineIndex].length) {
+                        demoOutput.textContent += lines[lineIndex].charAt(charIndex);
+                        charIndex++;
+                        setTimeout(typeNextCharacter, 5);
+                    } else {
+                        lineIndex++;
+                        charIndex = 0;
+                        setTimeout(typeNextCharacter, 50);
+                    }
+                } else {
+                    startDemoButton.textContent = 'Run Again';
+                    startDemoButton.disabled = false;
+                }
+            }
+            
+            typeNextCharacter();
+        });
+    });
 </script>
 
 </body>

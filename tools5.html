@@ -8,6 +8,268 @@
     <link rel="icon" href="P-favicon.png" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Wireshark Integrated Styles - Modified for Dark Theme */
+        .tool-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .tool-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://www.wireshark.org/assets/theme-2015/images/wireshark-logo.png') no-repeat center;
+            background-size: contain;
+            padding: 80px 0;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .packet-animation {
+            height: 400px;
+            background-color: #111;
+            border-radius: 10px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+            border: 1px solid #333;
+        }
+        
+        .packet {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: packet-move 8s infinite;
+            box-shadow: 0 0 10px #ff0000;
+        }
+        
+        @keyframes packet-move {
+            0% { left: 0; top: 50%; opacity: 0; }
+            5% { opacity: 1; }
+            45% { left: 95%; top: 50%; opacity: 1; }
+            50% { opacity: 0; }
+            55% { left: 95%; top: 80%; opacity: 1; }
+            95% { left: 5%; top: 80%; opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .feature-card {
+            background-color: #0a0a0a;
+            border-left: 4px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255,0,0,0.2);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .demo-container {
+            background-color: #0a0a0a;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 40px 0;
+            position: relative;
+            border: 1px solid #333;
+        }
+        
+        .demo-window {
+            background-color: #000;
+            border-radius: 5px;
+            padding: 10px;
+            font-family: monospace;
+            text-align: left;
+            height: 300px;
+            overflow: auto;
+            border: 1px solid #333;
+        }
+        
+        .demo-window pre {
+            color: #00ff00;
+            margin: 0;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            background-color: #0a0a0a;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .tab.active {
+            background-color: #ff0000;
+            border-color: #ff0000;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .counter-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ff0000;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.5);
+        }
+        
+        .animated-text {
+            background: linear-gradient(90deg, #ff0000, #ff6b6b, #ff0000);
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 2s linear infinite;
+        }
+        
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+        
+        /* Mini animation for tool preview */
+        .mini-packet-animation {
+            height: 150px;
+            background-color: #111;
+            border-radius: 5px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .mini-packet {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            animation: mini-packet-move 4s infinite;
+            box-shadow: 0 0 5px #ff0000;
+        }
+        
+        @keyframes mini-packet-move {
+            0% { left: 0; top: 50%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { left: 100%; top: 50%; opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .view-tool-btn {
+            display: inline-block;
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .view-tool-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+        
+        .tool-header {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #333;
+        }
+        
+        /* Enhanced list styling */
+        .feature-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+        }
+        
+        .feature-list li:before {
+            content: "•";
+            color: #ff0000;
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
 
@@ -25,12 +287,180 @@
 </nav>
 
 <section class="content-godark" id="theory">
-    <h2>COMING SOON</h2>
-    <p></p>
+    <h2>WIRESHARK</h2>
+    <p>The World's Leading Network Protocol Analyzer</p>
 </section>
 
+<!-- Wireshark Tool Full Content -->
+<div class="tool-section">
+    <div class="tool-hero" data-aos="fade-up">
+        <h1><span class="animated-text">Wireshark</span></h1>
+        <h2>The World's Leading Network Protocol Analyzer</h2>
+        <p>Dive deep into network traffic analysis with the most powerful open-source packet sniffer</p>
+    </div>
+    
+    <section data-aos="fade-up" data-aos-delay="100">
+        <h2>What is Wireshark?</h2>
+        <p>Wireshark is a free and open-source packet analyzer used for network troubleshooting, analysis, software and communications protocol development, and education. It lets you see what's happening on your network at a microscopic level.</p>
+        
+        <div class="packet-animation">
+            <div class="packet" style="animation-delay: 0s;"></div>
+            <div class="packet" style="animation-delay: 1s;"></div>
+            <div class="packet" style="animation-delay: 2s;"></div>
+            <div class="packet" style="animation-delay: 3s;"></div>
+            <div class="packet" style="animation-delay: 4s;"></div>
+        </div>
+    </section>
+    
+    <section data-aos="fade-up">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature-card" data-aos="fade-right" data-aos-delay="100">
+                <h3><i class="fas fa-search"></i> Deep Packet Inspection</h3>
+                <p>Examine hundreds of protocols, with more being added all the time. Wireshark dissects protocol structures to reveal every bit and byte of network communication.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-left" data-aos-delay="200">
+                <h3><i class="fas fa-filter"></i> Powerful Filtering</h3>
+                <p>Create complex display filters to isolate the traffic you're interested in. Zero in on specific packets with Wireshark's robust filtering language.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-right" data-aos-delay="300">
+                <h3><i class="fas fa-chart-line"></i> Live Capture & Analysis</h3>
+                <p>Capture packets in real-time from various network interfaces including Ethernet, IEEE 802.11, Bluetooth, and more. Watch traffic as it flows.</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-left" data-aos-delay="400">
+                <h3><i class="fas fa-file-export"></i> Export Capabilities</h3>
+                <p>Save captured packet data in multiple formats. Generate detailed reports and statistics from your captured traffic.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section data-aos="fade-up">
+        <h2>Wireshark in Action</h2>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="openTab(event, 'capture')">Capturing Traffic</button>
+            <button class="tab" onclick="openTab(event, 'analyze')">Analyzing Packets</button>
+            <button class="tab" onclick="openTab(event, 'filter')">Filtering Techniques</button>
+        </div>
+        
+        <div id="capture" class="tab-content active">
+            <div class="demo-container" data-aos="zoom-in">
+                <h3>Live Traffic Capture</h3>
+                <div class="demo-window">
+                    <pre id="capture-output">
+# Starting Wireshark capture on interface eth0
+> sudo wireshark -i eth0 -k
 
+# Capturing packets...
+No.     Time           Source                Destination           Protocol Length Info
+1       0.000000000    192.168.1.5           8.8.8.8              DNS      83     Standard query 0x1a2b A www.example.com
+2       0.034512000    8.8.8.8               192.168.1.5           DNS      99     Standard query response 0x1a2b A www.example.com A 93.184.216.34
+3       0.035102000    192.168.1.5           93.184.216.34        TCP      74     52361 → 80 [SYN] Seq=0 Win=64240 Len=0 MSS=1460 WS=8
+4       0.075698000    93.184.216.34        192.168.1.5           TCP      74     80 → 52361 [SYN, ACK] Seq=0 Ack=1 Win=65535 Len=0 MSS=1460 WS=8
+5       0.075823000    192.168.1.5           93.184.216.34        TCP      66     52361 → 80 [ACK] Seq=1 Ack=1 Win=64240 Len=0
+6       0.076102000    192.168.1.5           93.184.216.34        HTTP     162    GET / HTTP/1.1
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <div id="analyze" class="tab-content">
+            <div class="demo-container" data-aos="zoom-in">
+                <h3>Packet Analysis</h3>
+                <div class="demo-window">
+                    <pre id="analyze-output">
+Frame 6: 162 bytes on wire (1296 bits), 162 bytes captured
+Ethernet II, Src: Dell_1a:2b:3c (00:25:64:1a:2b:3c), Dst: Cisco_4d:5e:6f (00:18:ba:4d:5e:6f)
+Internet Protocol Version 4, Src: 192.168.1.5, Dst: 93.184.216.34
+Transmission Control Protocol, Src Port: 52361, Dst Port: 80, Seq: 1, Ack: 1
+Hypertext Transfer Protocol
+    GET / HTTP/1.1\r\n
+    Host: www.example.com\r\n
+    User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36\r\n
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\r\n
+    Accept-Language: en-US,en;q=0.5\r\n
+    Connection: keep-alive\r\n
+    \r\n
+                    </pre>
+                </div>
+            </div>
+        </div>
+        
+        <div id="filter" class="tab-content">
+            <div class="demo-container" data-aos="zoom-in">
+                <h3>Advanced Filtering</h3>
+                <div class="demo-window">
+                    <pre id="filter-output">
+# Common Wireshark Display Filters
 
+# Filter for HTTP traffic
+http
+
+# Filter for a specific host
+ip.addr == 192.168.1.5
+
+# Filter for DNS traffic
+dns
+
+# Filter for failed HTTP requests
+http.response.code >= 400
+
+# Filter for specific protocols
+tcp.port == 443 or tcp.port == 80
+
+# Complex filter example
+(ip.src == 192.168.1.5 and ip.dst == 8.8.8.8) and dns
+
+# Exclude certain traffic
+!(arp or icmp)
+
+# Filter by conversation
+tcp.stream eq 1
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section data-aos="fade-up">
+        <h2>Why Learn Wireshark?</h2>
+        
+        <div class="counter-container">
+            <div class="counter-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="counter" data-count="2000">0</div>
+                <p>Supported Protocols</p>
+            </div>
+            <div class="counter-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="counter" data-count="500">0</div>
+                <p>Million Downloads</p>
+            </div>
+            <div class="counter-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="counter" data-count="25">0</div>
+                <p>Years of Development</p>
+            </div>
+        </div>
+        
+        <p>Wireshark is an essential tool for network administrators, security professionals, developers, and anyone interested in understanding how networks operate. It provides unparalleled visibility into network communications.</p>
+        
+        <h3>Common Use Cases:</h3>
+        <ul class="feature-list">
+            <li>Troubleshooting network problems</li>
+            <li>Examining security issues</li>
+            <li>Debugging protocol implementations</li>
+            <li>Learning network protocol internals</li>
+            <li>Network forensics and penetration testing</li>
+        </ul>
+    </section>
+    
+    <section data-aos="fade-up">
+        <h2>Ready to Master Wireshark?</h2>
+        <p>Contact our experts for training sessions and consulting on advanced network analysis techniques.</p>
+        <a href="mailto:cyber@parlar.uk" class="contact-btn"><i class="fas fa-envelope"></i> Contact Us</a>
+    </section>
+</div>
 
 <footer class=footer-godark>
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
@@ -44,8 +474,72 @@
         navToggle.addEventListener('click', () => {
             navLinksGodark.classList.toggle('active');
         });
-    })
+        
+        // Add more packet elements dynamically
+        const packetAnimation = document.querySelector('.packet-animation');
+        if (packetAnimation) {
+            for (let i = 0; i < 15; i++) {
+                const packet = document.createElement('div');
+                packet.className = 'packet';
+                packet.style.animationDelay = (Math.random() * 8) + 's';
+                packet.style.top = (Math.random() * 80 + 10) + '%';
+                packetAnimation.appendChild(packet);
+            }
+        }
+        
+        // Counter animation
+        setTimeout(animateCounters, 1000);
+    });
+    
+    // Tab functionality
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+        }
+        tablinks = document.getElementsByClassName("tab");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).className += " active";
+        evt.currentTarget.className += " active";
+    }
+    
+    // Counter animation
+    function animateCounters() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+        
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-count');
+            const increment = target / speed;
+            
+            let count = 0;
+            const updateCount = () => {
+                if (count < target) {
+                    count += increment;
+                    counter.innerText = Math.ceil(count);
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            
+            updateCount();
+        });
+    }
 </script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        easing: 'ease',
+        once: true
+    });
+</script>
+<!-- Link to Wireshark demo script -->
+<script src="wireshark-demos.js"></script>
 
 </body>
 </html>
