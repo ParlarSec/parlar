@@ -4,11 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about NMAP - The Network Mapper tool for security professionals.">
-    <title>NMAP - PARLAR</title>
+    <title>PARLAR | NMAP</title>
     <link rel="icon" href="P-favicon.png" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
-    <style>
+    <style>/* CSS Styles */
+        #security-assessment {
+            padding: 40px 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .assessment-container {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+        }
+        
+        .assessment-text {
+            color: #ffffff !important;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #f00, #f08);
+            color: #ffffff !important;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-block;
+            animation: pulse 2s infinite;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .cta-button:hover {
+            background: linear-gradient(135deg, #f08, #f00);
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
         /* Custom styles for NMAP page */
         .content-godark {
             text-align: center;
@@ -48,7 +97,7 @@
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
         }
         
-        .network-visualization {
+        .network-visualisation {
             height: 100%;
             width: 100%;
             display: flex;
@@ -231,8 +280,8 @@
             <p>Nmap (Network Mapper) is an open-source utility for network discovery and security auditing. Security professionals worldwide use it for network inventory, managing service upgrade schedules, and monitoring host or service uptime.</p>
             
             <div class="interactive-demo">
-                <div class="network-visualization">
-                    <!-- Network visualization will be rendered here by JavaScript -->
+                <div class="network-visualisation">
+                    <!-- Network visualisation will be rendered here by JavaScript -->
                 </div>
             </div>
             
@@ -332,11 +381,11 @@
     
     <div id="wireshark" class="tab-content">
         <div class="nmap-section">
-            <h3>Analyzing NMAP Scans with Wireshark</h3>
+            <h3>Analysing NMAP Scans with Wireshark</h3>
             <p>Wireshark provides deep visibility into NMAP's network interaction, revealing scan techniques and target responses.</p>
             
             <div class="wireshark-container">
-                <h4>TCP SYN Scan Visualization</h4>
+                <h4>TCP SYN Scan Visualisation</h4>
                 <div class="wireshark-animation" id="syn-scan-animation">
                     <div class="packet" style="animation-delay: 0s;"></div>
                     <div class="packet" style="animation-delay: 0.5s;"></div>
@@ -375,13 +424,15 @@
             </div>
         </div>
     </div>
-    
-    <div class="nmap-section">
-        <h3>Ready to Learn More?</h3>
-        <p style="margin-bottom: 20px;">Contact our team for personalized training on NMAP and other security tools</p>
-        <a href="mailto:cyber@parlar.uk" class="contact-button" style="color: #ffffff; text-decoration: none;">Contact Us</a>
-    </div>
+    <section class="content-godark" id="security-assessment">    
+        <div class="assessment-container">
+            <p class="assessment-text">Ready to elevate your security posture?</p>
+            <a href="mailto:cyber@parlar.uk" class="cta-button">Request A Cyber Security Assessment</a>
+        </div>
+    </section>
+
 </section>
+
 
 <footer class=footer-godark>
     <p>&copy; 2077 PARLAR Hacking Corp. All rights reserved.</p>
@@ -414,10 +465,10 @@
             });
         });
         
-        // Network visualization
-        const networkViz = document.querySelector('.network-visualization');
+        // Network visualisation
+        const networkViz = document.querySelector('.network-visualisation');
         if (networkViz) {
-            createNetworkVisualization(networkViz);
+            createNetworkVisualisation(networkViz);
         }
         
         // Packet animation
@@ -427,7 +478,7 @@
         }
     });
     
-    function createNetworkVisualization(container) {
+    function createNetworkVisualisation(container) {
         // Simulate network devices and connections with adjusted positions
         const devices = [
             { type: 'server', x: 150, y: 200 },

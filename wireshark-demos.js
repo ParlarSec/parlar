@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     simulateLiveCapture('capture-output');
   }
   
-  // Add interactive packet visualization
+  // Add interactive packet visualisation
   initPacketVisualizer();
 });
 

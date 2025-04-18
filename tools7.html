@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Learn about Sn1per - The automated reconnaissance scanner for penetration testers.">
-    <title>Sn1per - PARLAR</title>
+    <title>PARLAR | Sn1per</title>
     <link rel="icon" href="P-favicon.png" type="image/jpeg">
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
@@ -141,7 +141,7 @@
             animation: fadeIn 0.5s;
         }
         
-        .scanner-visualization {
+        .scanner-visualisation {
             position: relative;
             height: 400px;
             border: 2px solid #ff0000;
@@ -887,9 +887,9 @@
                 <p class="reveal-text revealed">Sn1per is an automated reconnaissance scanner that collects data about websites, IP addresses, networks, ports, services, vulnerabilities, operating systems, and more. It combines various security tools into a single, powerful framework.</p>
             </div>
             
-            <div class="scanner-visualization">
+            <div class="scanner-visualisation">
                 <div class="target-network" id="target-network">
-                    <!-- Network visualization will be rendered here by JavaScript -->
+                    <!-- Network visualisation will be rendered here by JavaScript -->
                 </div>
                 
                 <div class="scan-progress">
@@ -988,7 +988,7 @@
                 <li>Whatweb - Web technology identification</li>
                 <li>Dirsearch - Directory brute forcing</li>
                 <li>SQLmap - SQL injection testing</li>
-                <li>SSLyze - SSL/TLS testing</li>
+                <li>SSLyse - SSL/TLS testing</li>
                 <li>DNSrecon - DNS enumeration</li>
                 <li>Masscan - Mass IP port scanner</li>
                 <li>Sublist3r - Subdomain enumeration</li>
@@ -1097,7 +1097,7 @@
         
         <div class="sniper-section">
             <h3>Network Traffic Analysis with Wireshark</h3>
-            <p>Sn1per's scans generate distinctive network patterns that can be analyzed with Wireshark</p>
+            <p>Sn1per's scans generate distinctive network patterns that can be analysed with Wireshark</p>
             
             <div class="wireshark-container">
                 <h4>Sn1per Port Scan Detection</h4>
@@ -1228,8 +1228,8 @@ recon(){
 }
             </div>
             
-            <h4>Performance Optimization</h4>
-            <p>Sn1per implements several technical optimizations to balance thoroughness with speed:</p>
+            <h4>Performance Optimisation</h4>
+            <p>Sn1per implements several technical optimisations to balance thoroughness with speed:</p>
             <ul style="text-align: left; max-width: 800px; margin: 0 auto;">
                 <li><strong>Adaptive Timing:</strong> Dynamically adjusts scan timing based on network latency and target responsiveness</li>
                 <li><strong>Resource Management:</strong> Implements process monitoring to prevent system resource exhaustion</li>
@@ -1306,7 +1306,7 @@ validateTarget(){
                 <div class="architecture-container" style="justify-content: center;">
                     <div class="architecture-box" style="width: 400px;">
                         <strong>Report Generation</strong>
-                        <p>Data Analysis & Visualization</p>
+                        <p>Data Analysis & Visualisation</p>
                     </div>
                 </div>
             </div>
@@ -1464,7 +1464,7 @@ validateTarget(){
                 </div>
                 
                 <div style="width: 48%; text-align: left;">
-                    <h5>Use Case Optimization</h5>
+                    <h5>Use Case Optimisation</h5>
                     <ul>
                         <li><strong>Penetration Testing:</strong> Best for initial reconnaissance phase</li>
                         <li><strong>Red Team Operations:</strong> Excels at stealth mode for avoiding detection</li>
@@ -1479,7 +1479,7 @@ validateTarget(){
             <div class="technical-diagram">
                 <h5>Scan Completion Time (Lower is Better)</h5>
                 <div style="height: 300px; position: relative;">
-                    <!-- Simple bar chart visualization -->
+                    <!-- Simple bar chart visualisation -->
                     <div style="position: absolute; bottom: 0; left: 10%; width: 15%; height: 40%; background-color: #ff0000;">
                         <div style="position: absolute; bottom: -30px; text-align: center; width: 100%;">Sn1per</div>
                         <div style="position: absolute; top: -25px; text-align: center; width: 100%;">12m</div>
@@ -1515,7 +1515,7 @@ validateTarget(){
                         <li><strong>Scope Definition:</strong> Define target boundaries and acceptable scanning parameters</li>
                         <li><strong>Mode Selection:</strong> Choose appropriate scanning mode based on target sensitivity</li>
                         <li><strong>Resource Allocation:</strong> Ensure sufficient system resources for comprehensive scanning</li>
-                        <li><strong>Legal Compliance:</strong> Verify authorization to scan all target systems</li>
+                        <li><strong>Legal Compliance:</strong> Verify authorisation to scan all target systems</li>
                     </ol>
                 </div>
                 
@@ -1523,9 +1523,9 @@ validateTarget(){
                     <h4>Post-Scan Analysis</h4>
                     <ol>
                         <li><strong>Findings Verification:</strong> Manually verify critical findings to eliminate false positives</li>
-                        <li><strong>Risk Contextualization:</strong> Evaluate vulnerability impact within target environment</li>
+                        <li><strong>Risk Contextualisation:</strong> Evaluate vulnerability impact within target environment</li>
                         <li><strong>Attack Chain Mapping:</strong> Identify potential attack paths through discovered vulnerabilities</li>
-                        <li><strong>Remediation Prioritization:</strong> Develop risk-based approach to addressing findings</li>
+                        <li><strong>Remediation Prioritisation:</strong> Develop risk-based approach to addressing findings</li>
                     </ol>
                 </div>
             </div>
@@ -1687,10 +1687,10 @@ validateTarget(){
         
         updateScanProgress();
         
-        // Network visualization
+        // Network visualisation
         const networkViz = document.getElementById('target-network');
         if (networkViz) {
-            createNetworkVisualization(networkViz);
+            createNetworkVisualisation(networkViz);
         }
         
         // Packet animations
@@ -1744,7 +1744,7 @@ validateTarget(){
         setTimeout(addScanLine, 2000);
     });
     
-    function createNetworkVisualization(container) {
+    function createNetworkVisualisation(container) {
         // Simulation parameters
         const width = container.clientWidth;
         const height = container.clientHeight;
@@ -1981,7 +1981,7 @@ validateTarget(){
         }
         
         if (mode === 'port') {
-            // Create port scan visualization (lots of small packets)
+            // Create port scan visualisation (lots of small packets)
             for (let i = 0; i < 20; i++) {
                 const packet = document.createElement('div');
                 packet.className = 'packet';
@@ -1995,7 +1995,7 @@ validateTarget(){
                 addPacketInfoRow(container, true);
             }
         } else if (mode === 'web') {
-            // Create web scan visualization (fewer, larger packets)
+            // Create web scan visualisation (fewer, larger packets)
             for (let i = 0; i < 8; i++) {
                 const packet = document.createElement('div');
                 packet.className = 'packet';
