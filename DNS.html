@@ -123,6 +123,124 @@
       @media (max-width: 600px) {
         .hero-content { padding: 2rem 0.5rem; }
         .hero h1 { font-size: 2rem; }
+        .dns-hero-content { padding: 2rem 0.5rem; }
+        .dns-hero h1 { font-size: 1.5rem; }
+        #dns-checker {
+          padding: 1rem 0.2rem;
+          max-width: 99%;
+          
+        }
+        .dns-checker-container {
+          padding: 1rem 0.2rem;
+          max-width: 99%;
+        }
+        .dns-form {
+          display: flex;
+          flex-direction: column;
+          gap: 0.7rem;
+        }
+        #domain-input, #record-type, #check-dns-btn {
+          width: 100%;
+          box-sizing: border-box;
+          font-size: 1rem;
+        }
+        .dkim-input-container {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        .dkim-input-container input, .dkim-input-container button {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+        .selectors-list, .quick-selectors {
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        .selector-chip {
+          margin-bottom: 6px;
+        }
+        .record-item, .recommendation-item {
+          padding: 0.7rem 0.5rem;
+          font-size: 0.98rem;
+          max-width: 100%;
+        }
+        .tabs {
+          flex-direction: column;
+          align-items: stretch;
+          border-bottom-width: 1px;
+        }
+        .tab-btn {
+          font-size: 1rem;
+          padding: 0.5rem 0.2rem;
+          width: 100%;
+        }
+        .tab-content h3 {
+          font-size: 1.1rem;
+        }
+        #raw-data {
+          font-size: 0.9rem;
+          padding: 0.5rem;
+        }
+      }
+      @media (max-width: 400px) {
+        .hero-content { padding: 0.5rem 0.05rem; margin: 0; }
+        .hero { min-height: 220px; padding: 0; margin: 0; }
+        .hero h1 { font-size: 1.1rem; word-break: break-word; }
+        .hero .subtitle { font-size: 0.8rem; word-break: break-word; }
+        .dns-hero-content { padding: 0.5rem 0.05rem; margin: 0; }
+        .dns-hero { min-height: 120px; padding: 0; margin: 0; }
+        .dns-hero h1 { font-size: 0.85rem; word-break: break-word; }
+        .dns-hero .subtitle { font-size: 0.75rem; word-break: break-word; }
+        #dns-checker {
+          font-size: 0.85rem;
+          word-break: break-word;
+        }
+        .dns-checker-container {
+          padding: 0.1rem 0;
+          margin: 0;
+          font-size: 0.85rem;
+          word-break: break-word;
+        }
+        main, section, footer, header {
+          padding: 0;
+          margin: 0;
+        }
+        .dns-form {
+          gap: 0.3rem;
+        }
+        #domain-input, #record-type, #check-dns-btn {
+          font-size: 0.85rem;
+          min-width: 0;
+          width: 100%;
+        }
+        .dkim-input-container input, .dkim-input-container button {
+          font-size: 0.85rem;
+          min-width: 0;
+          width: 100%;
+        }
+        .record-item, .recommendation-item {
+          padding: 0.1rem 0;
+          font-size: 0.85rem;
+          word-break: break-word;
+          max-width: 100vw;
+          overflow-x: auto;
+        }
+        .record-item p, .record-item div, .record-item .record-value {
+          word-break: break-word;
+          overflow-wrap: break-word;
+          white-space: pre-wrap;
+          max-width: 98vw;
+          box-sizing: border-box;
+        }
+        .record-value {
+          overflow-x: auto;
+          max-width: 98vw;
+        }
+        /* Ensure all text wraps and doesn't overflow */
+        p, h1, h2, h3, h4, h5, h6, label, span, div {
+          word-break: break-word;
+          overflow-wrap: break-word;
+        }
       }
       body {
         background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
@@ -186,8 +304,8 @@
       }
       /* Sharper card effect for DNS checker */
       #dns-checker {
-        margin: 2.5rem auto 0 auto;
-        max-width: 80%;
+        margin: 1.5rem auto 0 auto;
+        max-width: 90%;
         background: rgba(10, 30, 40, 0.97);
         border-radius: 16px;
         border: 2px solid #00f0ff;
@@ -1013,45 +1131,44 @@
                recordsList.appendChild(recordElement);
             });
          }
-        }
+      } // <-- Add this closing brace here
+
+      // Display recommendations
+      if (data.recommendations.length === 0) {
+        recommendationsList.innerHTML = '<p style="text-align: center;">No recommendations available.</p>';
+      } else {
+        // Center the recommendations list container itself
+        recommendationsList.style.textAlign = 'center';
         
-        // Display recommendations
-        if (data.recommendations.length === 0) {
-          recommendationsList.innerHTML = '<p style="text-align: center;">No recommendations available.</p>';
-        } else {
-          // Center the recommendations list container itself
-          recommendationsList.style.textAlign = 'center';
+        data.recommendations.forEach(rec => {
+          const recElement = document.createElement('div');
+          recElement.className = 'recommendation-item';
           
-          data.recommendations.forEach(rec => {
-            const recElement = document.createElement('div');
-            recElement.className = 'recommendation-item';
-            
-            let iconClass = 'info';
-            let icon = 'ℹ️';
-            
-            if (rec.severity === 'error') {
-               iconClass = 'error';
-               icon = '⚠️';
-            } else if (rec.severity === 'warning') {
-               iconClass = 'warning';
-               icon = '⚠️';
-            } else if (rec.severity === 'success') {
-               iconClass = 'success';
-               icon = '✅';
-            }
-            
-            recElement.innerHTML = `
-               <div class="recommendation-icon ${iconClass}">${icon}</div>
-               <div class="recommendation-content">
-                  <h4>${rec.title}</h4>
-                  <p>${rec.description}</p>
-                  <p><strong>Recommendation:</strong><br>${rec.recommendation}</p>
-               </div>
-            `;
-            
-            recommendationsList.appendChild(recElement);
-         });
-        }
+          let iconClass = 'info';
+          let icon = 'ℹ️';
+          
+          if (rec.severity === 'error') {
+             iconClass = 'error';
+             icon = '⚠️';
+          } else if (rec.severity === 'warning') {
+             iconClass = 'warning';
+             icon = '⚠️';
+          } else if (rec.severity === 'success') {
+             iconClass = 'success';
+             icon = '✅';
+          }
+          
+          recElement.innerHTML = `
+             <div class="recommendation-icon ${iconClass}">${icon}</div>
+             <div class="recommendation-content">
+                <h4>${rec.title}</h4>
+                <p>${rec.description}</p>
+                <p><strong>Recommendation:</strong><br>${rec.recommendation}</p>
+             </div>
+          `;
+          
+          recommendationsList.appendChild(recElement);
+       });
       }
       
       // Append styles for record types
@@ -1117,6 +1234,7 @@
           }
         });
       });
+   }
     </script>
 </body>
 </html>

@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="theme-color" content="#10151a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harry Clack's Cyber Security & Tech Blog. Insights, guides, and opinion pieces on the modern security landscape.">
-    <title>PARLAR | Cyber Security Blog</title>
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | Personal Journey</title>
     <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
-    <link rel="preload" href="fonts/MajorMonoDisplay.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
     <style>
@@ -184,35 +183,23 @@
         }
       }
       @media (max-width: 600px) {
-        .main-content {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "sidebar"
-            "about"
-            "blog";
-          gap: 2rem;
-          padding: 0 1rem;
-        }
-        .sidebar, .about-section, .blog-section {
-          max-width: 100%;
-          width: 100%;
-        }
+        .main-content { padding: 0 0.2rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
         .hero h1 { font-size: 2rem; }
       }
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation -->
     <header class="site-header">
         <nav class="navbar" aria-label="Main navigation">
             <a href="index.html" class="logo">PARLAR</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Cyber Security. <span style="color:#fff;">Unfiltered.</span></h1>
+            <h1>Personal <span style="color:#fff;">Journey</span></h1>
             <p class="subtitle">
                 
             </p>
@@ -221,31 +208,72 @@
     </section>
 
     <main class="main-content">
-        <!-- Sidebar -->
+              <!-- Sidebar -->
         <aside class="sidebar">
             <div class="profile-card">
                 <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
                 <h2>Harry Clack</h2>
                 <p>
-                  Technical Consultant, Cyber Enthusiast, and Malware Researcher.<br>
-                  I break down complex security topics, share actionable advice, and help you defend what matters.
+                  Just a guy who switched careers from Large Format Print, Graphics and Design to IT 3+ years ago. <br><br>
+                  Positions held: <br>
+                  <ul>
+                    Cloud Technician (1st & 2nd Line) <br>
+                    IT Operations Engineer<br>
+                    Techinal Support Engineer (2nd Line)<br>
+                  </ul>
+                  <br>
+                  <p>Accreditations: </p>
+                  <ul>
+                     Security Blue Team Level 1 Certified<br><br>
+
+                     CompTIA Secure Infrastructure Specialist<br>
+                     CompTIA IT Operations Specialist<br>
+                     CompTIA A+ Certified<br>
+                     CompTIA Network+ Certified<br>
+                     CompTIA Security+ Certified<br><br>
+
+                     Microsoft: Azure Fundamentals - AZ-900<br><br>
+
+                     Addigy Academy Basics Certified<br>
+                     IRONSCALES Technical Accreditation<br>
+                     Perimeter 81 Technical Certification <br>
+                     Kaseya: Remote IT & Security Management Program <br><br>
+
+                     CrowdStrike Courses Completed:<br>
+                     CSU LP-A: Falcon Administrator<br>
+                     CSU LP-H: Threat Hunter<br>
+                     CSU LP-R: Incident Responder<br><br>
+                  </ul>
                 </p>
             </div>
-            <nav class="sidebar-nav" id="categories">
-                <h3>Categories</h3>
-                <ul>
-                    <li><a href="opinionPieces.html">Opinion Pieces</a></li>
-                    <li><a href="comingSoon.html">Research</a></li>
-                    <li><a href="comingSoon.html">Security Tools</a></li>
-                    <li><a href="personalJourney.html">Personal Journey</a></li>
-                    <li><a href="DNS.html">DNS Checker</a></li>
-                </ul>
-            </nav>
         </aside>
-        <!-- Blog Section (center column) -->
+       <!-- Blog Section (center column) -->
         <section class="blog-section" id="blog">
-            <h2>Latest Posts</h2>
-            <div class="blog-cards">            
+            <h2>Latest Journey Posts</h2>
+            <div class="blog-cards">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <a href="leaf1.html">
+                        <img src="img/blog/29170.JPEG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Grass is Greener</h3>
+                            <p class="blog-meta">July 2022</p>
+                            <p>Is the grass greener on the other side of the fence? Some say the grass is greener where you water it.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <a href="leaf2.html">
+                        <img src="img/blog/6574.JPEG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Next Chapter: IT Ops</h3>
+                            <p class="blog-meta">January 2024</p>
+                            <p>So… it has been a hot minute since my last blog, but I have been quite busy and I have news. Today, as I write this, marks 18 months in IT.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 3 -->
                 <article class="blog-card">
                     <a href="leaf3.html">
                         <img src="img/blog/6581.JPEG" class="blog-thumb">
@@ -256,6 +284,7 @@
                         </div>
                     </a>
                 </article>
+                <!-- Blog Card 4 -->
                 <article class="blog-card">
                     <a href="leaf4.html">
                         <img src="img/blog/202.jpg" class="blog-thumb">
@@ -266,13 +295,14 @@
                         </div>
                     </a>
                 </article>
+                <!-- Blog Card 5 -->
                 <article class="blog-card">
                     <a href="leaf5.html">
                         <img src="img/blog/xt200 (1188)a.JPG" class="blog-thumb">
                         <div class="blog-info">
                             <h3>6 Months: 24/7 Engineer</h3>
                             <p class="blog-meta">July 2025</p>
-                            <p>So, I am now 6 months into my new role at Krome Technologies, and I have to say it has really surprised me.</p>
+                            <p>So, I am now 6 months into my new role at Krome Technoligies, and I have to say it has really surprised me.</p>
                         </div>
                     </a>
                 </article>
@@ -280,23 +310,19 @@
         </section>
         <!-- About Section (right column) -->
         <section class="about-section" id="about">
-            <h2>About This Blog</h2>
+            <h2>WHOAMI</h2>
             <p>
-                PARLAR is a no-nonsense cyber security blog focused on real-world defense, threat intelligence, and practical security for everyone. Whether you're a blue teamer, a business owner, or just want to stay safe online, you'll find guides, stories, and resources here.
-            </p>
-            <p>
-              Mainly just my opinions though!
-            </p>
-            <p>
-              <br><br>
-            </p>
+                Started out my working life as a signwriter and that was a nice challenge for a while but then my mind started to wonder, started to ponder on what I really wanted to be doing, what I am interested in, like what is my passion. I always need something new to listen to and in 2020/2021, twas the age of Ransomware, there was seemingly always another breach making headlines. This peaked my interest and I sort after any kind of podcast that could tell me more about these cyber incidents. We've all seen hackers in the movies, but I wanted to understand the real thing. The real, stripped back, drawn-out, long-form, boring binaries that made up cyber incidents. I wanted to know the who, the what, the where, the when, the why and most importantly the how. With this in mind, it was only a matter of time before I found two Podcasts by the name of Hacked and Darknet Diaries. It really was listening to these that took my fleeting fascination and turned it into a burning passion.
             <blockquote>
-                "Security is a journey of awareness—not perfection. It's about understanding your risks, making thoughtful choices, and adapting as threats evolve."
+                My favourite Darknet diaries episodes:<br><br>
+                Ep 29: Stuxnet - Arguably the most sophisticated malware ever used on the biggest stage, International Cyber Warfare. The didn't use one 0day, they didn't use two, they used four 0day bugs. Thats like winning the lottery 4 times... in a row! Madness. <br><br>
+                Ep 35: Carbanak - Russian hacking group infiltrate a bank and the financial software that transfers billions daily. To then steal $1,000,000,000 for themselves.<br><br>
+                64: The Athens Shadow Games - Vodafone Greece embroiled in an illegal wiretapping scandal while they host the Olympics in 2004. Then a year later the Network Planning manager at Vodafone who discovered the wiretap was found dead a year later. First thought to be suicide but later confirmed to have been murdered. The case remains "Unsolved".<br><br>
             </blockquote>
         </section>
+      
     </main>
 
-    <!-- Contact & Footer -->
     <footer class="site-footer" id="contact">
         <div class="footer-content">
             <div>
@@ -306,5 +332,7 @@
         </div>
         <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
     </footer>
+
+    
 </body>
 </html>
