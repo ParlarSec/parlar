@@ -184,8 +184,19 @@
         }
       }
       @media (max-width: 600px) {
-        .main-content { padding: 0 0.2rem; }
-        .about-section { padding: 1.2rem 0.2rem; }
+        .main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "sidebar"
+            "about"
+            "blog";
+          gap: 2rem;
+          padding: 0 1rem;
+        }
+        .sidebar, .about-section, .blog-section {
+          max-width: 100%;
+          width: 100%;
+        }
         .hero h1 { font-size: 2rem; }
       }
     </style>
