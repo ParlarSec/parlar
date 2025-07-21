@@ -1020,7 +1020,7 @@ body {
 }
 
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
+  .hero h1 { font-size: 1rem; }
   .hero-content { padding: 0 0.5rem; }
   .main-content { padding: 0 0.2rem; }
   .about-section { padding: 1.2rem 0.2rem; }
@@ -1042,8 +1042,8 @@ body {
   }
 }
 
-@media (max-width: 400px) {
-  .hero h1 { font-size: 1.2rem; }
+@media (max-width: 300px) {
+  .hero h1 { font-size: 1rem; }
   .hero .subtitle { font-size: 1rem; }
   .cta-btn { font-size: 0.95rem; padding: 0.7rem 1.2rem; }
   .profile-img { width: 60px; height: 60px; }
