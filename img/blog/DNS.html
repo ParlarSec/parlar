@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | DNS Checker</title>
+    <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+      /* Cybersecurity color scheme and neon grid effect */
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #b8ffe3;
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      .cta-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 24px #00ffea44;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .cta-btn:hover, .cta-btn:focus {
+        background: #0a0f1a;
+        color: #0ff;
+        outline: 2px solid #0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .profile-card, .blog-card, .about-section {
+        background: rgba(10, 30, 40, 0.92);
+        backdrop-filter: blur(10px) saturate(160%);
+        border: 1.5px solid #0ff3;
+        box-shadow: 0 2px 24px #00ffea11;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px #00ffea55;
+        border-color: #0ff;
+      }
+      .sidebar-nav a {
+        position: relative;
+      }
+      .sidebar-nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #0ff;
+        transition: width 0.2s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+      .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+        width: 100%;
+      }
+      @font-face {
+        font-family: "MajorMonoDisplay";
+        src: url("fonts/MajorMonoDisplay.woff2") format("woff2"),
+             url("fonts/MajorMonoDisplay.woff") format("woff"),
+             url("fonts/MajorMonoDisplay.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @media (max-width: 600px) {
+        .hero-content { padding: 2rem 0.5rem; }
+        .hero h1 { font-size: 2rem; }
+      }
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .dns-hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 2px 24px #00ffea22;
+      }
+      .dns-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .dns-hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .dns-hero h1 {
+        font-size: 2.3rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+        margin-bottom: 0.7rem;
+      }
+      .dns-hero .subtitle {
+        font-size: 1.15rem;
+        color: #b8ffe3;
+        margin: 1.2rem auto 1.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      @media (max-width: 600px) {
+        .dns-hero-content { padding: 2rem 0.5rem; }
+        .dns-hero h1 { font-size: 1.5rem; }
+      }
+      /* Sharper card effect for DNS checker */
+      #dns-checker {
+        margin: 2.5rem auto 0 auto;
+        max-width: 80%;
+        background: rgba(10, 30, 40, 0.97);
+        border-radius: 16px;
+        border: 2px solid #00f0ff;
+        box-shadow: 0 4px 32px #00ffea55, 0 1.5px 0 #00f0ff inset;
+        padding: 2.5rem 1.5rem;
+        color: #e5e7eb;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        position: relative;
+        
+      }
+      #dns-checker h2 {
+        font-family: "MajorMonoDisplay", monospace;
+        color: #00f0ff;
+        font-size: 2rem;
+        margin-bottom: 0.7rem;
+        letter-spacing: 1px;
+        text-shadow: 0 0 12px #00f0ff44;
+      }
+      #dns-checker p {
+        color: #b5c2ce;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+      .dns-checker-container {
+        background: #10151a;
+        border-radius: 12px;
+        padding: 2rem 1rem;
+        box-shadow: 0 2px 24px #00ffea22;
+        border: 1.5px solid #00f0ff44;
+        margin: 0 auto;
+        max-width: 90%;
+      }
+      /* Sharper neon border for focus */
+      #domain-input:focus, #record-type:focus, .dkim-input-container input:focus {
+        border-color: #00f0ff;
+        box-shadow: 0 0 0 2px #00f0ff88;
+      }
+      #check-dns-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 2px 12px #00f0ff33;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        font-family: inherit;
+        padding: 0.9rem 2rem;
+      }
+      #check-dns-btn:hover, #check-dns-btn:focus {
+        background: #10151a;
+        color: #00f0ff;
+        outline: 2px solid #00f0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      /* Sharper record/recommendation cards */
+      .record-item, .recommendation-item {
+        background: #151c22;
+        border-radius: 10px;
+        border: 1.5px solid #00f0ff33;
+        box-shadow: 0 2px 16px #00f0ff22;
+        margin: 1.2rem auto;
+        padding: 1.2rem 1rem;
+        max-width: 95%;
+        color: #e5e7eb;
+      }
+      .record-item h4, .recommendation-content h4 {
+        color: #00f0ff;
+        font-family: "MajorMonoDisplay", monospace;
+        margin-bottom: 0.5rem;
+        text-shadow: 0 0 8px #00f0ff44;
+      }
+      .record-value {
+        font-family: "Consolas", monospace;
+        background: #10151a;
+        padding: 0.7rem 1rem;
+        border-radius: 6px;
+        border: 1px solid #00f0ff22;
+        color: #b5c2ce;
+        margin: 0.5rem 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+        font-size: 0.98rem;
+      }
+      /* Sharper tab effect */
+      .tabs {
+        border-bottom: 2px solid #00f0ff33;
+        margin-bottom: 1rem;
+      }
+      .tab-btn.active, .tab-btn:hover {
+        background: #10151a;
+        color: #00f0ff;
+        border-bottom: 2.5px solid #00f0ff;
+        font-weight: bold;
+      }
+      /* Responsive */
+      @media (max-width: 700px) {
+        #dns-checker { padding: 1.2rem 0.5rem; }
+        .dns-checker-container { padding: 1rem 0.2rem; }
+      }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="logo">PARLAR</a>
+        </nav>
+    </header>
+
+        <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>DNS <span style="color:#fff;">Checker</span></h1>
+            <p class="subtitle">
+                
+            </p>
+            <a style="display: none;" href="#blog" class="cta-btn">Randomise</a>
+        </div>
+    </section>
+
+    <main>
+      <section id="dns-checker">
+        <div class="dns-checker-container">
+          <div class="dns-form">
+            <input type="text" id="domain-input" placeholder="Enter domain (e.g., example.com)" />
+            <select id="record-type">
+              <option value="ALL">All Records</option>
+              <option value="A">A Record</option>
+              <option value="AAAA">AAAA Record</option>
+              <option value="CNAME">CNAME Record</option>
+              <option value="MX">MX Record</option>
+              <option value="TXT">TXT Record</option>
+              <option value="NS">NS Record</option>
+              <option value="SOA">SOA Record</option>
+              <option value="DNSKEY">DNSKEY Record</option>
+              <option value="DS">DS Record</option>
+              <option value="DMARC">DMARC Record</option>
+              <option value="SPF">SPF Record</option>
+              <option value="DKIM">DKIM Record</option>
+            </select>
+            <button id="check-dns-btn">Check DNS</button>
+          </div>
+          <div id="api-message" class="message-box hidden">
+            <p><strong>DNS API Access Required</strong></p>
+            <p>This tool uses a public DNS API for lookups. Select a different provider if the current one isn't responding.</p>
+            <select id="dns-api-select">
+              <option value="cloudflare">Cloudflare DNS API</option>
+              <option value="google">Google DNS API</option>
+            </select>
+          </div>
+          <div class="dkim-selector hidden">
+            <p>Enter DKIM selector (e.g., default, google, mail):</p>
+            <div class="dkim-input-container">
+              <input type="text" id="dkim-selector-input" placeholder="Enter DKIM selector" value="default" />
+              <button id="add-selector-btn">Add</button>
+            </div>
+            <div id="dkim-selectors-list" class="selectors-list"></div>
+            <div class="common-selectors">
+              <p>Common selectors by service (click to add):</p>
+              <div class="selector-groups">
+                <div class="selector-group">
+                  <div class="selector-group-name">Google Workspace:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="google">google</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">Common formats:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="selector1">selector1</span>
+                    <span class="quick-selector" data-selector="selector2">selector2</span>
+                    <span class="quick-selector" data-selector="k1">k1</span>
+                    <span class="quick-selector" data-selector="k2">k2</span>
+                    <span class="quick-selector" data-selector="s1">s1</span>
+                    <span class="quick-selector" data-selector="s2">s2</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">ProtonMail:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="protonmail">protonmail</span>
+                    <span class="quick-selector" data-selector="protonmail1">protonmail1</span>
+                    <span class="quick-selector" data-selector="protonmail2">protonmail2</span>
+                    <span class="quick-selector" data-selector="protonmail3">protonmail3</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">Constant Contact:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="ctct1">ctct1</span>
+                    <span class="quick-selector" data-selector="ctct2">ctct2</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">Zendesk:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="zendesk1">zendesk1</span>
+                    <span class="quick-selector" data-selector="zendesk2">zendesk2</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">Apple iCloud:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="sig1">sig1</span>
+                  </div>
+                </div>
+                <div class="selector-group">
+                  <div class="selector-group-name">Other services:</div>
+                  <div class="quick-selectors">
+                    <span class="quick-selector" data-selector="default">default</span>
+                    <span class="quick-selector" data-selector="mail">mail</span>
+                    <span class="quick-selector" data-selector="email">email</span>
+                    <span class="quick-selector" data-selector="dkim">dkim</span>
+                    <span class="quick-selector" data-selector="litesrv">litesrv</span>
+                    <span class="quick-selector" data-selector="sm">sm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="loading-spinner" class="hidden">
+            <div class="spinner"></div>
+            <p>Analysing DNS records...</p>
+          </div>
+          <div id="dns-results" class="hidden">
+            <div class="tabs">
+              <button class="tab-btn active" data-tab="records">DNS Records</button>
+              <button class="tab-btn" data-tab="recommendations">Recommendations</button>
+              <button class="tab-btn" data-tab="raw">Raw Data</button>
+            </div>
+            <div class="tab-content active" id="records-tab">
+              <h3>DNS Records</h3>
+              <div id="records-list"></div>
+            </div>
+            <div class="tab-content" id="recommendations-tab">
+              <h3>Security Recommendations</h3>
+              <div id="recommendations-list"></div>
+            </div>
+            <div class="tab-content" id="raw-tab">
+              <h3>Raw DNS Data</h3>
+              <pre id="raw-data"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // DOM references
+      const domainInput = document.getElementById('domain-input');
+      const recordTypeSelect = document.getElementById('record-type');
+      const checkDnsBtn = document.getElementById('check-dns-btn');
+      const loadingSpinner = document.getElementById('loading-spinner');
+      const dnsResults = document.getElementById('dns-results');
+      const recordsList = document.getElementById('records-list');
+      const recommendationsList = document.getElementById('recommendations-list');
+      const rawData = document.getElementById('raw-data');
+      const dkimSelectorInput = document.getElementById('dkim-selector-input');
+      const addSelectorBtn = document.getElementById('add-selector-btn');
+      const dkimSelectorsList = document.getElementById('dkim-selectors-list');
+      const dkimSelectorSection = document.querySelector('.dkim-selector');
+      const apiMessage = document.getElementById('api-message');
+      const dnsApiSelect = document.getElementById('dns-api-select');
+
+      // State
+      let dkimSelectors = ['default'];
+      let dnsApi = {
+        provider: 'cloudflare',
+        endpoints: {
+          cloudflare: 'https://cloudflare-dns.com/dns-query',
+          google: 'https://dns.google/resolve'
+        }
+      };
+
+      // Helper to render DKIM selectors
+      function renderDkimSelectors() {
+        dkimSelectorsList.innerHTML = '';
+        dkimSelectors.forEach(sel => {
+          const el = document.createElement('span');
+          el.textContent = sel;
+          el.className = 'selector-chip';
+          el.style.marginRight = '8px';
+          el.style.background = '#00f0ff22';
+          el.style.padding = '2px 8px';
+          el.style.borderRadius = '6px';
+          el.style.cursor = 'pointer';
+          el.title = 'Click to remove';
+          el.onclick = () => {
+            dkimSelectors = dkimSelectors.filter(s => s !== sel);
+            renderDkimSelectors();
+          };
+          dkimSelectorsList.appendChild(el);
+        });
+      }
+      renderDkimSelectors();
+
+      // Show/hide DKIM selector input based on record type
+      recordTypeSelect.addEventListener('change', () => {
+        if (recordTypeSelect.value === 'DKIM') {
+          dkimSelectorSection.classList.remove('hidden');
+        } else {
+          dkimSelectorSection.classList.add('hidden');
+        }
+      });
+
+      // Add DKIM selector
+      addSelectorBtn.addEventListener('click', () => {
+        const val = dkimSelectorInput.value.trim();
+        if (val && !dkimSelectors.includes(val)) {
+          dkimSelectors.push(val);
+          renderDkimSelectors();
+          dkimSelectorInput.value = '';
+        }
+      });
+
+      // DNS API provider switch
+      dnsApiSelect.addEventListener('change', () => {
+        dnsApi.provider = dnsApiSelect.value;
+      });
+
+      // DNS check button
+      checkDnsBtn.addEventListener('click', async () => {
+        const domain = domainInput.value.trim();
+        const recordType = recordTypeSelect.value;
+        if (!domain) {
+          alert('Please enter a domain.');
+          return;
+        }
+        loadingSpinner.classList.remove('hidden');
+        dnsResults.classList.add('hidden');
+        apiMessage.classList.add('hidden');
+        try {
+          const data = await fetchDnsData(domain, recordType);
+          displayDnsResults(data);
+          dnsResults.classList.remove('hidden');
+        } catch (e) {
+          apiMessage.classList.remove('hidden');
+        } finally {
+          loadingSpinner.classList.add('hidden');
+        }
+      });
+
+      // Tab switching
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+          this.classList.add('active');
+          document.getElementById(this.dataset.tab + '-tab').classList.add('active');
+        });
+      });
+      
+      async function fetchDnsData(domain, recordType) {
+         try {
+            let records = [];
+            let types = [];
+            
+            // Determine which types to query based on user selection
+            if (recordType === 'ALL' || recordType === 'A') {
+               types.push('A');
+            }
+            if (recordType === 'ALL' || recordType === 'AAAA') {
+               types.push('AAAA');
+            }
+            if (recordType === 'ALL' || recordType === 'CNAME') {
+               types.push('CNAME');
+            }
+            if (recordType === 'ALL' || recordType === 'MX') {
+               types.push('MX');
+            }
+            if (recordType === 'ALL' || recordType === 'NS') {
+               types.push('NS');
+            }
+            if (recordType === 'ALL' || recordType === 'SOA') {
+               types.push('SOA');
+            }
+            if (recordType === 'ALL' || recordType === 'TXT' || recordType === 'SPF') {
+               types.push('TXT');
+            }
+            
+            // Special handling for DMARC
+            if (recordType === 'ALL' || recordType === 'DMARC') {
+               const dmarcDomain = `_dmarc.${domain}`;
+               await fetchRecordType(dmarcDomain, 'TXT', records, 'DMARC');
+            }
+            
+            // Special handling for DKIM
+            if (recordType === 'ALL' || recordType === 'DKIM') {
+               let dkimFound = false;
+               
+               // Create a progress indicator for multiple DKIM checks
+               if (dkimSelectors.length > 3 && recordType === 'DKIM') {
+                  const progressNote = document.createElement('div');
+                  progressNote.className = 'message-box';
+                  progressNote.innerHTML = '<p>Checking multiple DKIM selectors. This may take a moment...</p>';
+                  loadingSpinner.insertAdjacentElement('afterend', progressNote);
+                  
+                  // Remove after DKIM checks complete
+                  setTimeout(() => {
+                     progressNote.remove();
+                  }, dkimSelectors.length * 500);
+               }
+               
+               for (const selector of dkimSelectors) {
+                  const dkimDomain = `${selector}._domainkey.${domain}`;
+                  const result = await fetchRecordType(dkimDomain, 'TXT', records, 'DKIM');
+                  
+                  // Check if a valid DKIM record was found
+                  const validDkimFound = result.some(r => 
+                     r.purpose === 'DKIM' && 
+                     r.value.includes('v=DKIM1') && 
+                     !r.status
+                  );
+                  
+                  if (validDkimFound) {
+                     dkimFound = true;
+                  }
+               }
+               
+               // Provide a general note if no DKIM records found with any selector
+               if (!dkimFound) {
+                  records.push({
+                     type: 'TXT',
+                     name: `hostname: *._domainkey`,
+                     value: 'No valid DKIM records found with the provided selectors. Try adding common selectors like "default", "google", "selector1", or "selector2".',
+                     ttl: 0,
+                     purpose: 'DKIM',
+                     status: 'info'
+                  });
+               }
+            }
+            
+            // Fetch standard record types
+            for (const type of types) {
+               if (!(recordType === 'DKIM' && type === 'TXT') && 
+                   !(recordType === 'DMARC' && type === 'TXT')) {
+                  await fetchRecordType(domain, type, records);
+               }
+            }
+            
+            // Generate recommendations based on real records
+            const recommendations = generateRecommendations(records, domain);
+            
+            return {
+               domain: domain,
+               records: records,
+               recommendations: recommendations
+            };
+         } catch (error) {
+            console.error("Error in fetchDnsData:", error);
+            throw error;
+         }
+      }
+      
+      async function fetchRecordType(domain, type, recordsArray, purpose = null) {
+         try {
+            // Select API endpoint based on current provider
+            const endpoint = dnsApi.endpoints[dnsApi.provider];
+            const searchParams = new URLSearchParams({
+               name: domain,
+               type: type
+            });
+            
+            let url;
+            let options = {};
+            
+            if (dnsApi.provider === 'cloudflare') {
+               url = endpoint;
+               options = {
+                  method: 'GET',
+                  headers: {
+                     'Accept': 'application/dns-json'
+                  }
+               };
+               
+               // Add search params to URL for Cloudflare
+               url = `${url}?${searchParams.toString()}`;
+            } else {
+               // Google DNS API
+               url = `${endpoint}?${searchParams.toString()}`;
+            }
+            
+            // Add a timeout to prevent hanging requests
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            options.signal = controller.signal;
+            
+            const response = await fetch(url, options);
+            clearTimeout(timeoutId);
+            
+            if (!response.ok) {
+               throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data && data.Answer && data.Answer.length > 0) {
+               data.Answer.forEach(answer => {
+                  // Convert the record data based on type
+                  let recordValue = answer.data;
+                  let recordPriority = null;
+                  
+                  // Remove quotes from TXT records if present
+                  if (type === 'TXT' && recordValue.startsWith('"') && recordValue.endsWith('"')) {
+                     recordValue = recordValue.slice(1, -1);
+                  }
+                  
+                  // Handle multi-segment TXT records by removing quotes and spaces
+                  if (type === 'TXT' && recordValue.includes('" "')) {
+                     recordValue = recordValue.replace(/"\s+"/g, '');
+                  }
+                  
+                  // Format MX records
+                  if (type === 'MX' && recordValue.includes(' ')) {
+                     const parts = recordValue.split(' ');
+                     recordPriority = parseInt(parts[0], 10);
+                     recordValue = parts.slice(1).join(' ');
+                  }
+                  
+                  // Detect and mark special records
+                  let recordPurpose = purpose;
+                  if (!recordPurpose && type === 'TXT') {
+                     if (recordValue.includes('v=spf1')) {
+                        recordPurpose = 'SPF';
+                     } else if (domain.startsWith('_dmarc.') && recordValue.includes('v=DMARC1')) {
+                        recordPurpose = 'DMARC';
+                     } else if (domain.includes('._domainkey.') && recordValue.includes('v=DKIM1')) {
+                        recordPurpose = 'DKIM';
+                     }
+                  }
+                  
+                  // Add to records array
+                  recordsArray.push({
+                     type: type,
+                     name: domain,
+                     value: recordValue,
+                     ttl: answer.TTL,
+                     priority: recordPriority,
+                     purpose: recordPurpose
+                  });
+               });
+            } else if (data && data.Status === 3) { // NXDOMAIN status
+               // Add record with "not found" status only for DKIM/DMARC
+               if (purpose === 'DKIM' || purpose === 'DMARC') {
+                  recordsArray.push({
+                     type: type,
+                     name: domain,
+                     value: `No record found (NXDomain)`,
+                     ttl: 0,
+                     purpose: purpose,
+                     status: 'missing'
+                  });
+               }
+            } else if (data && data.Status !== 0) {
+               // Add record with failure status
+               recordsArray.push({
+                  type: type,
+                  name: domain,
+                  value: `No record found (Status: ${data.Status})`,
+                  ttl: 0,
+                  purpose: purpose,
+                  status: 'missing'
+               });
+            }
+            
+            return recordsArray;
+         } catch (error) {
+            console.error(`Error fetching ${type} records for ${domain}:`, error);
+            
+            // Add record with error
+            recordsArray.push({
+               type: type,
+               name: domain,
+               value: `Error: ${error.message}`,
+               ttl: 0,
+               status: 'error',
+               purpose: purpose
+            });
+            
+            return recordsArray;
+         }
+      }
+      
+      function generateRecommendations(records, domain) {
+         const recommendations = [];
+         
+         // Check for SPF record
+         const spfRecord = records.find(r => r.type === 'TXT' && r.value.includes('v=spf1'));
+         if (!spfRecord) {
+            recommendations.push({
+               severity: 'error',
+               title: 'Missing SPF Record',
+               description: 'Your domain lacks an SPF record, which helps prevent email spoofing.',
+               recommendation: 'Add a TXT record with a value like: v=spf1 mx ip4:YOUR_SERVER_IP -all'
+            });
+         } else if (spfRecord.value.includes('~all')) {
+            recommendations.push({
+               severity: 'warning',
+               title: 'Soft-fail SPF Policy',
+               description: 'Your SPF record uses a soft fail (~all) instead of a hard fail.',
+               recommendation: 'Consider changing ~all to -all for stronger protection against email spoofing.'
+            });
+         } else if (spfRecord.value.includes('-all')) {
+            recommendations.push({
+               severity: 'success',
+               title: 'Strong SPF Policy',
+               description: 'Your domain has a properly configured SPF record with a hard fail policy.',
+               recommendation: 'Maintain this configuration and regularly review authorized senders.'
+            });
+         }
+         
+         // Check for DMARC record
+         const dmarcRecord = records.find(r => r.type === 'TXT' && r.name.startsWith('_dmarc.') && r.value.includes('v=DMARC1'));
+         if (!dmarcRecord) {
+            recommendations.push({
+               severity: 'error',
+               title: 'Missing DMARC Record',
+               description: 'Your domain lacks a DMARC record, which adds another layer of email authentication.',
+               recommendation: 'Add a TXT record at _dmarc.' + domain + ' with a value like: v=DMARC1; p=none; rua=mailto:dmarc@' + domain
+            });
+         } else if (dmarcRecord.value.includes('p=none')) {
+            recommendations.push({
+               severity: 'warning',
+               title: 'DMARC Monitor Only Mode',
+               description: 'Your DMARC policy is set to none (monitoring mode only).',
+               recommendation: 'After monitoring for a while, consider increasing protection by changing to p=quarantine or p=reject.'
+            });
+         } else if (dmarcRecord.value.includes('p=quarantine') || dmarcRecord.value.includes('p=reject')) {
+            recommendations.push({
+               severity: 'success',
+               title: 'Strong DMARC Policy',
+               description: 'Your domain has an enforced DMARC policy, which provides good email protection.',
+               recommendation: 'Continue monitoring DMARC reports for any legitimate email delivery issues.'
+            });
+         }
+         
+         // Check for DKIM records
+         const dkimRecords = records.filter(r => 
+            r.type === 'TXT' && 
+            r.name.includes('._domainkey.') && 
+            r.value.includes('v=DKIM1') &&
+            !r.status // Only count valid records
+         );
+         
+         const dkimMissingRecords = records.filter(r => 
+            r.purpose === 'DKIM' && 
+            r.status === 'missing'
+         );
+         
+         // Check DKIM setup
+         if (dkimRecords.length === 0) {
+            recommendations.push({
+               severity: 'error',
+               title: 'Missing DKIM Records',
+               description: 'Your domain lacks DKIM records, which are essential for email authentication.',
+               recommendation: `Implement DKIM by generating key pairs and adding TXT records with selectors at hostname: *._domainkey. Common selectors include "default", "google", "selector1", or "selector2".`
+            });
+         } else {
+            // Check for DKIM key strength
+            let weakKeyFound = false;
+            let keyWithoutVersion = false;
+            
+            dkimRecords.forEach(record => {
+               // Check if p= value exists and is too short (weak key)
+               const pMatch = record.value.match(/p=([A-Za-z0-9+/=]+)/);
+               if (pMatch) {
+                  const keyLength = pMatch[1].length;
+                  if (keyLength < 300) { // Approximate check for weak keys
+                     weakKeyFound = true;
+                  }
+               } else {
+                  keyWithoutVersion = true;
+               }
+            });
+            
+            if (weakKeyFound) {
+               recommendations.push({
+                  severity: 'warning',
+                  title: 'Weak DKIM Key',
+                  description: 'One or more of your DKIM keys appears to be using an older, less secure key length.',
+                  recommendation: 'Update your DKIM keys to use at least 2048-bit RSA keys for stronger security.'
+               });
+            } else if (keyWithoutVersion) {
+               recommendations.push({
+                  severity: 'warning',
+                  title: 'Malformed DKIM Record',
+                  description: 'One or more DKIM records appear to be missing the public key value.',
+                  recommendation: 'Check your DKIM record format. It should contain "v=DKIM1", "k=rsa", and "p=" followed by the public key.'
+               });
+            } else {
+               recommendations.push({
+                  severity: 'success',
+                  title: 'DKIM Records Properly Configured',
+                  description: `Found ${dkimRecords.length} valid DKIM record${dkimRecords.length > 1 ? 's' : ''} for your domain.`,
+                  recommendation: 'Regularly rotate your DKIM keys (recommended every 6-12 months) to maintain security.'
+               });
+            }
+            
+            // If we had missing selectors but some were valid
+            if (dkimMissingRecords.length > 0 && dkimRecords.length > 0) {
+               recommendations.push({
+                  severity: 'info',
+                  title: 'Some DKIM Selectors Not Found',
+                  description: `${dkimMissingRecords.length} DKIM selector${dkimMissingRecords.length > 1 ? 's' : ''} did not return a valid record.`,
+                  recommendation: 'This is not necessarily a problem if those selectors are not used for your email sending services.'
+               });
+            }
+         }
+         
+         // Check for CNAME at apex
+         const cnameAtApex = records.find(r => 
+            r.type === 'CNAME' && 
+            !r.name.includes('.') && 
+            !r.status
+         );
+         
+         if (cnameAtApex) {
+            recommendations.push({
+               severity: 'warning',
+               title: 'CNAME at Domain Apex',
+               description: 'You have a CNAME record at your domain apex (root domain). This is technically not allowed by DNS standards.',
+               recommendation: 'Consider using A records at your domain apex instead of a CNAME. Many DNS providers now offer ANAME/ALIAS record types as alternatives.'
+            });
+         }
+         
+         // Check NS record count for redundancy
+         const nsRecords = records.filter(r => r.type === 'NS');
+         if (nsRecords.length < 2) {
+            recommendations.push({
+               severity: 'warning',
+               title: 'Limited Name Server Redundancy',
+               description: 'Your domain has fewer than 2 name servers, which reduces DNS redundancy.',
+               recommendation: 'Add at least one more name server to improve reliability and fault tolerance.'
+            });
+         }
+         
+         // Additional generic recommendations
+         recommendations.push({
+            severity: 'info',
+            title: 'Consider DNSSEC Implementation',
+            description: 'DNSSEC adds cryptographic signatures to DNS records to prevent tampering.',
+            recommendation: 'Contact your domain registrar about enabling DNSSEC for your domain.'
+         });
+         
+         return recommendations;
+      }
+      
+      function displayDnsResults(data) {
+        // Clear previous results
+        recordsList.innerHTML = '';
+        recommendationsList.innerHTML = '';
+        rawData.textContent = JSON.stringify(data, null, 2);
+        
+        // Display records
+        if (data.records.length === 0) {
+          recordsList.innerHTML = '<p style="text-align: center;">No DNS records found for the selected type.</p>';
+        } else {
+          // Center the records list container itself
+          recordsList.style.textAlign = 'center';
+          
+          // Group records by type for better presentation
+          const recordsByType = {};
+          
+          data.records.forEach(record => {
+            // Skip displaying records marked as missing
+            if (record.status === 'missing') return;
+            
+            const type = record.purpose || record.type;
+            if (!recordsByType[type]) {
+              recordsByType[type] = [];
+            }
+            recordsByType[type].push(record);
+          });
+          
+          // Display records by type
+          for (const [type, typeRecords] of Object.entries(recordsByType)) {
+            const typeHeading = document.createElement('h4');
+            typeHeading.textContent = type;
+            typeHeading.style.marginTop = '20px';
+            typeHeading.style.color = '#00f0ff';
+            typeHeading.style.textAlign = 'center';
+            recordsList.appendChild(typeHeading);
+            
+            typeRecords.forEach(record => {
+               const recordElement = document.createElement('div');
+               recordElement.className = 'record-item';
+               
+               if (record.status === 'error') {
+                  recordElement.classList.add('error-record');
+               } else if (record.status === 'info') {
+                  recordElement.classList.add('info-record');
+               }
+               
+               let recordContent = `
+                  <p><strong>Name:</strong> ${record.name}</p>
+               `;
+               
+               if (record.ttl > 0) {
+                  recordContent += `<p><strong>TTL:</strong> ${record.ttl} seconds</p>`;
+               }
+               
+               recordContent += `
+                  <p><strong>Value:</strong></p>
+                  <div class="record-value">${record.value || "Not found"}</div>
+               `;
+               
+               if (record.priority) {
+                  recordContent += `<p><strong>Priority:</strong> ${record.priority}</p>`;
+               }
+               
+               recordElement.innerHTML = recordContent;
+               recordsList.appendChild(recordElement);
+            });
+         }
+        }
+        
+        // Display recommendations
+        if (data.recommendations.length === 0) {
+          recommendationsList.innerHTML = '<p style="text-align: center;">No recommendations available.</p>';
+        } else {
+          // Center the recommendations list container itself
+          recommendationsList.style.textAlign = 'center';
+          
+          data.recommendations.forEach(rec => {
+            const recElement = document.createElement('div');
+            recElement.className = 'recommendation-item';
+            
+            let iconClass = 'info';
+            let icon = 'ℹ️';
+            
+            if (rec.severity === 'error') {
+               iconClass = 'error';
+               icon = '⚠️';
+            } else if (rec.severity === 'warning') {
+               iconClass = 'warning';
+               icon = '⚠️';
+            } else if (rec.severity === 'success') {
+               iconClass = 'success';
+               icon = '✅';
+            }
+            
+            recElement.innerHTML = `
+               <div class="recommendation-icon ${iconClass}">${icon}</div>
+               <div class="recommendation-content">
+                  <h4>${rec.title}</h4>
+                  <p>${rec.description}</p>
+                  <p><strong>Recommendation:</strong><br>${rec.recommendation}</p>
+               </div>
+            `;
+            
+            recommendationsList.appendChild(recElement);
+         });
+        }
+      }
+      
+      // Append styles for record types
+      const additionalStyles = document.createElement('style');
+      additionalStyles.textContent = `
+         .error-record {
+            border-left: 3px solid #ff4d4d;
+         }
+         
+         .info-record {
+            border-left: 3px solid #00f0ff;
+         }
+         
+         /* Improve record display */
+         .record-value {
+            font-family: monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 8px;
+            border-radius: 4px;
+            overflow-wrap: break-word;
+            white-space: pre-wrap; /* Preserve formatting for long DNS records */
+            max-height: 200px;
+            overflow-y: auto; /* Add scrolling for very long records */
+            text-align: left; /* Keep code content left-aligned for readability */
+         }
+         
+         /* Center tabs */
+         .tabs {
+            justify-content: center;
+         }
+         
+         /* Ensure tab content is centered */
+         .tab-content h3 {
+            text-align: center;
+         }
+         
+         #dns-results {
+            text-align: center;
+         }
+         
+         #raw-tab {
+            text-align: center;
+         }
+         
+         #raw-data {
+            margin: 0 auto;
+            text-align: left; /* Keep raw data left-aligned for readability */
+         }
+      `;
+      document.head.appendChild(additionalStyles);
+      
+      // Add quick selector functionality for DKIM selectors
+      document.querySelectorAll('.quick-selector').forEach(selector => {
+        selector.addEventListener('click', function() {
+          const selectorValue = this.dataset.selector;
+          if (!dkimSelectors.includes(selectorValue)) {
+            dkimSelectors.push(selectorValue);
+            renderDkimSelectors();
+            this.style.backgroundColor = 'rgba(0, 240, 255, 0.3)';
+            setTimeout(() => {
+              this.style.backgroundColor = '';
+            }, 300);
+          }
+        });
+      });
+    </script>
+</body>
+</html>

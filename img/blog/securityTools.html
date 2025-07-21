@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | Security Tools</title>
+    <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+      /* Cybersecurity color scheme and neon grid effect */
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #b8ffe3;
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      .cta-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 24px #00ffea44;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .cta-btn:hover, .cta-btn:focus {
+        background: #0a0f1a;
+        color: #0ff;
+        outline: 2px solid #0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .profile-card, .blog-card, .about-section {
+        background: rgba(10, 30, 40, 0.92);
+        backdrop-filter: blur(10px) saturate(160%);
+        border: 1.5px solid #0ff3;
+        box-shadow: 0 2px 24px #00ffea11;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px #00ffea55;
+        border-color: #0ff;
+      }
+      .sidebar-nav a {
+        position: relative;
+      }
+      .sidebar-nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #0ff;
+        transition: width 0.2s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+      .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+        width: 100%;
+      }
+      @font-face {
+        font-family: "MajorMonoDisplay";
+        src: url("fonts/MajorMonoDisplay.woff2") format("woff2"),
+             url("fonts/MajorMonoDisplay.woff") format("woff"),
+             url("fonts/MajorMonoDisplay.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      .main-content {
+        display: grid;
+        grid-template-columns: 33% 1fr;
+          grid-template-areas:
+            "sidebar blog"
+            "about";
+        grid-template-rows: auto 1fr;
+        max-width: 1200px;
+        margin: 2.5rem auto 0 auto;
+        gap: 2.5rem;
+        padding: 0 2rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-width: 0;
+        align-items: center;
+      }
+      .profile-card, .sidebar-nav {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-section {
+        grid-area: about;
+        background: rgba(16,21,26,0.98);
+        border-radius: 12px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 2px 16px #00f0ff11;
+        flex: 0 1 400px;
+        align-self: flex-start;
+        text-align: center;
+      }
+      .blog-section {
+        grid-area: blog;
+        min-width: 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+      .blog-cards {
+        margin: 0 auto;
+      }
+      @media (max-width: 1100px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "sidebar"
+            "about"
+            "blog";
+          gap: 2rem;
+          padding: 0 1rem;
+        }
+        .sidebar, .about-section, .blog-section {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .main-content { padding: 0 0.2rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
+      }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="logo">PARLAR</a>
+        </nav>
+    </header>
+
+        <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Security <span style="color:#fff;">Tools</span></h1>
+            <p class="subtitle">
+                
+            </p>
+            <a style="display: none;" href="#blog" class="cta-btn">Randomise</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+              <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
+                <h2>Harry Clack</h2>
+                <p>
+                  
+                </p>
+            </div>
+        </aside>
+       <!-- Blog Section (center column) -->
+        <section class="blog-section" id="blog">
+            <h2>Latest Journey Posts</h2>
+            <div class="blog-cards">
+                <!-- Blog Card 1 -->
+                <article class="blog-card">
+                    <a href="leaf1.html">
+                        <img src="img/blog/29170.JPEG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Grass is Greener</h3>
+                            <p class="blog-meta">July 2022</p>
+                            <p>Is the grass greener on the other side of the fence? Some say the grass is greener where you water it.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <a href="leaf2.html">
+                        <img src="img/blog/6574.JPEG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Next Chapter: IT Ops</h3>
+                            <p class="blog-meta">January 2024</p>
+                            <p>So… it has been a hot minute since my last blog, but I have been quite busy and I have news. Today, as I write this, marks 18 months in IT.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <a href="leaf3.html">
+                        <img src="img/blog/6581.JPEG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>A Year in IT Ops</h3>
+                            <p class="blog-meta">January 2025</p>
+                            <p>12 months to the day since starting my role of IT Operations Engineer at CloudTech24 and I feel like the last year has been very kind to me.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 4 -->
+                <article class="blog-card">
+                    <a href="leaf4.html">
+                        <img src="img/blog/202.jpg" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Next Chapter: 24/7 Shift Engineer</h3>
+                            <p class="blog-meta">January 2025</p>
+                            <p>I am set to start my next role in the IT world in the next couple of days: Second Line Technical Support Engineer 24/7 at Krome Technologies.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 5 -->
+                <article class="blog-card">
+                    <a href="leaf5.html">
+                        <img src="img/blog/xt200 (1188)a.JPG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>6 Months: 24/7 Engineer</h3>
+                            <p class="blog-meta">July 2025</p>
+                            <p>So, I am now 6 months into my new role at Krome Technoligies, and I have to say it has really surprised me.</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- About Section (right column) -->
+        <section class="about-section" id="about">
+            <h2>WHOAMI</h2>
+            <p>
+                Started out my working life as a signwriter and that was a nice challenge for a while but then my mind started to wonder, started to ponder on what I really wanted to be doing, what I am interested in, like what is my passion. I always need something new to listen to and in 2020/2021, twas the age of Ransomware, there was seemingly always another breach making headlines. This peaked my interest and I sort after any kind of podcast that could tell me more about these cyber incidents. We've all seen hackers in the movies, but I wanted to understand the real thing. The real, stripped back, drawn-out, long-form, boring binaries that made up cyber incidents. I wanted to know the who, the what, the where, the when, the why and most importantly the how. With this in mind, it was only a matter of time before I found two Podcasts by the name of Hacked and Darknet Diaries. It really was listening to these that took my fleeting fascination and turned it into a burning passion.
+            <blockquote>
+                My favourite Darknet diaries episodes:<br><br>
+                Ep 29: Stuxnet - Arguably the most sophisticated malware ever used on the biggest stage, International Cyber Warfare. The didn't use one 0day, they didn't use two, they used four 0day bugs. Thats like winning the lottery 4 times... in a row! Madness. <br><br>
+                Ep 35: Carbanak - Russian hacking group infiltrate a bank and the financial software that transfers billions daily. To then steal $1,000,000,000 for themselves.<br><br>
+                64: The Athens Shadow Games - Vodafone Greece embroiled in an illegal wiretapping scandal while they host the Olympics in 2004. Then a year later the Network Planning manager at Vodafone who discovered the wiretap was found dead a year later. First thought to be suicide but later confirmed to have been murdered. The case remains "Unsolved".<br><br>
+            </blockquote>
+        </section>
+      
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>
