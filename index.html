@@ -3,237 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cyber Security Solutions for the Future.">
-    <title>PARLAR</title>
-    <link rel="preload" href="./MajorMonoDisplay.woff2" as="font" crossorigin>
-    <link rel="preload" href="./MajorMonoDisplay.woff" as="font" crossorigin>
-    <link rel="preload" href="./MajorMonoDisplay.ttf" as="font" crossorigin>
-    <link rel="icon" href="P-favicon.png" type="image/jpeg">
+    <meta name="description" content="Harry Clack's Cyber Security & Tech Blog. Insights, guides, and opinion pieces on the modern security landscape.">
+    <title>PARLAR | Cyber Security Blog</title>
+    <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
+    <link rel="preload" href="fonts/MajorMonoDisplay.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
+    <style>
+      /* Cybersecurity color scheme and neon grid effect */
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #b8ffe3;
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      .cta-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 24px #00ffea44;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .cta-btn:hover, .cta-btn:focus {
+        background: #0a0f1a;
+        color: #0ff;
+        outline: 2px solid #0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .profile-card, .blog-card, .about-section {
+        background: rgba(10, 30, 40, 0.92);
+        backdrop-filter: blur(10px) saturate(160%);
+        border: 1.5px solid #0ff3;
+        box-shadow: 0 2px 24px #00ffea11;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px #00ffea55;
+        border-color: #0ff;
+      }
+      .sidebar-nav a {
+        position: relative;
+      }
+      .sidebar-nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #0ff;
+        transition: width 0.2s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+      .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+        width: 100%;
+      }
+      @font-face {
+        font-family: "MajorMonoDisplay";
+        src: url("fonts/MajorMonoDisplay.woff2") format("woff2"),
+             url("fonts/MajorMonoDisplay.woff") format("woff"),
+             url("fonts/MajorMonoDisplay.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      .main-content {
+        display: grid;
+        grid-template-columns: 33% 1fr;
+          grid-template-areas:
+            "sidebar blog"
+            "about";
+        grid-template-rows: auto 1fr;
+        max-width: 1200px;
+        margin: 2.5rem auto 0 auto;
+        gap: 2.5rem;
+        padding: 0 2rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-width: 0;
+        align-items: center;
+      }
+      .profile-card, .sidebar-nav {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-section {
+        grid-area: about;
+        background: rgba(16,21,26,0.98);
+        border-radius: 12px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 2px 16px #00f0ff11;
+        flex: 0 1 400px;
+        align-self: flex-start;
+        text-align: center;
+      }
+      .blog-section {
+        grid-area: blog;
+        min-width: 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+      .blog-cards {
+        margin: 0 auto;
+      }
+      @media (max-width: 1100px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "sidebar"
+            "about"
+            "blog";
+          gap: 2rem;
+          padding: 0 1rem;
+        }
+        .sidebar, .about-section, .blog-section {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .main-content { padding: 0 0.2rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
+      }
+    </style>
 </head>
 <body>
+    <!-- Sticky Navigation -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="logo">PARLAR</a>
+        </nav>
+    </header>
 
-<header>
-    <h1>PARLAR</h1>
-    <p>CYBER SECURITY - INFORMATION SECURITY - OPERATIONAL SECURITY</p>
-</header>
-
-<nav>
-    <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="#about">About</a>
-        <a href="#playbook">PlayBook</a>
-        <a href="DNS.html">DNS Checker</a>
-        <a href="#meet-the-team">Meet the Team</a>
-        <a href="godark.html">Go Dark</a>
-    </div>
-</nav>
-
-<section class="hero" id="home">
-    <h2>TAKE BACK CONTROL OF YOUR CYBER SECURITY</h2>
-    <p></p>
-    <button id="startHackBtn">Start Security Scan</button>
-</section>
-
-<section class="content" id="about">
-    <h2>THE MISSION</h2>
-    <p>We are a cyber security collective dedicated to not only securing businesses from evolving cyber threats, but educating those businesses to become more security conscious to help them STAY secure long after we are gone.</p>
-    <p><br></p>
-    <p><i>"Give a man a fish, and you feed him for a day. <br> Teach a man to fish, and you feed him for a lifetime."</i></p>
-    <p><br></p>
-    <p>I mean, sure you could have a dedicated MSSP looking after cyber intrests, but do they take the time to discuss with you all of the techinal jargon that went right over your head?
-        I have been in those situations myself (on both sides) and things move way to quick to be double checking if everyone understands every last point of every meeting. This is where we come in.
-        An independant, impartial third-party that has no intrest in your money... We just want you to be secure! And to be stacked up with understanding so you know what to ask on your next service review with your MSSP.</p>
-    <p><br></p>
-    <p>But in all honesty, this page is not really for corporate businesses that have the money to finance IT support or MDR services, we are for the small to medium size business that do not have resources to aquire such luxury.</p>
-    <p><br></p>
-    <p>If you do not have the "luxury" of having someone else look after your cyber intrests, here are 5 ways you can become more cyber scure:</p>
-    <p><br></p>
-    <h3>Enable Two-Factor Authentication (2FA)</h3>
-    <p>Yes... on every account (personal and work).<br></p>
-    <h3>Use Strong, Unique Passwords</h3>
-    <p>Use a password manager (this does not mean saving your credentials in a browser...).<br></p>
-    <h3>Keep Software Up to Date</h3>
-    <p>This one couldn't be more simple, and it's free! Hit the Windows key, check for updates, and make sure you reboot your machine everyday (or everytime you use it, if it's not daily).<br></p>
-    <h3>Install and Use Antivirus Software</h3>
-    <p>This does not mean Free Antivirus Software... Purchase a dedicated, reputable one.<br></p>
-    <h3>Avoid Clicking on Suspicious Links or Email Attachments</h3>
-    <p>Be cautious when receiving unsolicited emails, links, or attachments, especially from unfamiliar sources. Phishing attacks are common and can compromise your security.<br></p>
-</section>
-
-<style>
-    hr {
-        width: 50%;
-      border: 0;
-      height: 2px;
-      background-color: #00000085;
-    }
-  </style>
-
-<section class="content" id="cyber-conscious">
-    <h2>Why This Matters</h2>
-    <p>Cybersecurity is something we often overlook until something goes wrong. But protecting yourself online isn't just about having the most impenetrable system—it's about not being the most vulnerable. Think of it like locking the doors and windows to your house. If your neighbor leaves their door wide open, the thief might choose them instead of you, simply because it's easier. 
-        Cybercriminals work the same way. They're looking for the path of least resistance, and if they see an account or device that's poorly protected, it becomes an easy target.</p>
-    <p><br></p>
-    <p>It's not about being completely invulnerable—because, in this digital age, that's nearly impossible—but about ensuring you aren't the lowest hanging fruit. You don't want to be the easiest pick for those who are looking to exploit others. Simple steps, like creating strong passwords, enabling two-factor authentication, or being cautious with emails, can make all the difference.</p>
-    <p><br></p>
-    <p>By taking small actions to improve your security, you create a barrier that makes it harder for others to gain access. You're not just safeguarding your personal information; you're also contributing to the broader digital ecosystem's safety. When we all make these efforts, we help reduce the opportunities for cybercriminals to thrive.</p>
-    <p><br></p>
-    <p>In the end, it's about peace of mind. Knowing that you've done what you can to protect yourself means you don't have to worry about falling prey to something preventable. It's not about being perfect; it's about doing enough to make sure you're not the easy target.</p>
-    <p><br></p><p><hr></p><p><br></p>
-    <p><i>If this is resonating with you, check out the next section and see more information as to how you can implement so of the most basic and fundamental cyber security pricipals.</i></p>
-    <p><br></p><p><hr></p><p><br></p>
-</section>
-
-</section>
-
-<section class="content" id="playbook">
-    <h2>PLAYBOOK</h2>
-    <div class="blogs-container">
-        <!-- Blog 1 -->
-        
-        <div class="blog">
-          <a href="playbook1.html"><img src="parlarsecurity-squarelogo-800x800.png" alt="blog photo 1" class="blog-photo"></a>
-          <h4>Enable Two-Factor Authentication (2FA)</h4>
-          <p></p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Cyber Security. <span style="color:#fff;">Unfiltered.</span></h1>
+            <p class="subtitle">
+                
+            </p>
+            <a style="display: none;" href="#blog" class="cta-btn">Randomise</a>
         </div>
-        <!-- Blog 2 -->
-        
-        <div class="blog">
-          <a href="playbook2.html"><img src="parlarsecurity-squarelogo-800x800.png" alt="blog photo 1" class="blog-photo"></a>
-          <h4>Use Strong, Unique Passwords</h4>
-          <p></p>
+    </section>
+
+    <main class="main-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
+                <h2>Harry Clack</h2>
+                <p>
+                  Technical Consultant, Cyber Enthusiast, and Malware Researcher.<br>
+                  I break down complex security topics, share actionable advice, and help you defend what matters.
+                </p>
+            </div>
+            <nav class="sidebar-nav" id="categories">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="opinionPieces.html">Opinion Pieces</a></li>
+                    <li><a href="comingSoon.html">Technical Documentaion</a></li>
+                    <li><a href="comingSoon.html">Security Tools</a></li>
+                    <li><a href="personalJourney.html">Personal Journey</a></li>
+                    <li><a href="DNS.html">DNS Checker</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- Blog Section (center column) -->
+        <section class="blog-section" id="blog">
+            <h2>Latest Posts</h2>
+            <div class="blog-cards">            
+                <article class="blog-card">
+                    <a href="leaf3.html">
+                        <img src="img/blog/6581.jpeg" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>A Year in IT Ops</h3>
+                            <p class="blog-meta">January 2025</p>
+                            <p>12 months to the day since starting my role of IT Operations Engineer at CloudTech24 and I feel like the last year has been very kind to me.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <a href="leaf4.html">
+                        <img src="img/blog/202.JPG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>The Next Chapter: 24/7 Shift Engineer</h3>
+                            <p class="blog-meta">January 2025</p>
+                            <p>I am set to start my next role in the IT world in the next couple of days: Second Line Technical Support Engineer 24/7 at Krome Technologies.</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="blog-card">
+                    <a href="leaf5.html">
+                        <img src="img/blog/xt200 (1188)a.JPG" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>6 Months: 24/7 Engineer</h3>
+                            <p class="blog-meta">July 2025</p>
+                            <p>So, I am now 6 months into my new role at Krome Technoligies, and I have to say it has really surprised me.</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- About Section (right column) -->
+        <section class="about-section" id="about">
+            <h2>About This Blog</h2>
+            <p>
+                PARLAR is a no-nonsense cyber security blog focused on real-world defense, threat intelligence, and practical security for everyone. Whether you're a blue teamer, a business owner, or just want to stay safe online, you'll find guides, stories, and resources here.
+            </p>
+            <p>
+              Mainly just my opinions though!
+            </p>
+            <p>
+              <br><br>
+            </p>
+            <blockquote>
+                "Security is a journey of awareness—not perfection. It's about understanding your risks, making thoughtful choices, and adapting as threats evolve."
+            </blockquote>
+        </section>
+    </main>
+
+    <!-- Contact & Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+            </div>
         </div>
-        <!-- Blog 3 -->
-        
-        <div class="blog">
-          <a href="playbook3.html"><img src="parlarsecurity-squarelogo-800x800.png" alt="blog photo 1" class="blog-photo"></a>
-          <h4>Keep Software Up to Date</h4>
-          <p></p>
-        </div>
-        <!-- Blog 4 -->
-        
-        <div class="blog">
-          <a href="playbook4.html"><img src="parlarsecurity-squarelogo-800x800.png" alt="blog photo 1" class="blog-photo"></a>
-          <h4>Install and Use Antivirus Software</h4>
-          <p></p>
-        </div>
-        <!-- Blog 5 -->
-        
-        <div class="blog">
-          <a href="playbook5.html"><img src="parlarsecurity-squarelogo-800x800.png" alt="blog photo 1" class="blog-photo"></a>
-          <h4>Avoid Clicking on Suspicious Links or Email Attachments</h4>
-          <p></p>
-        </div>
-    
-        
-      </div>
-</section>
-
-<section  class="content" class="meet-the-team" id="meet-the-team">
-    <h2>MEET THE TEAM</h2>
-    <div class="team-container">
-      <!-- Team Member 1 -->
-      
-      <div class="team-member">
-        <a href="harry.html"><img src="headshot4a.jpg" alt="Headshot of Employee 1" class="team-photo"></a>
-        <h3>HARRY CLACK</h3>
-        <p>Harry is our visionary leader at the helm of innovation, he combines deep expertise in cybersecurity with a relentless drive to protect and empower the digital world. 
-            With a strategic mindset and an eye for emerging threats, he transforms complex security challenges into robust solutions that safeguard organisations and inspire trust. 
-            His leadership is rooted in a commitment to resilience, adaptability, and staying ahead of the curve in an ever-evolving cyber landscape. 
-            Under his guidance, the future of cybersecurity isn't just secure—it's transformative.</p>
-      </div>
-  
-      <!-- Team Member 2
-      <div class="team-member">
-        <img src="path-to-image2.jpg" alt="Headshot of Employee 2" class="team-photo">
-        <h3>John Smith</h3>
-        <p>John is a software engineer specializing in backend development, ensuring our systems run smoothly and efficiently.</p>
-      </div> -->
-  
-      <!-- Team Member 3 
-      <div class="team-member">
-        <img src="path-to-image3.jpg" alt="Headshot of Employee 3" class="team-photo">
-        <h3>Sarah Lee</h3>
-        <p>Sarah is our marketing guru, driving campaigns that connect with our audience and deliver results.</p>
-      </div> -->
-  
-      <!-- Team Member 4 
-      <div class="team-member">
-        <img src="path-to-image4.jpg" alt="Headshot of Employee 4" class="team-photo">
-        <h3>Michael Brown</h3>
-        <p>Michael, our project manager, ensures every project is completed on time and exceeds expectations.</p>
-      </div>-->
-    </div>
-</section>
-
-<section class="content" id="contact">
-    <h2>CONTACT US</h2>
-    <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
-</section>
-
-<div id="console" class="console">
-    <pre id="console-output"></pre>
-</div>
-
-<footer>
-    <p>&copy; 2025 PARLAR Cyber Solutions. All rights reserved.</p>
-</footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        const consoleElement = document.getElementById('console');
-        const consoleOutput = document.getElementById('console-output');
-
-        document.getElementById('startHackBtn').addEventListener('click', function () {
-            consoleElement.style.display = 'block';
-            startHackingSimulation();
-        });
-
-        setTimeout(() => {
-            consoleElement.style.display = 'none';
-            consoleOutput.textContent = '';
-        }, 30000);
-
-        function startHackingSimulation() {
-            const messages = [
-                'Scanning network...',
-                'Connection established...',
-                'Analysing system...',
-                'Bypassing security...',
-                'Injecting payload...',
-                'Accessing files...',
-                'Security breach detected!',
-                'Initiating countermeasures...',
-                'Kicking out the bad guys...',
-                'Securing all devices...',
-                'You are now secure.'
-            ];
-
-            let i = 0;
-            const intervalId = setInterval(() => {
-                if (i < messages.length) {
-                    consoleOutput.textContent += '\n' + messages[i];
-                    i++;
-                    consoleOutput.scrollTop = consoleOutput.scrollHeight;
-                } else {
-                    clearInterval(intervalId);
-                    alert("NOTICE: This was a simulated and harmless exercise. The next one might not be. Be safe out there.");
-                    consoleOutput.textContent += '\n[ALERT] SYSTEMS NOW SECURE!';
-                }
-            }, 1500);
-        }
-    });
-</script>
-
+        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+    </footer>
 </body>
 </html>

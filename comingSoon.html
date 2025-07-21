@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Harry Clack's Cyber Security & Tech Blog. Insights, guides, and opinion pieces on the modern security landscape.">
+    <title>PARLAR | Coming Soon</title>
+    <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
+    <link rel="preload" href="fonts/MajorMonoDisplay.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+      /* Cybersecurity color scheme and neon grid effect */
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #b8ffe3;
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      .cta-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 24px #00ffea44;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .cta-btn:hover, .cta-btn:focus {
+        background: #0a0f1a;
+        color: #0ff;
+        outline: 2px solid #0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .profile-card, .blog-card, .about-section {
+        background: rgba(10, 30, 40, 0.92);
+        backdrop-filter: blur(10px) saturate(160%);
+        border: 1.5px solid #0ff3;
+        box-shadow: 0 2px 24px #00ffea11;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px #00ffea55;
+        border-color: #0ff;
+      }
+      .sidebar-nav a {
+        position: relative;
+      }
+      .sidebar-nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #0ff;
+        transition: width 0.2s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+      .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+        width: 100%;
+      }
+      @font-face {
+        font-family: "MajorMonoDisplay";
+        src: url("fonts/MajorMonoDisplay.woff2") format("woff2"),
+             url("fonts/MajorMonoDisplay.woff") format("woff"),
+             url("fonts/MajorMonoDisplay.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      .main-content {
+        display: grid;
+        grid-template-columns: 33% 1fr;
+          grid-template-areas:
+            "sidebar blog"
+            "about";
+        grid-template-rows: auto 1fr;
+        max-width: 1200px;
+        margin: 2.5rem auto 0 auto;
+        gap: 2.5rem;
+        padding: 0 2rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-width: 0;
+        align-items: center;
+      }
+      .profile-card, .sidebar-nav {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-section {
+        grid-area: about;
+        background: rgba(16,21,26,0.98);
+        border-radius: 12px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 2px 16px #00f0ff11;
+        flex: 0 1 400px;
+        align-self: flex-start;
+        text-align: center;
+      }
+      .blog-section {
+        grid-area: blog;
+        min-width: 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+      .blog-cards {
+        margin: 0 auto;
+      }
+      @media (max-width: 1100px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "sidebar"
+            "about"
+            "blog";
+          gap: 2rem;
+          padding: 0 1rem;
+        }
+        .sidebar, .about-section, .blog-section {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .main-content { padding: 0 0.2rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
+      }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="logo">PARLAR</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Coming <span style="color:#fff;">Soon</span></h1>
+            <p class="subtitle">
+                
+            </p>
+            <a style="display: none;" href="#blog" class="cta-btn">Randomise</a>
+        </div>
+    </section>
+
+
+    <!-- Contact & Footer -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | Opinion Pieces</title>
+    <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script>
+    <style>
+      /* Cybersecurity color scheme and neon grid effect */
+      body {
+        background: linear-gradient(135deg, #0a0f1a 0%, #071e2c 100%);
+        min-height: 100vh;
+      }
+      .hero {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(120deg, #0a0f1a 60%, #0ff 100%);
+        min-height: 420px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          120deg,
+          rgba(0,255,170,0.07) 0px,
+          rgba(0,255,170,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        ), repeating-linear-gradient(
+          60deg,
+          rgba(0,255,255,0.07) 0px,
+          rgba(0,255,255,0.07) 1px,
+          transparent 1px,
+          transparent 40px
+        );
+        z-index: 0;
+        pointer-events: none;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+      .hero h1 {
+        font-size: 3.2rem;
+        letter-spacing: 2px;
+        color: #0ff;
+        text-shadow: 0 0 24px #00ffea, 0 0 4px #0a0f1a;
+        font-family: "MajorMonoDisplay", monospace;
+      }
+      .hero .subtitle {
+        font-size: 1.3rem;
+        color: #b8ffe3;
+        margin: 1.5rem auto 2.5rem auto;
+        max-width: 500px;
+        text-shadow: 0 0 8px #0ff2;
+      }
+      .cta-btn {
+        background: linear-gradient(90deg, #0ff 0%, #00ffea 100%);
+        color: #0a0f1a;
+        border: none;
+        border-radius: 6px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 24px #00ffea44;
+        transition: background 0.2s, color 0.2s, transform 0.2s;
+        text-decoration: none;
+      }
+      .cta-btn:hover, .cta-btn:focus {
+        background: #0a0f1a;
+        color: #0ff;
+        outline: 2px solid #0ff;
+        transform: translateY(-2px) scale(1.03);
+      }
+      .profile-card, .blog-card, .about-section {
+        background: rgba(10, 30, 40, 0.92);
+        backdrop-filter: blur(10px) saturate(160%);
+        border: 1.5px solid #0ff3;
+        box-shadow: 0 2px 24px #00ffea11;
+      }
+      .blog-card:hover {
+        box-shadow: 0 8px 32px #00ffea55;
+        border-color: #0ff;
+      }
+      .sidebar-nav a {
+        position: relative;
+      }
+      .sidebar-nav a::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #0ff;
+        transition: width 0.2s;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+      .sidebar-nav a:hover::after, .sidebar-nav a:focus::after {
+        width: 100%;
+      }
+      @font-face {
+        font-family: "MajorMonoDisplay";
+        src: url("fonts/MajorMonoDisplay.woff2") format("woff2"),
+             url("fonts/MajorMonoDisplay.woff") format("woff"),
+             url("fonts/MajorMonoDisplay.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      .main-content {
+        display: grid;
+        grid-template-columns: 33% 1fr;
+          grid-template-areas:
+            "sidebar blog"
+            "about";
+        grid-template-rows: auto 1fr;
+        max-width: 1200px;
+        margin: 2.5rem auto 0 auto;
+        gap: 2.5rem;
+        padding: 0 2rem;
+        align-items: center;
+        justify-items: center;
+      }
+      .sidebar {
+        grid-area: sidebar;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        min-width: 0;
+        align-items: center;
+      }
+      .profile-card, .sidebar-nav {
+        margin: 0 auto;
+        text-align: center;
+      }
+      .about-section {
+        grid-area: about;
+        background: rgba(16,21,26,0.98);
+        border-radius: 12px;
+        margin: 0 auto;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 2px 16px #00f0ff11;
+        flex: 0 1 400px;
+        align-self: flex-start;
+        text-align: center;
+      }
+      .blog-section {
+        grid-area: blog;
+        min-width: 0;
+        margin: 0 auto;
+        text-align: center;
+        width: 100%;
+      }
+      .blog-cards {
+        margin: 0 auto;
+      }
+      @media (max-width: 1100px) {
+        .main-content {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "sidebar"
+            "about"
+            "blog";
+          gap: 2rem;
+          padding: 0 1rem;
+        }
+        .sidebar, .about-section, .blog-section {
+          max-width: 100%;
+          width: 100%;
+        }
+      }
+      @media (max-width: 600px) {
+        .main-content { padding: 0 0.2rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
+      }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="index.html" class="logo">PARLAR</a>
+        </nav>
+    </header>
+
+        <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Opinion <span style="color:#fff;">Pieces</span></h1>
+            <p class="subtitle">
+                
+            </p>
+            <a style="display: none;" href="#blog" class="cta-btn">Randomise</a>
+        </div>
+    </section>
+
+    <main class="main-content">
+              <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
+                <h2>Harry Clack</h2>
+                <p>
+
+                </p>
+            </div>
+        </aside>
+       <!-- Blog Section (center column) -->
+        <section class="blog-section" id="blog">
+            <h2>Latest Opinion Pieces</h2>
+            <div class="blog-cards">
+                <article class="blog-card">
+                    <a href="comingSoon.html">
+                        <img src="img/blog/xt200 (246).jpeg" alt="2FA Guide" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>Why 2FA Still Matters in 2025</h3>
+                            <p class="blog-meta">April 2025 • Threat Intelligence</p>
+                            <p>Two-factor authentication is more than a buzzword. Here's why it's your first line of defense, and how to implement it everywhere.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 2 -->
+                <article class="blog-card">
+                    <a href="comingSoon.html">
+                        <img src="img/blog/xt200 (304).JPG" alt="Password Security" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>Strong Passwords: Myths & Realities</h3>
+                            <p class="blog-meta">March 2025 • Defensive Tactics</p>
+                            <p>Debunking common password myths and sharing practical tips for managing credentials in a password-fatigued world.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 3 -->
+                <article class="blog-card">
+                    <a href="comingSoon.html">
+                        <img src="img/blog/xt200 (1048).JPG" alt="Software Updates" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>Patch or Perish: The Update Dilemma</h3>
+                            <p class="blog-meta">February 2025 • Security Tools</p>
+                            <p>Why keeping your software up to date is non-negotiable, and how attackers exploit the smallest gaps.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 4 -->
+                <article class="blog-card">
+                    <a href="comingSoon.html">
+                        <img src="img/blog/DSCF9597.JPG" alt="Antivirus" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>Antivirus in the Age of AI Malware</h3>
+                            <p class="blog-meta">January 2025 • Security Tools</p>
+                            <p>Is traditional antivirus dead? Exploring modern solutions and what you really need in 2025.</p>
+                        </div>
+                    </a>
+                </article>
+                <!-- Blog Card 5 -->
+                <article class="blog-card">
+                    <a href="comingSoon.html">
+                        <img src="img/blog/xt200 (1174).JPG" alt="Phishing" class="blog-thumb">
+                        <div class="blog-info">
+                            <h3>Phishing: The Evolving Threat</h3>
+                            <p class="blog-meta">December 2024 • Incident Response</p>
+                            <p>How phishing attacks have changed, and what you can do to stay ahead of the scammers.</p>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+        <!-- About Section (right column) -->
+        <section class="about-section" id="about">
+            <h2>What to expect</h2>
+            <p>
+                These are my unfiltered opinions on ALL things cyber. <br> The good, the bad and the damn-right ugly.
+                <br><br>
+            <blockquote>
+                DISCLAIMER<br><br>
+                The views, opinions, and statements expressed in my published works (including but not limited to written content, social media posts, public statements, and any other form of communication) are solely my own at the time of publication. They do not represent the views of any employer, organisation, or affiliated entity unless explicitly stated. <br><br>
+                I reserve the absolute and unrestricted right to change my mind, alter my stance, or retract any statement at any time without prior notice. My past statements should not be interpreted as a permanent or binding commitment to any belief, position, or course of action.<br><br>
+                No guarantee is made regarding the accuracy, completeness, or timeliness of any information I provide. My writings and statements are subject to revision, correction, or deletion at my sole discretion. Readers should verify any critical information independently and not rely solely on my content.<br><br>
+                By engaging with my work, you acknowledge and agree that I shall not be held liable—legally, financially, or otherwise—for any consequences arising from your interpretation, use, or misuse of my content. This includes, but is not limited to, any errors, omissions, changes in my perspective, or subsequent updates that may render prior statements obsolete or contradictory. <br><br>
+                This disclaimer applies retroactively to all past publications and prospectively to all future ones. My right to evolve my thinking is non-negotiable.<br><br>
+
+            </blockquote>
+        </section>
+      
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div>
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+    </footer>
+
+    
+</body>
+</html>
