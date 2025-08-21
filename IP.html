@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="theme-color" content="#10151a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harry Clack's Cyber Security & Tech Blog. Insights, guides, and opinion pieces on the modern security landscape.">
-    <title>PARLAR | Cyber Security Blog</title>
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | IP Lookup</title>
     <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
-    <link rel="preload" href="fonts/MajorMonoDisplay.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
     <style>
@@ -184,35 +183,23 @@
         }
       }
       @media (max-width: 600px) {
-        .main-content {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "sidebar"
-            "about"
-            "blog";
-          gap: 2rem;
-          padding: 0 1rem;
-        }
-        .sidebar, .about-section, .blog-section {
-          max-width: 100%;
-          width: 100%;
-        }
+        .main-content { padding: 0 1rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
         .hero h1 { font-size: 2rem; }
       }
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation -->
     <header class="site-header">
         <nav class="navbar" aria-label="Main navigation">
             <a href="index.html" class="logo">PARLAR</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Cyber Security. <span style="color:#fff;">Unfiltered.</span></h1>
+            <h1>IP <span style="color:#fff;">Lookup</span></h1>
             <p class="subtitle">
                 
             </p>
@@ -220,83 +207,28 @@
         </div>
     </section>
 
-    <main class="main-content">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-card">
-                <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
-                <h2>Harry Clack</h2>
-                <p>
-                  Technical Consultant, Cyber Enthusiast, Cloud Engineer.<br>
-                  I break down complex security topics, share actionable advice, and help you defend what matters.
-                </p>
+    <main class="main-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;">
+
+        <!-- IP Lookup Tool Section -->
+        <section class="about-section" id="ip-lookup-tool"
+          style="margin-top:2rem;width:80vw;min-width:240px;max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;">
+          <h2 style="text-align:center;width:100%;">IP Lookup Tool</h2>
+          <p style="text-align:center;width:100%;">Enter an IP address below and click "Lookup" to check for abuse reports and reputation.</p>
+          <input id="ipInput"
+            type="text"
+            style="width:100%;min-width:180px;background:#071e2c;color:#0ff;border:1.5px solid #0ff3;border-radius:8px;padding:1rem;font-family:monospace;margin-bottom:1rem;box-sizing:border-box;text-align:center;"
+            placeholder="Enter IP address...">
+          <button class="cta-btn" id="lookupBtn"
+            style="margin-bottom:1rem;align-self:center;width:100%;max-width:300px;font-family: MajorMonoDisplay;">LOOKUP</button>
+          <div id="ipResultsContainer"
+            style="margin-top:1rem;width:100%;min-width:180px;display:flex;justify-content:center;">
+            <div id="ipResults"
+              style="text-align:left;color:#b8ffe3;background:rgba(16,21,26,0.98);border-radius:8px;padding:1.2em;border:1.5px solid #0ff3;box-shadow:0 2px 16px #00f0ff11;width:100%;box-sizing:border-box;">
             </div>
-            <nav class="sidebar-nav" id="categories">
-                <h3>Categories</h3>
-                <ul>
-                    <li><a href="personalJourney.html">Personal Journey</a></li>
-                    <li><a href="opinionPieces.html">Opinion Pieces</a></li>
-                    <li><a href="DNS.html">DNS Checker</a></li>
-                    <li><a href="IP.html">IP Lookup</a></li>
-                    <li><a href="emailHeaderAnalysis.html">Email Header Analysis</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <!-- Blog Section (center column) -->
-        <section class="blog-section" id="blog">
-            <h2>Latest Posts</h2>
-            <div class="blog-cards">            
-                <article class="blog-card">
-                    <a href="leaf4.html">
-                        <img src="img/blog/202.jpg" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>The Next Chapter: 24/7 Shift Engineer</h3>
-                            <p class="blog-meta">January 2025</p>
-                            <p>I am set to start my next role in the IT world in the next couple of days: Second Line Technical Support Engineer 24/7 at Krome Technologies.</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <a href="leaf5.html">
-                        <img src="img/blog/xt200 (1188)a.JPG" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>6 Months: 24/7 Engineer</h3>
-                            <p class="blog-meta">July 2025</p>
-                            <p>So, I am now 6 months into my new role at Krome Technologies, and I have to say it has really surprised me.</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <a href="leaf6.html">
-                        <img src="img/blog/xt200 (246).jpeg" alt="2FA Guide" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>Why 2FA Still Matters in 2025</h3>
-                            <p class="blog-meta">July 2025</p>
-                            <p>Two-factor authentication is more than a buzzword. Here's why it's your first line of defence, and how to implement it everywhere.</p>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <!-- About Section (right column) -->
-        <section class="about-section" id="about">
-            <h2>About This Blog</h2>
-            <p>
-                PARLAR is a no-nonsense cyber security blog focused on real-world defense, threat intelligence, and practical security for everyone. Whether you're a blue teamer, a business owner, or just want to stay safe online, you'll find guides, stories, and resources here.
-            </p>
-            <p>
-              Mainly just my opinions though!
-            </p>
-            <p>
-              <br><br>
-            </p>
-            <blockquote>
-                "Security is a journey of awareness—not perfection. It's about understanding your risks, making thoughtful choices, and adapting as threats evolve."
-            </blockquote>
+          </div>
         </section>
     </main>
 
-    <!-- Contact & Footer -->
     <footer class="site-footer" id="contact">
         <div class="footer-content">
             <div>
@@ -306,5 +238,36 @@
         </div>
         <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
     </footer>
+
+    
 </body>
 </html>
+<script>
+document.getElementById('lookupBtn').addEventListener('click', function() {
+  const ip = document.getElementById('ipInput').value.trim();
+  const resultsDiv = document.getElementById('ipResults');
+  if (!ip) {
+    resultsDiv.innerHTML = "<span style='color:#ff8080;'>Please enter an IP address.</span>";
+    return;
+  }
+  // Basic IP format validation (IPv4 and IPv6)
+  const ipv4 = /^(\d{1,3}\.){3}\d{1,3}$/;
+  const ipv6 = /^([a-fA-F0-9:]+)$/;
+  if (!ipv4.test(ip) && !ipv6.test(ip)) {
+    resultsDiv.innerHTML = "<span style='color:#ff8080;'>Invalid IP address format.</span>";
+    return;
+  }
+  // Output links to external lookup services
+  let html = `<h3 style='color:#0ff;text-align:center;width:100%;'>IP Lookup Links</h3>
+    <ul style='padding-left:1.2em;width:100%;box-sizing:border-box;'>
+      <li><a href="https://www.abuseipdb.com/check/${encodeURIComponent(ip)}" target="_blank" style="color:#0ff;">AbuseIPDB</a></li>
+      <li><a href="https://virustotal.com/gui/ip-address/${encodeURIComponent(ip)}" target="_blank" style="color:#0ff;">VirusTotal</a></li>
+      <li><a href="https://talosintelligence.com/reputation_center/lookup?search=${encodeURIComponent(ip)}" target="_blank" style="color:#0ff;">Cisco Talos</a></li>
+      <li><a href="https://ipinfo.io/${encodeURIComponent(ip)}" target="_blank" style="color:#0ff;">IPinfo</a></li>
+      <li><a href="https://www.projecthoneypot.org/ip_${encodeURIComponent(ip)}" target="_blank" style="color:#0ff;">Project Honey Pot</a></li>
+    </ul>
+    <p style="color:#b8ffe3;">Click a link above to view details for <strong>${ip}</strong> on the selected service.</p>`;
+  resultsDiv.innerHTML = html;
+});
+
+</script>

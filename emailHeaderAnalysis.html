@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="theme-color" content="#10151a">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harry Clack's Cyber Security & Tech Blog. Insights, guides, and opinion pieces on the modern security landscape.">
-    <title>PARLAR | Cyber Security Blog</title>
+    <meta name="description" content="Cyber Security Solutions for the Future.">
+    <title>PARLAR | Email Header Analysis</title>
     <link rel="icon" href="img/parlar-feather-favicon3.png" type="image/png">
-    <link rel="preload" href="fonts/MajorMonoDisplay.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
     <style>
@@ -184,35 +183,23 @@
         }
       }
       @media (max-width: 600px) {
-        .main-content {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "sidebar"
-            "about"
-            "blog";
-          gap: 2rem;
-          padding: 0 1rem;
-        }
-        .sidebar, .about-section, .blog-section {
-          max-width: 100%;
-          width: 100%;
-        }
+        .main-content { padding: 0 1rem; }
+        .about-section { padding: 1.2rem 0.2rem; }
         .hero h1 { font-size: 2rem; }
       }
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation -->
     <header class="site-header">
         <nav class="navbar" aria-label="Main navigation">
             <a href="index.html" class="logo">PARLAR</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+        <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Cyber Security. <span style="color:#fff;">Unfiltered.</span></h1>
+            <h1>Email Header <span style="color:#fff;">Analysis</span></h1>
             <p class="subtitle">
                 
             </p>
@@ -220,83 +207,27 @@
         </div>
     </section>
 
-    <main class="main-content">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile-card">
-                <img src="img/headshot4a.jpg" alt="Harry Clack headshot" class="profile-img">
-                <h2>Harry Clack</h2>
-                <p>
-                  Technical Consultant, Cyber Enthusiast, Cloud Engineer.<br>
-                  I break down complex security topics, share actionable advice, and help you defend what matters.
-                </p>
+    <main class="main-content" style="display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;">
+
+        <!-- Email Header Analyzer Section -->
+        <section class="about-section" id="email-header-analyzer"
+          style="margin-top:2rem;width:80vw;min-width:240px;max-width:1200px;margin-left:auto;margin-right:auto;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;">
+          <h2 style="text-align:center;width:100%;">Email Header Analyser</h2>
+          <p style="text-align:center;width:100%;">Paste your email message headers below and click "Analyse" to get a quick breakdown.</p>
+          <textarea id="headerInput"
+            rows="10"
+            style="width:100%;min-width:180px;background:#071e2c;color:#0ff;border:1.5px solid #0ff3;border-radius:8px;padding:1rem;font-family:monospace;margin-bottom:1rem;box-sizing:border-box;resize:vertical;"></textarea>
+          <button class="cta-btn" id="analyzeBtn"
+            style="margin-bottom:1rem;align-self:center;width:100%;max-width:300px;font-family: MajorMonoDisplay;">ANALYSE</button>
+          <div id="headerResultsContainer"
+            style="margin-top:1rem;width:100%;min-width:180px;display:flex;justify-content:center;">
+            <div id="headerResults"
+              style="text-align:left;color:#b8ffe3;background:rgba(16,21,26,0.98);border-radius:8px;padding:1.2em;border:1.5px solid #0ff3;box-shadow:0 2px 16px #00f0ff11;width:100%;box-sizing:border-box;">
             </div>
-            <nav class="sidebar-nav" id="categories">
-                <h3>Categories</h3>
-                <ul>
-                    <li><a href="personalJourney.html">Personal Journey</a></li>
-                    <li><a href="opinionPieces.html">Opinion Pieces</a></li>
-                    <li><a href="DNS.html">DNS Checker</a></li>
-                    <li><a href="IP.html">IP Lookup</a></li>
-                    <li><a href="emailHeaderAnalysis.html">Email Header Analysis</a></li>
-                </ul>
-            </nav>
-        </aside>
-        <!-- Blog Section (center column) -->
-        <section class="blog-section" id="blog">
-            <h2>Latest Posts</h2>
-            <div class="blog-cards">            
-                <article class="blog-card">
-                    <a href="leaf4.html">
-                        <img src="img/blog/202.jpg" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>The Next Chapter: 24/7 Shift Engineer</h3>
-                            <p class="blog-meta">January 2025</p>
-                            <p>I am set to start my next role in the IT world in the next couple of days: Second Line Technical Support Engineer 24/7 at Krome Technologies.</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <a href="leaf5.html">
-                        <img src="img/blog/xt200 (1188)a.JPG" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>6 Months: 24/7 Engineer</h3>
-                            <p class="blog-meta">July 2025</p>
-                            <p>So, I am now 6 months into my new role at Krome Technologies, and I have to say it has really surprised me.</p>
-                        </div>
-                    </a>
-                </article>
-                <article class="blog-card">
-                    <a href="leaf6.html">
-                        <img src="img/blog/xt200 (246).jpeg" alt="2FA Guide" class="blog-thumb">
-                        <div class="blog-info">
-                            <h3>Why 2FA Still Matters in 2025</h3>
-                            <p class="blog-meta">July 2025</p>
-                            <p>Two-factor authentication is more than a buzzword. Here's why it's your first line of defence, and how to implement it everywhere.</p>
-                        </div>
-                    </a>
-                </article>
-            </div>
-        </section>
-        <!-- About Section (right column) -->
-        <section class="about-section" id="about">
-            <h2>About This Blog</h2>
-            <p>
-                PARLAR is a no-nonsense cyber security blog focused on real-world defense, threat intelligence, and practical security for everyone. Whether you're a blue teamer, a business owner, or just want to stay safe online, you'll find guides, stories, and resources here.
-            </p>
-            <p>
-              Mainly just my opinions though!
-            </p>
-            <p>
-              <br><br>
-            </p>
-            <blockquote>
-                "Security is a journey of awareness—not perfection. It's about understanding your risks, making thoughtful choices, and adapting as threats evolve."
-            </blockquote>
+          </div>
         </section>
     </main>
 
-    <!-- Contact & Footer -->
     <footer class="site-footer" id="contact">
         <div class="footer-content">
             <div>
@@ -306,5 +237,73 @@
         </div>
         <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
     </footer>
+
+    
 </body>
 </html>
+<script>
+document.getElementById('analyzeBtn').addEventListener('click', function() {
+  const input = document.getElementById('headerInput').value;
+  const resultsDiv = document.getElementById('headerResults');
+  if (!input.trim()) {
+    resultsDiv.innerHTML = "<span style='color:#ff8080;'>Please paste headers to analyze.</span>";
+    return;
+  }
+  // Basic header parsing
+  const lines = input.split(/\r?\n/);
+  const headers = {};
+  let lastKey = null;
+  lines.forEach(line => {
+    if (/^\s/.test(line) && lastKey) {
+      // Folded header
+      headers[lastKey] += ' ' + line.trim();
+    } else {
+      const match = line.match(/^([\w\-]+):\s*(.*)$/);
+      if (match) {
+        headers[match[1]] = match[2];
+        lastKey = match[1];
+      }
+    }
+  });
+
+  // Analysis
+  let html = "<h3 style='color:#0ff;text-align:center;width:100%;'>Analysis</h3><ul style='padding-left:1.2em;width:100%;box-sizing:border-box;'>";
+  // Common headers
+  if (headers['Received']) {
+    html += `<li style="word-break:break-word;"><strong>Received:</strong> <span style="color:#fff;">${headers['Received']}</span></li>`;
+  }
+  if (headers['From']) {
+    html += `<li style="word-break:break-word;"><strong>From:</strong> <span style="color:#fff;">${headers['From']}</span></li>`;
+  }
+  if (headers['To']) {
+    html += `<li style="word-break:break-word;"><strong>To:</strong> <span style="color:#fff;">${headers['To']}</span></li>`;
+  }
+  if (headers['Subject']) {
+    html += `<li style="word-break:break-word;"><strong>Subject:</strong> <span style="color:#fff;">${headers['Subject']}</span></li>`;
+  }
+  if (headers['Date']) {
+    html += `<li style="word-break:break-word;"><strong>Date:</strong> <span style="color:#fff;">${headers['Date']}</span></li>`;
+  }
+  // Authentication results
+  ['SPF', 'DKIM', 'DMARC', 'Authentication-Results'].forEach(h => {
+    if (headers[h]) {
+      html += `<li style="word-break:break-word;"><strong>${h}:</strong> <span style="color:#fff;">${headers[h]}</span></li>`;
+    }
+  });
+  // Warning for missing SPF/DKIM/DMARC
+  if (!headers['SPF'] && !headers['DKIM'] && !headers['DMARC'] && !headers['Authentication-Results']) {
+    html += `<li style="color:#ff8080;word-break:break-word;">No SPF/DKIM/DMARC results found. This may indicate poor sender authentication.</li>`;
+  }
+  html += "</ul>";
+
+  // Show all headers (collapsible)
+  html += `<details style="margin-top:1.2em;width:100%;">
+    <summary style="color:#0ff;cursor:pointer;">Show all headers</summary>
+    <div style="background:rgba(16,21,26,0.98);border-radius:8px;padding:1em;border:1.5px solid #0ff3;box-shadow:0 2px 16px #00f0ff11;margin-top:1em;width:100%;box-sizing:border-box;max-width:100%;overflow:auto;">
+      <pre style="background:none;color:#b8ffe3;padding:0;border-radius:0;margin:0;white-space:pre-wrap;word-break:break-word;width:100%;">${input.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</pre>
+    </div>
+  </details>`;
+
+  resultsDiv.innerHTML = html;
+});
+</script>
