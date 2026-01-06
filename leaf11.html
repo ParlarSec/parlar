@@ -20,78 +20,100 @@
     </header>
     <main class="leaf-main-content" style="flex-direction:column;max-width:800px;">
         <article class="blog-post">
-            <img src="img/blog/DSCF9597.JPG" alt="Securing Your Network" style="width:100%;border-radius:12px;margin-bottom:2rem;">
+            <img src="img/blog/DSCF0510.JPG" alt="Securing Your Network" style="width:100%;border-radius:12px;margin-bottom:2rem;">
             <h1 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Securing Your Network</h1>
             <p class="blog-meta" style="color:#b5c2ce;">December 2025</p>
             <section>
-            <p> 
-                For decades, the gospel of password security was simple: mix uppercase, lowercase, a number, and a symbol. Change it every 90 days. But in 2025, clinging to these old rules is like bringing a knife to a quantum gunfight. 
-                The threat landscape has undergone a seismic shift, powered by AI and sophisticated new attack vectors. It's time to retire the outdated myths and embrace the new, nuanced realities of digital identity. 
-                <br><br>
-            </p>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">The Outdated Myths We Must Retire</h4>
+
+            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Home networks: you can't secure what you can't see</h4>
             <br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Myth 1: Complexity is King.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">1) The real “home network” is bigger than you think</h6>
             <br>
-            <p>The old mantra of "P@ssw0rd1!" has run its course. These passwords are difficult for humans to remember but trivial for modern computing power to crack. AI-driven brute-force tools can now cycle through these predictable character substitutions in minutes.<br>
-            </p>
+            <p>Most people picture their home network as “router + phone + laptop”. In reality it's a little ecosystem: smart TV, games console, tablets, work laptop, printer, doorbell cam, smart speaker, maybe a couple of plugs or lights. And the issue isn't that these devices exist—it's that people don't keep track of them. They show up on the router as random names, you forget what's what, and suddenly you've got no baseline.</p>
+            <br>
+            <p>Visibility starts with a simple question: can you recognise every device connected to your Wi-Fi? If the answer's “mostly”, that's basically “no” in security terms.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Myth 2: Frequent, Mandatory Changes are Essential.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">2) Turn the lights on: basic network visibility</h6>
             <br>
-            <p>Forced quarterly changes led to a predictable and insecure pattern: "Spring2025!" becomes "Summer2025!". This created a false sense of security and actually weakened our overall posture. The constant reset burden also increases the chance of people writing passwords down or using simpler variations.<br>
-            </p>
+            <p>You don't need enterprise tools at home, but you do need a clear view of what's connected and when it changes. Your router is usually the best place to start. The connected devices list is your inventory, and it's surprisingly useful once you clean it up.</p>
+            <br>
+            <p>If you can, rename devices so they're obvious (e.g., “Tom-iPhone”, “LivingRoom-TV”). Then you've got a fighting chance of spotting odd behaviour like a new device joining at 3am or an old phone you sold months ago still appearing.</p>
+            <br>
+            <p>This is also why old routers are a pain: not because they're slow, but because they often don't give you good visibility or consistent security updates. If your router hasn't had a firmware update in years, you're relying on luck.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Myth 3: A Strong Password is Your Fortress.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">3) Reduce easy wins: router and Wi-Fi hardening (so visibility actually matters)</h6>
             <br>
-            <p>This is the most dangerous myth of all. In an era of AI-powered phishing kits that can mimic corporate login pages with terrifying accuracy and the rise of real-time credential-harvesting malware, your password is no longer an impenetrable wall. It's a single gate, and attackers have found countless ways to sneak around it.<br>
-            </p>
+            <p>Once you can see what's on the network, you can start reducing the obvious openings. A lot of home compromises come from the router itself being poorly configured or outdated.</p>
+            <br>
+            <p>At a minimum, the router admin login should be locked down properly. People mix this up: your Wi-Fi password and your router admin password are not the same thing. If someone gets into the admin panel, they can change DNS settings, weaken Wi-Fi security, or enable remote access and you might not notice until it's already messy.</p>
+            <br>
+            <p>Wi-Fi security is similar. You want WPA2 or WPA3 with a decent passphrase, WPS off, and remote admin off unless you genuinely use it. None of this is glamorous, but it shrinks the number of ways in—and makes your “connected devices” list more trustworthy.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Myth 4: Password Strength is a Human Problem.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">4) Limit the blast radius: guests and smart devices</h6>
             <br>
-            <p>We've long blamed users for weak passwords, but the cutting-edge challenge in 2025 isn't just human laziness. It's the automated, AI-driven discovery of password patterns across entire datasets. An AI can analyse a billion leaked passwords and identify an individual's personal "password formula"—like using a favourite sports team plus a birth year and a symbol. It then applies this formula to generate likely password candidates for other services, making "unique" passwords dangerously predictable.<br>
-            </p>
+            <p>Even with good passwords, stuff gets compromised—especially cheap IoT devices that don't get updates. That's why separating devices matters.</p>
+            <br>
+            <p>A guest network isn't just for mates coming over. It's a way to keep “low trust” devices away from your main machines. If your smart plug turns out to be dodgy, you don't want it sat on the same network as your laptop with your banking and emails.</p>
+            <br>
+            <p>Think of it as damage control. You're assuming something might go wrong, and you're making sure it doesn't take everything with it.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">The 2025 Realities: Your New Security Playbook</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">5) If it goes wrong: visibility helps you react fast</h6>
             <br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Reality 1: Length is Your New Superpower.</h4>
+            <p>When people get hit at home, the panic usually comes from not knowing what happened. Was it the router? Was it a laptop virus? Did someone guess the Wi-Fi password? Did an account get phished?</p>
             <br>
-            <p>Forget complexity; think entropy. A passphrase is your strongest ally. A string of four or five random, unconnected words like "Tango-Gloat-Balloon-Coffee-Reboot" creates a passkey that is exponentially stronger against brute-force attacks. It's long, virtually impossible to guess, and, crucially, easier for you to remember.<br>
-            </p>
+            <p>If you've got visibility—device list makes sense, router settings are locked down, you notice changes—you can act quickly. Disconnect the suspicious device, change key passwords (email first), update firmware, check DNS settings, and if needed reset the router and set it up clean. The difference is you're responding to something you can actually see, not just vibes.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Reality 2: Change is Contextual, Not Calendar-Based.</h4>
+
+            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Corporate networks: attackers love “normal-looking” access and messy visibility</h4>
             <br>
-            <p>The 2025 guidance is intelligent resets. You must change your password immediately after a known breach, like those stemming from the critical "Passkey-Fail" vulnerability discovered in early 2025 that threatened to expose hashes from several major federated identity providers. Otherwise, focus your energy on creating one truly strong, unique password and maintaining it.<br>
-            </p>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">1) Asset visibility: if you don't know it exists, you won't protect it</h6>
+            <br>
+            <p>In corporate networks, the biggest silent failure is not knowing what you've got. Not in a philosophical way—literally. Devices appear and disappear constantly: laptops, phones, printers, servers, cloud instances, virtual machines, containers, network kit, CCTV, meeting room gear, third-party connections. If there isn't a reliable inventory, security becomes a guessing game.</p>
+            <br>
+            <p>And here's the thing: the untracked stuff is often the most dangerous. It doesn't get patched properly, it isn't monitored properly, and nobody notices when it starts behaving oddly because nobody even remembers it's there.</p>
+            <br>
+            <p>Asset visibility doesn't have to be perfect from day one, but it has to be real: something that's maintained, cross-checked, and owned by someone.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Reality 3: Uniqueness is Non-Negotiable.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">2) Identity visibility: “hacking the network” is often “logging in”</h6>
             <br>
-            <p>Password reuse is the single greatest threat to the average user. The sophisticated "Mirai-2" botnet attacks didn't just exploit default IoT credentials; they leveraged credential-stuffing attacks on a massive scale. A password leaked from a trivial gaming forum becomes the key to your corporate VPN, email, and bank account. Every account needs a truly unique password.<br>
-            </p>
+            <p>A lot of modern breaches don't start with a firewall being smashed. They start with credentials. Phishing, password reuse, session theft, OAuth abuse, stolen cookies—whatever the method, the result is the same: the attacker gets access that looks legitimate.</p>
+            <br>
+            <p>That makes identity visibility absolutely central. You need to see logins and privilege changes clearly. Who logged in, from where, using what device, at what time, and what they did afterwards. If that's fuzzy, you won't catch the early stages, and you won't be able to scope incidents properly when they blow up.</p>
+            <br>
+            <p>This is also why MFA is non-negotiable, especially for email, remote access, and admin accounts. But MFA without visibility still leaves you blind. You want both: strong access controls, and the ability to spot weird authentication patterns quickly.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Reality 4: The Era of the Password-Less Future is Here (But It's Complicated).</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">3) Network visibility: you can't defend east-west traffic you can't observe</h6>
             <br>
-            <p>This is the true cutting edge. FIDO2/Passkeys are becoming mainstream, using biometrics or physical security keys to replace passwords entirely. The reality in 2025, however, is one of transition. While major platforms support Passkeys, legacy systems and inconsistent implementation mean we're in a hybrid phase. You must master password management while adopting password-less options where available. Don't view them as mutually exclusive; see Passkeys as the ultimate goal for your most critical accounts.<br>
-            </p>
+            <p>Companies often focus on the perimeter—what comes in and out. That matters, but plenty of damage happens internally: one compromised machine talking to others, scanning the network, hitting file shares, querying directories, moving laterally.</p>
+            <br>
+            <p>Visibility here means being able to tell what's talking to what. Not every packet, not forever, but enough to answer “is this normal?” and “what changed?”. DNS logs, firewall logs, proxy logs, and internal monitoring give you that picture. Without it, lateral movement is basically invisible until someone notices files are encrypted or data has walked out the door.</p>
+            <br>
+            <p>Segmentation ties into this. Flat networks make visibility harder because everything can talk to everything, so “weird” looks normal. Segmentation creates clearer patterns and limits movement.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Reality 5: Your Password Manager is Your Command Centre.</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">4) Endpoint visibility: most incidents are discovered on endpoints first</h6>
             <br>
-            <p>Memorising dozens of long, unique passphrases is impossible. A reputable password manager is no longer a convenience; it's a necessity. It acts as your central command, generating and storing robust credentials, and—in advanced systems—even alerting you if a saved password appears in a new public data breach. It is the indispensable tool that makes modern password hygiene practical.<br>
-            </p>
+            <p>Endpoints are where the mess shows up early: suspicious processes, persistence, credential dumping, unusual PowerShell usage, weird child processes, odd outbound connections. If you've got solid endpoint visibility (EDR done properly, with coverage and tuning), you often catch the story earlier than you would via network controls alone.</p>
+            <br>
+            <p>The trap is coverage gaps. If half the endpoints aren't onboarded properly, you've created blind spots—attackers will find them quicker than you will.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">The Bottom Line for 2025</h4>
+
+            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">5) Incident response: visibility is what stops panic</h6>
             <br>
-            <p>The definition of a "strong password" has evolved from a complex jumble of characters to a long, unique passphrase, diligently managed and fiercely protected. But the password itself is just one soldier in your army.<br>
-            </p>
+            <p>When an incident hits, leadership wants answers immediately: What happened? Are we still compromised? What's affected? Do we need to shut things down?</p>
+            <br>
+            <p>If you've got visibility—asset inventory, authentication logs, endpoint telemetry, key network logs—you can respond surgically. Isolate the right devices, disable the right accounts, confirm scope, and recover in a controlled way. Without visibility, you either freeze and do nothing (and the attacker stays in), or you take the “burn it all down” approach and knock the business offline anyway.</p>
             <br><br>
-            <h4 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">Your action plan is clear:</h4>
-            <br>
-            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">1.	Create Passphrases: Use a password manager to generate and store long, random passphrases for every account.</h6>
-            <br>
-            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">2.	Enable MFA Universally: This is your ultimate safety net. A push notification to your phone or a biometric scan is what truly locks the door.</h6>
-            <br>
-            <h6 style="font-family:'MajorMonoDisplay',monospace;color:#00f0ff;">3.	Adopt Passkeys: Wherever offered, set up a Passkey. It's the most significant step you can take toward a more secure, password-less future.</h6>
-            <br><br>
-            <p>In 2025, security isn't about a single perfect key; it's about building a layered, intelligent defence where the humble password plays one part in a much larger, more resilient strategy.</p>
+
+            <p>In corporate security, visibility isn't a nice-to-have. It's the difference between a contained incident and a full-on organisational nightmare.</p>
 
 
             </section>
@@ -105,7 +127,7 @@
                 <p>Email: <a href="mailto:cyber@parlar.uk">cyber@parlar.uk</a></p>
             </div>
         </div>
-        <p class="copyright">&copy; 2025 / PARLAR. All rights reserved.</p>
+        <p class="copyright">&copy; 2026 / PARLAR. All rights reserved.</p>
     </footer>
 </body>
 </html>
